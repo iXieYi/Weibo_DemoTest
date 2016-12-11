@@ -7,17 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A8BF2461DFD89950069572F /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8BF2451DFD89950069572F /* MainTabBarController.swift */; };
 		8AF0D4E01DFD773300A2815E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF0D4DF1DFD773300A2815E /* AppDelegate.swift */; };
-		8AF0D4E21DFD773300A2815E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF0D4E11DFD773300A2815E /* ViewController.swift */; };
 		8AF0D4E51DFD773300A2815E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AF0D4E31DFD773300A2815E /* Main.storyboard */; };
 		8AF0D4E71DFD773300A2815E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AF0D4E61DFD773300A2815E /* Assets.xcassets */; };
 		8AF0D4EA1DFD773300A2815E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AF0D4E81DFD773300A2815E /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8A8BF2451DFD89950069572F /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		8AF0D4DC1DFD773300A2815E /* Weibo_DemoTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo_DemoTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AF0D4DF1DFD773300A2815E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8AF0D4E11DFD773300A2815E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8AF0D4E41DFD773300A2815E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8AF0D4E61DFD773300A2815E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8AF0D4E91DFD773300A2815E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,14 +54,94 @@
 		8AF0D4DE1DFD773300A2815E /* Weibo_DemoTest */ = {
 			isa = PBXGroup;
 			children = (
+				8AF0D4F11DFD7A7200A2815E /* Classes */,
 				8AF0D4DF1DFD773300A2815E /* AppDelegate.swift */,
-				8AF0D4E11DFD773300A2815E /* ViewController.swift */,
 				8AF0D4E31DFD773300A2815E /* Main.storyboard */,
 				8AF0D4E61DFD773300A2815E /* Assets.xcassets */,
 				8AF0D4E81DFD773300A2815E /* LaunchScreen.storyboard */,
 				8AF0D4EB1DFD773300A2815E /* Info.plist */,
 			);
 			path = Weibo_DemoTest;
+			sourceTree = "<group>";
+		};
+		8AF0D4F11DFD7A7200A2815E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				8AF0D4F51DFD7AD000A2815E /* View */,
+				8AF0D4F21DFD7AA800A2815E /* Model */,
+				8AF0D4F61DFD7AD900A2815E /* ViewModel */,
+				8AF0D4F41DFD7AC000A2815E /* Tools */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		8AF0D4F21DFD7AA800A2815E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		8AF0D4F41DFD7AC000A2815E /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Tools;
+			sourceTree = "<group>";
+		};
+		8AF0D4F51DFD7AD000A2815E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8AF0D4F91DFD7B1F00A2815E /* Main */,
+				8AF0D4FA1DFD7B2700A2815E /* Message */,
+				8AF0D4F71DFD7B0200A2815E /* Discover */,
+				8AF0D4FB1DFD7B3300A2815E /* profile */,
+				8AF0D4F81DFD7B1500A2815E /* Home */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		8AF0D4F61DFD7AD900A2815E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		8AF0D4F71DFD7B0200A2815E /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Discover;
+			sourceTree = "<group>";
+		};
+		8AF0D4F81DFD7B1500A2815E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		8AF0D4F91DFD7B1F00A2815E /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				8A8BF2451DFD89950069572F /* MainTabBarController.swift */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		8AF0D4FA1DFD7B2700A2815E /* Message */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Message;
+			sourceTree = "<group>";
+		};
+		8AF0D4FB1DFD7B3300A2815E /* profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,8 +216,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AF0D4E21DFD773300A2815E /* ViewController.swift in Sources */,
 				8AF0D4E01DFD773300A2815E /* AppDelegate.swift in Sources */,
+				8A8BF2461DFD89950069572F /* MainTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,8 +331,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Weibo_DemoTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "xieyi.Weibo-DemoTest";
+				PRODUCT_BUNDLE_IDENTIFIER = com.179806605.Weibo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -262,8 +343,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Weibo_DemoTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "xieyi.Weibo-DemoTest";
+				PRODUCT_BUNDLE_IDENTIFIER = com.179806605.Weibo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -287,6 +369,7 @@
 				8AF0D4F01DFD773300A2815E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
