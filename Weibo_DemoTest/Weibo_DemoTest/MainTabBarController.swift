@@ -23,19 +23,7 @@ class MainTabBarController: UITabBarController {
         tabBar.bringSubviewToFront(composedButton)
     }
     //MARK: - 懒加载
-    private lazy var composedButton:UIButton = {
-        //自定义样式按键
-        let button = UIButton()
-        button.setImage(UIImage(named: "tabbar_compose_icon_add"), forState:UIControlState.Normal)
-        button.setImage(UIImage(named: "tabbar_compose_icon_add_highlighted"), forState: UIControlState.Highlighted)
-        button.setBackgroundImage(UIImage(named: "tabbar_compose_button"), forState: UIControlState.Normal)
-        button.setBackgroundImage(UIImage(named: "tabbar_compose_button_highlighted"), forState: UIControlState.Highlighted)
-        //根据图片大小调整尺寸
-        button.sizeToFit()
-        return button
-        
-    }()
-    
+    private lazy var composedButton:UIButton = UIButton(imageName: "tabbar_compose_icon_add", backImageName: "tabbar_compose_button")
     
 
 }
