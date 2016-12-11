@@ -12,7 +12,7 @@ class MainTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    addChildViewController()
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(animated: Bool) {
@@ -54,9 +54,21 @@ extension MainTabBarController{
         
         
     }
-    
-    
-    
+    //添加所有控制器
+    private func addChildViewController() {
+        //设置每一个子控制器的图片
+        let vc =  HomeTableTableViewController()
+        //设置标题
+        vc.title = "首页"
+        vc.tabBarItem.image = UIImage(named: "")
+        
+        //设置控制器
+        let nav = UINavigationController(rootViewController: vc)
+        addChildViewController(nav)
+        
+        
+    }
+   
     
     
     
