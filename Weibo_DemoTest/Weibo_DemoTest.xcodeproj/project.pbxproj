@@ -10,6 +10,9 @@
 		8A8BF2461DFD89950069572F /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8BF2451DFD89950069572F /* MainTabBarController.swift */; };
 		8A8BF2481DFD8D1D0069572F /* HomeTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8BF2471DFD8D1D0069572F /* HomeTableTableViewController.swift */; };
 		8A8BF24A1DFD90610069572F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A8BF2491DFD90610069572F /* Images.xcassets */; };
+		8A8BF24C1DFD93E80069572F /* MessagTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8BF24B1DFD93E80069572F /* MessagTableViewController.swift */; };
+		8A8BF24E1DFD93FD0069572F /* DiscoverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8BF24D1DFD93FD0069572F /* DiscoverTableViewController.swift */; };
+		8A8BF2501DFD940E0069572F /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8BF24F1DFD940E0069572F /* ProfileTableViewController.swift */; };
 		8AF0D4E01DFD773300A2815E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF0D4DF1DFD773300A2815E /* AppDelegate.swift */; };
 		8AF0D4EA1DFD773300A2815E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AF0D4E81DFD773300A2815E /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -18,6 +21,9 @@
 		8A8BF2451DFD89950069572F /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		8A8BF2471DFD8D1D0069572F /* HomeTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableTableViewController.swift; sourceTree = "<group>"; };
 		8A8BF2491DFD90610069572F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		8A8BF24B1DFD93E80069572F /* MessagTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagTableViewController.swift; sourceTree = "<group>"; };
+		8A8BF24D1DFD93FD0069572F /* DiscoverTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewController.swift; sourceTree = "<group>"; };
+		8A8BF24F1DFD940E0069572F /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		8AF0D4DC1DFD773300A2815E /* Weibo_DemoTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo_DemoTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AF0D4DF1DFD773300A2815E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AF0D4E91DFD773300A2815E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -110,6 +116,7 @@
 		8AF0D4F71DFD7B0200A2815E /* Discover */ = {
 			isa = PBXGroup;
 			children = (
+				8A8BF24D1DFD93FD0069572F /* DiscoverTableViewController.swift */,
 			);
 			name = Discover;
 			sourceTree = "<group>";
@@ -133,6 +140,7 @@
 		8AF0D4FA1DFD7B2700A2815E /* Message */ = {
 			isa = PBXGroup;
 			children = (
+				8A8BF24B1DFD93E80069572F /* MessagTableViewController.swift */,
 			);
 			name = Message;
 			sourceTree = "<group>";
@@ -140,6 +148,7 @@
 		8AF0D4FB1DFD7B3300A2815E /* profile */ = {
 			isa = PBXGroup;
 			children = (
+				8A8BF24F1DFD940E0069572F /* ProfileTableViewController.swift */,
 			);
 			name = profile;
 			sourceTree = "<group>";
@@ -215,8 +224,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A8BF2501DFD940E0069572F /* ProfileTableViewController.swift in Sources */,
 				8AF0D4E01DFD773300A2815E /* AppDelegate.swift in Sources */,
+				8A8BF24C1DFD93E80069572F /* MessagTableViewController.swift in Sources */,
 				8A8BF2481DFD8D1D0069572F /* HomeTableTableViewController.swift in Sources */,
+				8A8BF24E1DFD93FD0069572F /* DiscoverTableViewController.swift in Sources */,
 				8A8BF2461DFD89950069572F /* MainTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

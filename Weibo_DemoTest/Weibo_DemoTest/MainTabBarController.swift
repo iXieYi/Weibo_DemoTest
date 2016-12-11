@@ -12,55 +12,73 @@ class MainTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    addChildViewController()
-        // Do any additional setup after loading the view.
+    addChildViewControllers()
+    setupComposedButton()
+        
     }
     override func viewWillAppear(animated: Bool) {
         //创建所有控制器需要的按键
         super.viewWillAppear(animated)
         //将自定义的按键添加到最前端
-        
+        tabBar.bringSubviewToFront(composedButton)
     }
     //MARK: - 懒加载
     private lazy var composedButton:UIButton = {
         //自定义样式按键
         let button = UIButton()
-        button.setImage(UIImage(named: ""), forState:UIControlState.Normal)
-        button.setImage(UIImage(named: ""), forState: UIControlState.Highlighted)
-        button.setBackgroundImage(UIImage(named: ""), forState: UIControlState.Normal)
-        button.setBackgroundImage(UIImage(named: ""), forState: UIControlState.Highlighted)
+        button.setImage(UIImage(named: "tabbar_compose_icon_add"), forState:UIControlState.Normal)
+        button.setImage(UIImage(named: "tabbar_compose_icon_add_highlighted"), forState: UIControlState.Highlighted)
+        button.setBackgroundImage(UIImage(named: "tabbar_compose_button"), forState: UIControlState.Normal)
+        button.setBackgroundImage(UIImage(named: "tabbar_compose_button_highlighted"), forState: UIControlState.Highlighted)
         //根据图片大小调整尺寸
         button.sizeToFit()
         return button
         
     }()
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-
-   
 
 }
 
 //MARK: - 设置界面
 extension MainTabBarController{
-    
+/// 设置按钮
     private func setupComposedButton() {
         //1.添加按钮
-    
-        
+        tabBar.addSubview(composedButton)
+        //2.调整按钮
+        let count = childViewControllers.count
+        let w = tabBar.bounds.width/CGFloat(count) - 1
+        composedButton.frame = CGRectInset(tabBar.bounds, 2*w, 0)
         
     }
     //添加所有控制器
-    private func addChildViewController() {
+    private func addChildViewControllers() {
+    //设置图片渲染颜色
+        tabBar.tintColor = UIColor.orangeColor()
+    //标准的多态应用
+
+    addChildViewController(HomeTableTableViewController(), title: "首页", imageName: "tabbar_home")
+    addChildViewController(MessagTableViewController(), title: "消息", imageName: "tabbar_message_center")
+    addChildViewController(UIViewController())
+    addChildViewController(DiscoverTableViewController(), title: "发现", imageName: "tabbar_discover")
+    addChildViewController(ProfileTableViewController(), title: "我的", imageName: "tabbar_profile")
+    
+    
+    }
+    
+    
+    /// 添加单个控制器
+    ///
+    /// - parameter vc:        控制器
+    /// - parameter title:     标题
+    /// - parameter imageName: 图片名称
+    private func addChildViewController(vc:UIViewController,title:String,imageName:String) {
         //设置每一个子控制器的图片
-        let vc =  HomeTableTableViewController()
+        //let vc =  HomeTableTableViewController()
         //设置标题
-        vc.title = "首页"
-        vc.tabBarItem.image = UIImage(named: "")
+        vc.title = title
+        vc.tabBarItem.image = UIImage(named: imageName)
         
         //设置控制器
         let nav = UINavigationController(rootViewController: vc)
