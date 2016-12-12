@@ -26,7 +26,7 @@ class VisitorTableViewController: UITableViewController {
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        print(visitorView)
+//        print(visitorView)
     }
     @objc func setupVisitorView(){
         
