@@ -10,6 +10,14 @@ import UIKit
 
 class MainTabBarController: UITabBarController {
 
+    // MARK: - 监听方法
+    /// 点击撰写按钮
+    /// 如果`单纯`使用 `private` 运行循环将无法正确发送消息，导致崩溃
+    /// 如果使用 @objc 修饰符号，可以保证运行循环能够发送此消息，即使函数被标记为 private
+    @objc private func clickbtn(){
+    
+    print("点了")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
     addChildViewControllers()
@@ -38,6 +46,7 @@ extension MainTabBarController{
         let count = childViewControllers.count
         let w = tabBar.bounds.width/CGFloat(count) - 1
         composedButton.frame = CGRectInset(tabBar.bounds, 2*w, 0)
+        composedButton.addTarget(self, action: "clickbtn", forControlEvents: .TouchUpInside)
         
     }
     //添加所有控制器

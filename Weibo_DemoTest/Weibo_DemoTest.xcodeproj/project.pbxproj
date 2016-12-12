@@ -14,6 +14,8 @@
 		8A8BF24E1DFD93FD0069572F /* DiscoverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8BF24D1DFD93FD0069572F /* DiscoverTableViewController.swift */; };
 		8A8BF2501DFD940E0069572F /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8BF24F1DFD940E0069572F /* ProfileTableViewController.swift */; };
 		8A8BF2531DFD9B960069572F /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8BF2521DFD9B960069572F /* UIButton+Extension.swift */; };
+		8A8BF2581DFDA0A20069572F /* VisitorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8BF2571DFDA0A20069572F /* VisitorTableViewController.swift */; };
+		8A8BF25A1DFE3D1F0069572F /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8BF2591DFE3D1F0069572F /* VisitorView.swift */; };
 		8AF0D4E01DFD773300A2815E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF0D4DF1DFD773300A2815E /* AppDelegate.swift */; };
 		8AF0D4EA1DFD773300A2815E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AF0D4E81DFD773300A2815E /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -26,6 +28,8 @@
 		8A8BF24D1DFD93FD0069572F /* DiscoverTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewController.swift; sourceTree = "<group>"; };
 		8A8BF24F1DFD940E0069572F /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		8A8BF2521DFD9B960069572F /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		8A8BF2571DFDA0A20069572F /* VisitorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorTableViewController.swift; sourceTree = "<group>"; };
+		8A8BF2591DFE3D1F0069572F /* VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
 		8AF0D4DC1DFD773300A2815E /* Weibo_DemoTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo_DemoTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AF0D4DF1DFD773300A2815E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AF0D4E91DFD773300A2815E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +53,15 @@
 				8A8BF2521DFD9B960069572F /* UIButton+Extension.swift */,
 			);
 			name = Extension;
+			sourceTree = "<group>";
+		};
+		8A8BF2541DFD9F850069572F /* Visitor */ = {
+			isa = PBXGroup;
+			children = (
+				8A8BF2571DFDA0A20069572F /* VisitorTableViewController.swift */,
+				8A8BF2591DFE3D1F0069572F /* VisitorView.swift */,
+			);
+			name = Visitor;
 			sourceTree = "<group>";
 		};
 		8AF0D4D31DFD773300A2815E = {
@@ -143,6 +156,7 @@
 		8AF0D4F91DFD7B1F00A2815E /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				8A8BF2541DFD9F850069572F /* Visitor */,
 				8A8BF2451DFD89950069572F /* MainTabBarController.swift */,
 			);
 			name = Main;
@@ -239,7 +253,9 @@
 				8AF0D4E01DFD773300A2815E /* AppDelegate.swift in Sources */,
 				8A8BF24C1DFD93E80069572F /* MessagTableViewController.swift in Sources */,
 				8A8BF2481DFD8D1D0069572F /* HomeTableTableViewController.swift in Sources */,
+				8A8BF2581DFDA0A20069572F /* VisitorTableViewController.swift in Sources */,
 				8A8BF24E1DFD93FD0069572F /* DiscoverTableViewController.swift in Sources */,
+				8A8BF25A1DFE3D1F0069572F /* VisitorView.swift in Sources */,
 				8A8BF2461DFD89950069572F /* MainTabBarController.swift in Sources */,
 				8A8BF2531DFD9B960069572F /* UIButton+Extension.swift in Sources */,
 			);
