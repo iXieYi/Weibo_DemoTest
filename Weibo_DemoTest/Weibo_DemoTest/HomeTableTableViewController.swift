@@ -12,12 +12,8 @@ class HomeTableTableViewController: VisitorTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        //可选项:当visitorView存在时调用该方法
+        visitorView?.setupInfo(nil, title: "关注一些人，回这里看看有什么惊喜")
     }
 
     override func didReceiveMemoryWarning() {

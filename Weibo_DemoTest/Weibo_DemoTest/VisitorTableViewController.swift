@@ -12,7 +12,11 @@ class VisitorTableViewController: UITableViewController {
 /// 用户登录标记
     private var userLogin = false
 /// 访客视图
-    var visitorView: VisitorView?
+    //每个控制器有各自不同的访客视图
+    var visitorView: VisitorView? //定义属性可以为外界控制器所访问
+    //不能使用懒加载的原因是：在每个子控制器中，都会对visitorView进行判断，如果使用
+    //懒加载，当判断为空时，访客视图依旧会被创建出来
+    //lazy var visitorView: VisitorView? = VisitorView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +24,10 @@ class VisitorTableViewController: UITableViewController {
         userLogin ?super.loadView():setupVisitorView()
     }
 
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        print(visitorView)
+    }
     @objc func setupVisitorView(){
         
     visitorView = VisitorView()
