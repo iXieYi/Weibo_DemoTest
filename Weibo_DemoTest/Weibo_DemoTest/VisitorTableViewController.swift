@@ -32,9 +32,12 @@ class VisitorTableViewController: UITableViewController {
         
     visitorView = VisitorView()
     //设置代理
-    visitorView?.delegate = self
+    //    visitorView?.delegate = self
      view = visitorView
-//    view.backgroundColor = UIColor.orangeColor()
+    //添加监听方法
+        visitorView?.registerButton.addTarget(self, action: "visitorViewDidRegister", forControlEvents: .TouchUpInside)
+        visitorView?.loginButton.addTarget(self, action: "visitorViewDidLogin", forControlEvents: .TouchUpInside)
+
     
     }
     
@@ -59,9 +62,10 @@ class VisitorTableViewController: UITableViewController {
 }
 
 //MARK: - 访客视图监听方法
-extension VisitorTableViewController:VisitorViewDelegate{
+extension VisitorTableViewController{
     
     func visitorViewDidRegister() {
+       
         print("注册")
         
     }
@@ -69,6 +73,7 @@ extension VisitorTableViewController:VisitorViewDelegate{
     func visitorViewDidLogin() {
         
          print("登录")
+        
     }
     
     

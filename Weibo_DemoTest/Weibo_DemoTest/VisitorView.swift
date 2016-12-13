@@ -10,29 +10,30 @@ import UIKit
 
 ///访客视图
 
-//代理协议
-protocol VisitorViewDelegate:NSObjectProtocol{
-    
-/// 注册
-    func visitorViewDidRegister()
-/// 登录
-    func visitorViewDidLogin()
-}
+////代理协议
+//protocol VisitorViewDelegate:NSObjectProtocol{
+//    
+///// 注册
+//    func visitorViewDidRegister()
+///// 登录
+//    func visitorViewDidLogin()
+//}
+
 /// 访客视图处理 - 用户未登录界面显示
 class VisitorView: UIView {
     //定义代理，weak一旦被释放，会变成nil weak 因此不能使用let修饰
-    weak var delegate:VisitorViewDelegate?
-    
-    @objc private func clickLogin(){
-     
-        delegate?.visitorViewDidLogin()
-    
-    }
-    @objc private func clickRegister(){
-    
-       delegate?.visitorViewDidRegister()
-    
-    }
+//    weak var delegate:VisitorViewDelegate?
+//    
+//    @objc private func clickLogin(){
+//     
+//        delegate?.visitorViewDidLogin()
+//    
+//    }
+//    @objc private func clickRegister(){
+//    
+//       delegate?.visitorViewDidRegister()
+//    
+//    }
     //MARK: -设置视图信息
     /// 设置视图信息
     ///
@@ -90,10 +91,10 @@ class VisitorView: UIView {
     private lazy var messageLabel1:UILabel = UILabel(title: "")
     
     //登陆按钮
-    private lazy var loginButton:UIButton = UIButton(title: "登录", color:UIColor.orangeColor() , imageName: "common_button_white_disable")
+    lazy var loginButton:UIButton = UIButton(title: "登录", color:UIColor.orangeColor() , imageName: "common_button_white_disable")
     
     //注册按钮
-    private lazy var registerButton:UIButton = UIButton(title: "注册", color:UIColor.orangeColor() , imageName: "common_button_white_disable")
+    lazy var registerButton:UIButton = UIButton(title: "注册", color:UIColor.orangeColor() , imageName: "common_button_white_disable")
     
     
     
@@ -170,9 +171,9 @@ extension VisitorView{
     addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[mask]-(btnHeight)-[regbtn]", options:[], metrics:["btnHeight":-36], views: ["mask":maskIconView,"regbtn":registerButton]))
         //设置背景颜色,设置灰度图，目前UI元素中大多使用灰度图和纯色图（安全色）
         backgroundColor = UIColor(white: 237.0/255.0, alpha: 1.0)
-    //添加监听方法
-        registerButton.addTarget(self, action: "clickRegister", forControlEvents: .TouchUpInside)
-        loginButton.addTarget(self, action: "clickLogin", forControlEvents: .TouchUpInside)
+    //添加监听方法（代理实现的监听）
+//        registerButton.addTarget(self, action: "clickRegister", forControlEvents: .TouchUpInside)
+//        loginButton.addTarget(self, action: "clickLogin", forControlEvents: .TouchUpInside)
         
         
         
