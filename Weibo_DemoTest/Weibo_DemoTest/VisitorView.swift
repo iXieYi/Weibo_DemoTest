@@ -7,13 +7,38 @@
 //
 
 import UIKit
+
+///访客视图
+
+//代理协议
+protocol VisitorViewDelegate:NSObjectProtocol{
+    
+/// 注册
+    func visitorViewDidRegister()
+/// 登录
+    func visitorViewDidLogin()
+}
 /// 访客视图处理 - 用户未登录界面显示
 class VisitorView: UIView {
+    //定义代理，weak一旦被释放，会变成nil weak 因此不能使用let修饰
+    weak var delegate:VisitorViewDelegate?
+    
+    @objc private func clickLogin(){
+     
+        delegate?.visitorViewDidLogin()
+    
+    }
+    @objc private func clickRegister(){
+    
+       delegate?.visitorViewDidRegister()
+    
+    }
     //MARK: -设置视图信息
     /// 设置视图信息
     ///
     /// - parameter imageName: 图片名称，首页设置为nil
     /// - parameter title:     消息文字
+    
     func setupInfo(imageName:String?,title:String){
     messageLabel1.text = title
         guard let imgName = imageName else{
@@ -145,7 +170,12 @@ extension VisitorView{
     addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[mask]-(btnHeight)-[regbtn]", options:[], metrics:["btnHeight":-36], views: ["mask":maskIconView,"regbtn":registerButton]))
         //设置背景颜色,设置灰度图，目前UI元素中大多使用灰度图和纯色图（安全色）
         backgroundColor = UIColor(white: 237.0/255.0, alpha: 1.0)
-    
+    //添加监听方法
+        registerButton.addTarget(self, action: "clickRegister", forControlEvents: .TouchUpInside)
+        loginButton.addTarget(self, action: "clickLogin", forControlEvents: .TouchUpInside)
+        
+        
+        
     }
 
 
