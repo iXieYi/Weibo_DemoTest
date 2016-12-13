@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        setupAppearance()
         window = UIWindow (frame: UIScreen.mainScreen().bounds)
         window?.backgroundColor = UIColor.whiteColor()
         window?.rootViewController = MainTabBarController()
@@ -23,7 +24,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-
+    //设置全局外观
+    private func setupAppearance(){
+        
+        //修改导航栏的全局外观(1、要求一定要在创建之前准备好；2、一经设置全局有效)
+        //->通常出现在AppDelegate中,会设置所有控件的全局外观
+        UINavigationBar.appearance().tintColor = WBAppearanceTintColor
+        
+        
+        //设置图片渲染颜色，能用颜色设置就用颜色设置，能减少内存的消耗
+        UITabBar.appearance().tintColor = WBAppearanceTintColor
+    }
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

@@ -51,8 +51,8 @@ extension MainTabBarController{
     }
     //添加所有控制器
     private func addChildViewControllers() {
-    //设置图片渲染颜色
-        tabBar.tintColor = UIColor.orangeColor()
+//    //设置图片渲染颜色，能用颜色设置就用颜色设置，能减少内存的消耗
+//        tabBar.tintColor = UIColor.orangeColor()
     //标准的多态应用
 
     addChildViewController(HomeTableTableViewController(), title: "首页", imageName: "tabbar_home")

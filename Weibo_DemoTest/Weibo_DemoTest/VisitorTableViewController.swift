@@ -38,7 +38,10 @@ class VisitorTableViewController: UITableViewController {
         visitorView?.registerButton.addTarget(self, action: "visitorViewDidRegister", forControlEvents: .TouchUpInside)
         visitorView?.loginButton.addTarget(self, action: "visitorViewDidLogin", forControlEvents: .TouchUpInside)
 
-    
+    //设置导航栏按钮,plain 是为纯文本提供的样式
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "注册", style: .Plain, target: self, action: "visitorViewDidRegister")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "登录", style: .Plain, target: self, action: "visitorViewDidLogin")
+        
     }
     
     override func didReceiveMemoryWarning() {

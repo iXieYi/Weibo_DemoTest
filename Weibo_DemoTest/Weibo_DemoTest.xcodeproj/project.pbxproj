@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8A4D26311DFFBC7100BCC4D2 /* UILabel+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D26301DFFBC7100BCC4D2 /* UILabel+extension.swift */; };
 		8A4D26331DFFC03D00BCC4D2 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D26321DFFC03D00BCC4D2 /* UIImageView+Extension.swift */; };
+		8A4D26351E003B4A00BCC4D2 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D26341E003B4A00BCC4D2 /* Common.swift */; };
 		8A8BF2461DFD89950069572F /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8BF2451DFD89950069572F /* MainTabBarController.swift */; };
 		8A8BF2481DFD8D1D0069572F /* HomeTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8BF2471DFD8D1D0069572F /* HomeTableTableViewController.swift */; };
 		8A8BF24A1DFD90610069572F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A8BF2491DFD90610069572F /* Images.xcassets */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		8A4D26301DFFBC7100BCC4D2 /* UILabel+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+extension.swift"; sourceTree = "<group>"; };
 		8A4D26321DFFC03D00BCC4D2 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		8A4D26341E003B4A00BCC4D2 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		8A8BF2451DFD89950069572F /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		8A8BF2471DFD8D1D0069572F /* HomeTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableTableViewController.swift; sourceTree = "<group>"; };
 		8A8BF2491DFD90610069572F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				8A8BF2511DFD9B1A0069572F /* Extension */,
+				8A4D26341E003B4A00BCC4D2 /* Common.swift */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				8A8BF2501DFD940E0069572F /* ProfileTableViewController.swift in Sources */,
 				8AF0D4E01DFD773300A2815E /* AppDelegate.swift in Sources */,
 				8A8BF24C1DFD93E80069572F /* MessagTableViewController.swift in Sources */,
+				8A4D26351E003B4A00BCC4D2 /* Common.swift in Sources */,
 				8A8BF2481DFD8D1D0069572F /* HomeTableTableViewController.swift in Sources */,
 				8A8BF2581DFDA0A20069572F /* VisitorTableViewController.swift in Sources */,
 				8A8BF24E1DFD93FD0069572F /* DiscoverTableViewController.swift in Sources */,
