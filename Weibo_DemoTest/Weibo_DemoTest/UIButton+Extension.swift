@@ -20,4 +20,19 @@ extension UIButton{
         sizeToFit()
         
     }
+    ///按键便利构造函数
+    ///
+    /// - parameter title:     按钮标题
+    /// - parameter color:     字体颜色
+    /// - parameter imageName: 图片名称
+    ///
+    /// - returns: UIButton
+    convenience init(title:String,color:UIColor,imageName:String){
+        self.init()
+            setTitle(title, forState: UIControlState.Normal)
+            setTitleColor(color, forState: UIControlState.Normal)
+            setBackgroundImage(UIImage(named:imageName), forState: UIControlState.Normal)
+        
+        }
+    
 }

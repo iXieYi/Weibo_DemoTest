@@ -55,43 +55,26 @@ class VisitorView: UIView {
    //MARK: - 懒加载控件
    //图标，使用image:构造函数创建的imageView默认就是image的大小
     //小滚动
-    private lazy var iconView:UIImageView = UIImageView(image: UIImage(named:"visitordiscover_feed_image_smallicon"))
+    private lazy var iconView:UIImageView = UIImageView(imageName: "visitordiscover_feed_image_smallicon")
     //遮罩
-    private lazy var maskIconView:UIImageView = UIImageView(image: UIImage(named:"visitordiscover_feed_mask_smallicon"))
+    private lazy var maskIconView:UIImageView = UIImageView(imageName: "visitordiscover_feed_mask_smallicon")
     //小房子
-    private lazy var homeIconView:UIImageView = UIImageView(image: UIImage(named: "visitordiscover_feed_image_house"))
-    //消息文字
-    private lazy var messageLabel1:UILabel = {
-        let label = UILabel()
-//        label.text = "我亲爱的主人您还未登陆，好多新鲜有趣的事在等着你呢"
-        label.textColor = UIColor.darkGrayColor()
-        label.font = UIFont.systemFontOfSize(14)
-        label.numberOfLines = 0
-        label.textAlignment = NSTextAlignment.Center
-        return label
-    }()
+    private lazy var homeIconView:UIImageView = UIImageView(imageName:"visitordiscover_feed_image_house")
+    
+    //消息文字(在便利构造函数中实现)
+    private lazy var messageLabel1:UILabel = UILabel(title: "")
+    
     //登陆按钮
-    private lazy var loginButton:UIButton = {
-    let button = UIButton()
-        button.setTitle("登陆", forState: UIControlState.Normal)
-//        button.setTitleColor(UIColor.darkGrayColor(), forState: UIControlState.Normal)
-        button.setTitleColor(UIColor.orangeColor(), forState: UIControlState.Normal)
-    button.setBackgroundImage(UIImage(named:"common_button_white_disable"), forState: UIControlState.Normal)
-        return button
-    }()
+    private lazy var loginButton:UIButton = UIButton(title: "登录", color:UIColor.orangeColor() , imageName: "common_button_white_disable")
     
     //注册按钮
-    private lazy var registerButton:UIButton = {
-        let button = UIButton()
-        button.setTitle("注册", forState: UIControlState.Normal)
-        button.setTitleColor(UIColor.darkGrayColor(), forState: UIControlState.Normal)
-        button.setBackgroundImage(UIImage(named:"common_button_white_disable"), forState: UIControlState.Normal)
-        return button
-    }()
+    private lazy var registerButton:UIButton = UIButton(title: "注册", color:UIColor.orangeColor() , imageName: "common_button_white_disable")
+    
     
     
 }
-
+//类似于OC的分类，分类中不能定义 存储性的数据，swift也是如此的
+//私有属性放在代码下端，便于空间的添加，避免跨度太大
 extension VisitorView{
 /// 设置界面
     private func setupUI(){

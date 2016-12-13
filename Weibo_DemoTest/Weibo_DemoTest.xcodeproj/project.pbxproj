@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A4D26311DFFBC7100BCC4D2 /* UILabel+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D26301DFFBC7100BCC4D2 /* UILabel+extension.swift */; };
+		8A4D26331DFFC03D00BCC4D2 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D26321DFFC03D00BCC4D2 /* UIImageView+Extension.swift */; };
 		8A8BF2461DFD89950069572F /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8BF2451DFD89950069572F /* MainTabBarController.swift */; };
 		8A8BF2481DFD8D1D0069572F /* HomeTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8BF2471DFD8D1D0069572F /* HomeTableTableViewController.swift */; };
 		8A8BF24A1DFD90610069572F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A8BF2491DFD90610069572F /* Images.xcassets */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8A4D26301DFFBC7100BCC4D2 /* UILabel+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+extension.swift"; sourceTree = "<group>"; };
+		8A4D26321DFFC03D00BCC4D2 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		8A8BF2451DFD89950069572F /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		8A8BF2471DFD8D1D0069572F /* HomeTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableTableViewController.swift; sourceTree = "<group>"; };
 		8A8BF2491DFD90610069572F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -51,6 +55,8 @@
 			isa = PBXGroup;
 			children = (
 				8A8BF2521DFD9B960069572F /* UIButton+Extension.swift */,
+				8A4D26301DFFBC7100BCC4D2 /* UILabel+extension.swift */,
+				8A4D26321DFFC03D00BCC4D2 /* UIImageView+Extension.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -249,12 +255,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A4D26311DFFBC7100BCC4D2 /* UILabel+extension.swift in Sources */,
 				8A8BF2501DFD940E0069572F /* ProfileTableViewController.swift in Sources */,
 				8AF0D4E01DFD773300A2815E /* AppDelegate.swift in Sources */,
 				8A8BF24C1DFD93E80069572F /* MessagTableViewController.swift in Sources */,
 				8A8BF2481DFD8D1D0069572F /* HomeTableTableViewController.swift in Sources */,
 				8A8BF2581DFDA0A20069572F /* VisitorTableViewController.swift in Sources */,
 				8A8BF24E1DFD93FD0069572F /* DiscoverTableViewController.swift in Sources */,
+				8A4D26331DFFC03D00BCC4D2 /* UIImageView+Extension.swift in Sources */,
 				8A8BF25A1DFE3D1F0069572F /* VisitorView.swift in Sources */,
 				8A8BF2461DFD89950069572F /* MainTabBarController.swift in Sources */,
 				8A8BF2531DFD9B960069572F /* UIButton+Extension.swift in Sources */,
