@@ -21,9 +21,44 @@
 		8A8BF25A1DFE3D1F0069572F /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8BF2591DFE3D1F0069572F /* VisitorView.swift */; };
 		8AF0D4E01DFD773300A2815E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF0D4DF1DFD773300A2815E /* AppDelegate.swift */; };
 		8AF0D4EA1DFD773300A2815E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AF0D4E81DFD773300A2815E /* LaunchScreen.storyboard */; };
+		8AF1F57A1E02D3F900F7A7EF /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF1F5721E02D2E600F7A7EF /* SnapKit.framework */; };
+		8AF1F5821E02D6DD00F7A7EF /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF1F5811E02D6DD00F7A7EF /* OAuthViewController.swift */; };
+		ABBA075FD9318A3A39009BBC /* Pods_Weibo_DemoTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB759D43FAA1A2253CCFA29 /* Pods_Weibo_DemoTest.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		8AF1F5711E02D2E600F7A7EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8AF1F56A1E02D2E500F7A7EF /* SnapKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EEBCC9D819CC627D0083B827;
+			remoteInfo = "SnapKit iOS";
+		};
+		8AF1F5731E02D2E600F7A7EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8AF1F56A1E02D2E500F7A7EF /* SnapKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EECDB37A1AC0C9D4006BBC11;
+			remoteInfo = "SnapKit OSX";
+		};
+		8AF1F5751E02D2E600F7A7EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8AF1F56A1E02D2E500F7A7EF /* SnapKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EEBCC9E219CC627E0083B827;
+			remoteInfo = "SnapKit iOS Tests";
+		};
+		8AF1F5771E02D2E600F7A7EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8AF1F56A1E02D2E500F7A7EF /* SnapKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EECDB3841AC0C9D4006BBC11;
+			remoteInfo = "SnapKit OSX Tests";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		6E0403F8C01D09FD8A196B14 /* Pods-Weibo_DemoTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weibo_DemoTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-Weibo_DemoTest/Pods-Weibo_DemoTest.release.xcconfig"; sourceTree = "<group>"; };
 		8A4D26301DFFBC7100BCC4D2 /* UILabel+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+extension.swift"; sourceTree = "<group>"; };
 		8A4D26321DFFC03D00BCC4D2 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		8A4D26341E003B4A00BCC4D2 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
@@ -40,6 +75,10 @@
 		8AF0D4DF1DFD773300A2815E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AF0D4E91DFD773300A2815E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8AF0D4EB1DFD773300A2815E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8AF1F56A1E02D2E500F7A7EF /* SnapKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SnapKit.xcodeproj; path = "../../../../Downloads/SnapKit-0.17.0/SnapKit.xcodeproj"; sourceTree = "<group>"; };
+		8AF1F5811E02D6DD00F7A7EF /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
+		DB740831EE6B366A7FE50863 /* Pods-Weibo_DemoTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weibo_DemoTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weibo_DemoTest/Pods-Weibo_DemoTest.debug.xcconfig"; sourceTree = "<group>"; };
+		FDB759D43FAA1A2253CCFA29 /* Pods_Weibo_DemoTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weibo_DemoTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,12 +86,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AF1F57A1E02D3F900F7A7EF /* SnapKit.framework in Frameworks */,
+				ABBA075FD9318A3A39009BBC /* Pods_Weibo_DemoTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		410181C750FA06DD9409DA3A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DB740831EE6B366A7FE50863 /* Pods-Weibo_DemoTest.debug.xcconfig */,
+				6E0403F8C01D09FD8A196B14 /* Pods-Weibo_DemoTest.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		8A8BF2511DFD9B1A0069572F /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -75,8 +125,11 @@
 		8AF0D4D31DFD773300A2815E = {
 			isa = PBXGroup;
 			children = (
+				8AF1F56A1E02D2E500F7A7EF /* SnapKit.xcodeproj */,
 				8AF0D4DE1DFD773300A2815E /* Weibo_DemoTest */,
 				8AF0D4DD1DFD773300A2815E /* Products */,
+				410181C750FA06DD9409DA3A /* Pods */,
+				B2EE4254AD346598135F6069 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -130,6 +183,7 @@
 		8AF0D4F51DFD7AD000A2815E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8AF1F57C1E02D6A500F7A7EF /* OAuth */,
 				8AF0D4F91DFD7B1F00A2815E /* Main */,
 				8AF0D4FA1DFD7B2700A2815E /* Message */,
 				8AF0D4F71DFD7B0200A2815E /* Discover */,
@@ -187,6 +241,33 @@
 			name = profile;
 			sourceTree = "<group>";
 		};
+		8AF1F56B1E02D2E500F7A7EF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8AF1F5721E02D2E600F7A7EF /* SnapKit.framework */,
+				8AF1F5741E02D2E600F7A7EF /* SnapKit.framework */,
+				8AF1F5761E02D2E600F7A7EF /* SnapKit iOS Tests.xctest */,
+				8AF1F5781E02D2E600F7A7EF /* SnapKit OSX Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8AF1F57C1E02D6A500F7A7EF /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				8AF1F5811E02D6DD00F7A7EF /* OAuthViewController.swift */,
+			);
+			name = OAuth;
+			sourceTree = "<group>";
+		};
+		B2EE4254AD346598135F6069 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FDB759D43FAA1A2253CCFA29 /* Pods_Weibo_DemoTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -194,9 +275,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8AF0D4EE1DFD773300A2815E /* Build configuration list for PBXNativeTarget "Weibo_DemoTest" */;
 			buildPhases = (
+				24567BFA935A19A9502BE5EA /* [CP] Check Pods Manifest.lock */,
 				8AF0D4D81DFD773300A2815E /* Sources */,
 				8AF0D4D91DFD773300A2815E /* Frameworks */,
 				8AF0D4DA1DFD773300A2815E /* Resources */,
+				5D20C46EF86BFD0A494A6DA4 /* [CP] Embed Pods Frameworks */,
+				496ED98B646FA26D03532F98 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -234,12 +318,49 @@
 			mainGroup = 8AF0D4D31DFD773300A2815E;
 			productRefGroup = 8AF0D4DD1DFD773300A2815E /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 8AF1F56B1E02D2E500F7A7EF /* Products */;
+					ProjectRef = 8AF1F56A1E02D2E500F7A7EF /* SnapKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				8AF0D4DB1DFD773300A2815E /* Weibo_DemoTest */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		8AF1F5721E02D2E600F7A7EF /* SnapKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SnapKit.framework;
+			remoteRef = 8AF1F5711E02D2E600F7A7EF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8AF1F5741E02D2E600F7A7EF /* SnapKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SnapKit.framework;
+			remoteRef = 8AF1F5731E02D2E600F7A7EF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8AF1F5761E02D2E600F7A7EF /* SnapKit iOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SnapKit iOS Tests.xctest";
+			remoteRef = 8AF1F5751E02D2E600F7A7EF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8AF1F5781E02D2E600F7A7EF /* SnapKit OSX Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SnapKit OSX Tests.xctest";
+			remoteRef = 8AF1F5771E02D2E600F7A7EF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8AF0D4DA1DFD773300A2815E /* Resources */ = {
@@ -252,6 +373,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		24567BFA935A19A9502BE5EA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		496ED98B646FA26D03532F98 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Weibo_DemoTest/Pods-Weibo_DemoTest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5D20C46EF86BFD0A494A6DA4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Weibo_DemoTest/Pods-Weibo_DemoTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8AF0D4D81DFD773300A2815E /* Sources */ = {
@@ -268,6 +437,7 @@
 				8A8BF24E1DFD93FD0069572F /* DiscoverTableViewController.swift in Sources */,
 				8A4D26331DFFC03D00BCC4D2 /* UIImageView+Extension.swift in Sources */,
 				8A8BF25A1DFE3D1F0069572F /* VisitorView.swift in Sources */,
+				8AF1F5821E02D6DD00F7A7EF /* OAuthViewController.swift in Sources */,
 				8A8BF2461DFD89950069572F /* MainTabBarController.swift in Sources */,
 				8A8BF2531DFD9B960069572F /* UIButton+Extension.swift in Sources */,
 			);
@@ -372,12 +542,14 @@
 		};
 		8AF0D4EF1DFD773300A2815E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB740831EE6B366A7FE50863 /* Pods-Weibo_DemoTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = Weibo_DemoTest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.179806605.Weibo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -385,12 +557,14 @@
 		};
 		8AF0D4F01DFD773300A2815E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E0403F8C01D09FD8A196B14 /* Pods-Weibo_DemoTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = Weibo_DemoTest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.179806605.Weibo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

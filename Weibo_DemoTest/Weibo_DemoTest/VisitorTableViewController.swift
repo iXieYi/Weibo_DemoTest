@@ -74,9 +74,11 @@ extension VisitorTableViewController{
     }
     
     func visitorViewDidLogin() {
-        
-         print("登录")
-        
+    print("登录")
+    let vc = OAuthViewController()
+    let nav = UINavigationController(rootViewController: vc)
+    
+    presentViewController(nav, animated: true, completion: nil)
     }
     
     
