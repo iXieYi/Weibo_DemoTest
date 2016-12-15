@@ -29,13 +29,15 @@ class NetworkTools: AFHTTPSessionManager {
    private let app_Key = "3054595708"
    private let app_Secret = "32f56a9f8658891771048eccfd563ca7"
    private let redirectURL = "http://www.baidu.com"
+    ///类似于OC的typedefine,网络请求完成回调
+    typealias XYRequestCallBack = (result:AnyObject?,error:NSError?)->()
     
     //单例
     static let sharedTools: NetworkTools = {
     
     let tools = NetworkTools(baseURL:nil)
     //设置反序列化 -Swift 系统会自动将OC框架中的NSSet转化为Set
-        tools.responseSerializer.acceptableContentTypes?.insert("text/html")
+        tools.responseSerializer.acceptableContentTypes?.insert("text/plain")
     return tools
     }()
 }
@@ -48,12 +50,27 @@ extension NetworkTools{
     let urlString = "https://api.weibo.com/oauth2/authorize?client_id=\(app_Key)&redirect_uri=\(redirectURL)"
     return NSURL(string: urlString)!
     }
-
+    
+    
+    ///加载授权
+    ///
+    /// - parameter code: 授权码
+    func loadAccessToken(code:String,finished:XYRequestCallBack){
+    
+    let urlString = "https://api.weibo.com/oauth2/access_token"
+        let params = ["client_id":app_Key,
+                     "client_secret":app_Secret,
+                     "grant_type":"authorization_code",
+                     "code":code,
+                     "redirect_uri":redirectURL]
+        request(.POST, URLString: urlString, parameters: params, finished: finished)
+    
+    }
 
 }
 
 
-//MARK: - 封装AFN网络方法
+//MARK: - 封装AFN网络方法,将其私有化
 extension NetworkTools{
 //parameters:参数是要可选项，调用时才能穿nil
     
@@ -63,7 +80,7 @@ extension NetworkTools{
     /// - parameter URLString:  URLString
     /// - parameter parameters: 参数字典
     /// - parameter finished:   完成回调
-    func request(method:XieYiRequestMethod, URLString:String,parameters:[String:AnyObject]?,finished:(result:AnyObject?,error:NSError?)->()){
+  private  func request(method:XieYiRequestMethod, URLString:String,parameters:[String:AnyObject]?,finished:(result:AnyObject?,error:NSError?)->()){
     
         //定义成功回调,当做参数进行传递
         let Success = {(task:NSURLSessionDataTask?, result:AnyObject?) -> Void in
