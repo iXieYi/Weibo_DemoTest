@@ -23,6 +23,7 @@
 		8AF0D4EA1DFD773300A2815E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AF0D4E81DFD773300A2815E /* LaunchScreen.storyboard */; };
 		8AF1F57A1E02D3F900F7A7EF /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF1F5721E02D2E600F7A7EF /* SnapKit.framework */; };
 		8AF1F5821E02D6DD00F7A7EF /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF1F5811E02D6DD00F7A7EF /* OAuthViewController.swift */; };
+		8AF1F5841E02DB3D00F7A7EF /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF1F5831E02DB3D00F7A7EF /* NetworkTools.swift */; };
 		ABBA075FD9318A3A39009BBC /* Pods_Weibo_DemoTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB759D43FAA1A2253CCFA29 /* Pods_Weibo_DemoTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,7 @@
 		8AF0D4EB1DFD773300A2815E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8AF1F56A1E02D2E500F7A7EF /* SnapKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SnapKit.xcodeproj; path = "../../../../Downloads/SnapKit-0.17.0/SnapKit.xcodeproj"; sourceTree = "<group>"; };
 		8AF1F5811E02D6DD00F7A7EF /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
+		8AF1F5831E02DB3D00F7A7EF /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
 		DB740831EE6B366A7FE50863 /* Pods-Weibo_DemoTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weibo_DemoTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weibo_DemoTest/Pods-Weibo_DemoTest.debug.xcconfig"; sourceTree = "<group>"; };
 		FDB759D43FAA1A2253CCFA29 /* Pods_Weibo_DemoTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weibo_DemoTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -175,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				8A8BF2511DFD9B1A0069572F /* Extension */,
+				8AF1F5831E02DB3D00F7A7EF /* NetworkTools.swift */,
 				8A4D26341E003B4A00BCC4D2 /* Common.swift */,
 			);
 			name = Tools;
@@ -427,6 +430,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AF1F5841E02DB3D00F7A7EF /* NetworkTools.swift in Sources */,
 				8A4D26311DFFBC7100BCC4D2 /* UILabel+extension.swift in Sources */,
 				8A8BF2501DFD940E0069572F /* ProfileTableViewController.swift in Sources */,
 				8AF0D4E01DFD773300A2815E /* AppDelegate.swift in Sources */,
