@@ -22,7 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = MainTabBarController()
         window?.makeKeyAndVisible()
         
-        
+//测试归档
+    //print(UserAccountViewModel.sharedUserAccount.account)
         return true
     }
     //设置全局外观

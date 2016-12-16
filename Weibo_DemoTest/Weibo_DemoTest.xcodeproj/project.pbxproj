@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A0B5F231E041A8900B9EF97 /* UserAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0B5F221E041A8900B9EF97 /* UserAccountViewModel.swift */; };
 		8A4D26311DFFBC7100BCC4D2 /* UILabel+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D26301DFFBC7100BCC4D2 /* UILabel+extension.swift */; };
 		8A4D26331DFFC03D00BCC4D2 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D26321DFFC03D00BCC4D2 /* UIImageView+Extension.swift */; };
 		8A4D26351E003B4A00BCC4D2 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D26341E003B4A00BCC4D2 /* Common.swift */; };
@@ -61,6 +62,7 @@
 
 /* Begin PBXFileReference section */
 		6E0403F8C01D09FD8A196B14 /* Pods-Weibo_DemoTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weibo_DemoTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-Weibo_DemoTest/Pods-Weibo_DemoTest.release.xcconfig"; sourceTree = "<group>"; };
+		8A0B5F221E041A8900B9EF97 /* UserAccountViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccountViewModel.swift; sourceTree = "<group>"; };
 		8A4D26301DFFBC7100BCC4D2 /* UILabel+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+extension.swift"; sourceTree = "<group>"; };
 		8A4D26321DFFC03D00BCC4D2 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		8A4D26341E003B4A00BCC4D2 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 		8AF0D4F61DFD7AD900A2815E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				8A0B5F221E041A8900B9EF97 /* UserAccountViewModel.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				8A8BF25A1DFE3D1F0069572F /* VisitorView.swift in Sources */,
 				8AF1F5821E02D6DD00F7A7EF /* OAuthViewController.swift in Sources */,
 				8A8BF2461DFD89950069572F /* MainTabBarController.swift in Sources */,
+				8A0B5F231E041A8900B9EF97 /* UserAccountViewModel.swift in Sources */,
 				8A8BF2531DFD9B960069572F /* UIButton+Extension.swift in Sources */,
 				8AF1F5881E03C73B00F7A7EF /* UserAccount.swift in Sources */,
 			);

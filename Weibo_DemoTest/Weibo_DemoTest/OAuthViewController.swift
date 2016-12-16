@@ -75,7 +75,7 @@ extension OAuthViewController:UIWebViewDelegate{
         return false
         }
         //3.从query中提取后面的授权码
-    let code = query.substringFromIndex("code=".endIndex)
+       let code = query.substringFromIndex("code=".endIndex)
 //        //主机地址
 //        print(url.host)
 //        //查询字符串
@@ -86,12 +86,12 @@ extension OAuthViewController:UIWebViewDelegate{
         //4.加载accessToken
         NetworkTools.sharedTools.loadAccessToken(code) { (result, error) -> () in
             
-            //1.出错处理
+            //1>.出错处理
             if error != nil {
                 print("出错了")
                 return
             }
-            //2.输出结果
+            //2>.输出结果
             //在Swift中任何的anyobject,必须装换类型->as 类型
             print(result)
         let account = UserAccount(dict:result as! [String: AnyObject])
@@ -101,6 +101,9 @@ extension OAuthViewController:UIWebViewDelegate{
                    }
         return false
     }
+    
+    
+    /// MARK: - 用户信息加载函数
     private func loadUserInfo(account:UserAccount){
     NetworkTools.sharedTools.loadUserInfo(account.uid!, access_Token: account.access_token!) { (result, error) -> () in
         
@@ -120,7 +123,7 @@ extension OAuthViewController:UIWebViewDelegate{
 //        print(dict["screen_name"])
 //        print(dict["avatar_large"])
         print(account)
-        
+        account.saveUserAccount()
         
       }
     
