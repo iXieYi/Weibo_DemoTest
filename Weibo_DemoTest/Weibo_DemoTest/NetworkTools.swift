@@ -37,10 +37,35 @@ class NetworkTools: AFHTTPSessionManager {
     
     let tools = NetworkTools(baseURL:nil)
     //设置反序列化 -Swift 系统会自动将OC框架中的NSSet转化为Set
+    //通过该方式进行第三方框架的支持
         tools.responseSerializer.acceptableContentTypes?.insert("text/plain")
     return tools
     }()
 }
+
+//MARK - OAuth 用户相关方法
+extension NetworkTools{
+    /// 加载用户信息
+    ///
+    /// - parameter uid:          uid
+    /// - parameter access_Token: accessToken
+    /// - parameter fininshed:    完成回调
+    /// -see [http://open.weibo.com/wiki/2/users/show](http://open.weibo.com/wiki/2/users/show)
+    
+    func loadUserInfo(uid:String,access_Token:String,fininshed:XYRequestCallBack){
+    let urlString = "https://api.weibo.com/2/users/show.json"
+    let params = ["uid":uid,"access_token":access_Token]
+        request(.GET, URLString: urlString, parameters: params, finished: fininshed)
+    
+    }
+
+    
+    
+    
+}
+
+
+
 //MARK - OAuth 相关方法
 extension NetworkTools{
 /// OAuth 授权URL
@@ -55,6 +80,7 @@ extension NetworkTools{
     ///加载授权
     ///
     /// - parameter code: 授权码
+    /// - see: [http://open.weibo.com/wiki/OAuth2/access_token](http://open.weibo.com/wiki/OAuth2/access_token)
     func loadAccessToken(code:String,finished:XYRequestCallBack){
     
     let urlString = "https://api.weibo.com/oauth2/access_token"
@@ -63,8 +89,28 @@ extension NetworkTools{
                      "grant_type":"authorization_code",
                      "code":code,
                      "redirect_uri":redirectURL]
+        //AFN默认的格式是JSON,会直接反序列化
         request(.POST, URLString: urlString, parameters: params, finished: finished)
     
+        /***********
+        测试返回的数据内容
+        //1>设置相应的数据格式，二进制的
+        //如果是NSnumber类型，在做kVC时非常重要
+        responseSerializer = AFHTTPResponseSerializer()
+        //2>发起网络请求
+        POST(urlString, parameters: params, progress: nil, success: { (_, result) -> Void in
+            
+        //将二进制数据装换成字符串
+        let json = NSString(data: result as! NSData, encoding: NSUTF8StringEncoding)
+         print(json)
+            /*
+            {"access_token":"2.00RKQx9Gisli1D43dcc6e0d2TtmJkC",
+            "remind_in":"157679999",
+            "expires_in":157679999,
+            "uid":"5924657893"}
+            */
+            }, failure: nil)
+        *******/
     }
 
 }

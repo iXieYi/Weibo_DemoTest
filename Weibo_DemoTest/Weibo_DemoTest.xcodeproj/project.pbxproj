@@ -24,6 +24,7 @@
 		8AF1F57A1E02D3F900F7A7EF /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF1F5721E02D2E600F7A7EF /* SnapKit.framework */; };
 		8AF1F5821E02D6DD00F7A7EF /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF1F5811E02D6DD00F7A7EF /* OAuthViewController.swift */; };
 		8AF1F5841E02DB3D00F7A7EF /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF1F5831E02DB3D00F7A7EF /* NetworkTools.swift */; };
+		8AF1F5881E03C73B00F7A7EF /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF1F5871E03C73B00F7A7EF /* UserAccount.swift */; };
 		ABBA075FD9318A3A39009BBC /* Pods_Weibo_DemoTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB759D43FAA1A2253CCFA29 /* Pods_Weibo_DemoTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,7 @@
 		8AF1F56A1E02D2E500F7A7EF /* SnapKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SnapKit.xcodeproj; path = "../../../../Downloads/SnapKit-0.17.0/SnapKit.xcodeproj"; sourceTree = "<group>"; };
 		8AF1F5811E02D6DD00F7A7EF /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
 		8AF1F5831E02DB3D00F7A7EF /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
+		8AF1F5871E03C73B00F7A7EF /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		DB740831EE6B366A7FE50863 /* Pods-Weibo_DemoTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weibo_DemoTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weibo_DemoTest/Pods-Weibo_DemoTest.debug.xcconfig"; sourceTree = "<group>"; };
 		FDB759D43FAA1A2253CCFA29 /* Pods_Weibo_DemoTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weibo_DemoTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -169,6 +171,7 @@
 		8AF0D4F21DFD7AA800A2815E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8AF1F5871E03C73B00F7A7EF /* UserAccount.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 				8AF1F5821E02D6DD00F7A7EF /* OAuthViewController.swift in Sources */,
 				8A8BF2461DFD89950069572F /* MainTabBarController.swift in Sources */,
 				8A8BF2531DFD9B960069572F /* UIButton+Extension.swift in Sources */,
+				8AF1F5881E03C73B00F7A7EF /* UserAccount.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

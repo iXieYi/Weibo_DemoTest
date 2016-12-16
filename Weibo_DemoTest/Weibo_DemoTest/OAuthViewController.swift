@@ -8,7 +8,7 @@
 
 import UIKit
 //用户登录控制器
-class OAuthViewController: UIViewController {
+class OAuthViewController: UIViewController{
 private lazy var webView = UIWebView()
     //MARK：- 监听方法
     @objc private func close(){
@@ -92,11 +92,39 @@ extension OAuthViewController:UIWebViewDelegate{
                 return
             }
             //2.输出结果
+            //在Swift中任何的anyobject,必须装换类型->as 类型
             print(result)
-        }
+        let account = UserAccount(dict:result as! [String: AnyObject])
+//            print(account)
+            
+            self.loadUserInfo(account)
+                   }
         return false
     }
-
+    private func loadUserInfo(account:UserAccount){
+    NetworkTools.sharedTools.loadUserInfo(account.uid!, access_Token: account.access_token!) { (result, error) -> () in
+        
+        if error != nil{
+        print("出错了")
+            return
+        }
+        //提示：如果使用if let 或者guard let,as均使用'？'
+        //1.判断result 一定有内容，2.一定是字典
+        guard let dict = result as? [String: AnyObject] else{
+        print("格式错误")
+        return
+        }
+        
+        account.screen_name = dict["screen_name"] as? String
+        account.avatar_large = dict["avatar_large"] as? String
+//        print(dict["screen_name"])
+//        print(dict["avatar_large"])
+        print(account)
+        
+        
+      }
+    
+    }
 
 }
 
