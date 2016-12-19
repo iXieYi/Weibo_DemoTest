@@ -41,6 +41,15 @@ class NetworkTools: AFHTTPSessionManager {
         tools.responseSerializer.acceptableContentTypes?.insert("text/plain")
     return tools
     }()
+    
+    private var tokenDict: [String: AnyObject]?{
+        //判断TOKEN是否有效
+        if let token = UserAccountViewModel.sharedUserAccount.accessToken{
+            
+        return ["access_token":token]
+        }
+        return nil
+    }
 }
 
 //MARK - OAuth 用户相关方法
@@ -52,9 +61,17 @@ extension NetworkTools{
     /// - parameter fininshed:    完成回调
     /// -see [http://open.weibo.com/wiki/2/users/show](http://open.weibo.com/wiki/2/users/show)
     
-    func loadUserInfo(uid:String,access_Token:String,fininshed:XYRequestCallBack){
+    func loadUserInfo(uid:String,fininshed:XYRequestCallBack){
+    
+        guard var params = tokenDict else{
+        //如果字典为空通知调用方
+            fininshed(result: nil, error: NSError(domain: "cn.itcast.error", code: -1001, userInfo: ["message":"token nil"]))
+            return
+        
+        }
+        
     let urlString = "https://api.weibo.com/2/users/show.json"
-    let params = ["uid":uid,"access_token":access_Token]
+    params["uid"] = uid
         request(.GET, URLString: urlString, parameters: params, finished: fininshed)
     
     }

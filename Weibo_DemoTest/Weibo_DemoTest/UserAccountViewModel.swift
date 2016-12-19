@@ -23,6 +23,15 @@ class UserAccountViewModel {
     
     //用户模型
     var account:UserAccount?
+    //返回有效的token 
+    var accessToken:String?{
+        if isExpired{
+        
+        return account?.access_token
+        }
+    
+    return nil
+    }
     //用户登录标记,计算型属性
     var logon: Bool{
     //1.token有值

@@ -105,7 +105,7 @@ extension OAuthViewController:UIWebViewDelegate{
     
     /// MARK: - 用户信息加载函数
     private func loadUserInfo(account:UserAccount){
-    NetworkTools.sharedTools.loadUserInfo(account.uid!, access_Token: account.access_token!) { (result, error) -> () in
+    NetworkTools.sharedTools.loadUserInfo(account.uid!) { (result, error) -> () in
         
         if error != nil{
         print("出错了")
