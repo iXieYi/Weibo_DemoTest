@@ -25,7 +25,7 @@ class UserAccountViewModel {
     var account:UserAccount?
     //返回有效的token 
     var accessToken:String?{
-        if isExpired{
+        if !isExpired{
         
         return account?.access_token
         }
