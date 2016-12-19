@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8A0B5F231E041A8900B9EF97 /* UserAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0B5F221E041A8900B9EF97 /* UserAccountViewModel.swift */; };
+		8A0B5F2D1E08490500B9EF97 /* NewFestureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0B5F2C1E08490500B9EF97 /* NewFestureViewController.swift */; };
 		8A4D26311DFFBC7100BCC4D2 /* UILabel+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D26301DFFBC7100BCC4D2 /* UILabel+extension.swift */; };
 		8A4D26331DFFC03D00BCC4D2 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D26321DFFC03D00BCC4D2 /* UIImageView+Extension.swift */; };
 		8A4D26351E003B4A00BCC4D2 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D26341E003B4A00BCC4D2 /* Common.swift */; };
@@ -63,6 +64,7 @@
 /* Begin PBXFileReference section */
 		6E0403F8C01D09FD8A196B14 /* Pods-Weibo_DemoTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weibo_DemoTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-Weibo_DemoTest/Pods-Weibo_DemoTest.release.xcconfig"; sourceTree = "<group>"; };
 		8A0B5F221E041A8900B9EF97 /* UserAccountViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccountViewModel.swift; sourceTree = "<group>"; };
+		8A0B5F2C1E08490500B9EF97 /* NewFestureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFestureViewController.swift; sourceTree = "<group>"; };
 		8A4D26301DFFBC7100BCC4D2 /* UILabel+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+extension.swift"; sourceTree = "<group>"; };
 		8A4D26321DFFC03D00BCC4D2 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		8A4D26341E003B4A00BCC4D2 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
@@ -107,6 +109,14 @@
 				6E0403F8C01D09FD8A196B14 /* Pods-Weibo_DemoTest.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		8A0B5F2B1E0848AA00B9EF97 /* NewFeature */ = {
+			isa = PBXGroup;
+			children = (
+				8A0B5F2C1E08490500B9EF97 /* NewFestureViewController.swift */,
+			);
+			name = NewFeature;
 			sourceTree = "<group>";
 		};
 		8A8BF2511DFD9B1A0069572F /* Extension */ = {
@@ -228,6 +238,7 @@
 		8AF0D4F91DFD7B1F00A2815E /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				8A0B5F2B1E0848AA00B9EF97 /* NewFeature */,
 				8A8BF2541DFD9F850069572F /* Visitor */,
 				8A8BF2451DFD89950069572F /* MainTabBarController.swift */,
 			);
@@ -447,6 +458,7 @@
 				8A8BF24E1DFD93FD0069572F /* DiscoverTableViewController.swift in Sources */,
 				8A4D26331DFFC03D00BCC4D2 /* UIImageView+Extension.swift in Sources */,
 				8A8BF25A1DFE3D1F0069572F /* VisitorView.swift in Sources */,
+				8A0B5F2D1E08490500B9EF97 /* NewFestureViewController.swift in Sources */,
 				8AF1F5821E02D6DD00F7A7EF /* OAuthViewController.swift in Sources */,
 				8A8BF2461DFD89950069572F /* MainTabBarController.swift in Sources */,
 				8A0B5F231E041A8900B9EF97 /* UserAccountViewModel.swift in Sources */,

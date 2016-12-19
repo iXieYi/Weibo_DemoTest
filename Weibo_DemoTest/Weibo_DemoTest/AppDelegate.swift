@@ -19,7 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupAppearance()
         window = UIWindow (frame: UIScreen.mainScreen().bounds)
         window?.backgroundColor = UIColor.whiteColor()
-        window?.rootViewController = MainTabBarController()
+//        window?.rootViewController = MainTabBarController()
+        window?.rootViewController = NewFestureViewController()
         window?.makeKeyAndVisible()
         
 //测试归档
