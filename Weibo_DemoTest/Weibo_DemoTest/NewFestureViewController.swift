@@ -113,6 +113,8 @@ private class NewFeatureCell: UICollectionViewCell{
     @objc private func clickstartButton(){
     
         print("开始体验")
+        
+        NSNotificationCenter.defaultCenter().postNotificationName(WBSwitchRootViewControllerNotification, object: nil)
     }
     //显示按钮动画
     private func showButtonAnim(){

@@ -29,6 +29,7 @@ class UserAccountViewModel {
         if !isExpired{
         
         return account?.access_token
+            
         }
     
     return nil
@@ -40,6 +41,13 @@ class UserAccountViewModel {
     //2.如果没有过期
         
      return account?.access_token != nil && !isExpired
+    
+    }
+    
+    ///token 字典
+    var tokenDict:[String: AnyObject]?{
+    
+    return isExpired ? nil:["access_token":UserAccount!.access_token!]
     
     }
     /// 用户头像

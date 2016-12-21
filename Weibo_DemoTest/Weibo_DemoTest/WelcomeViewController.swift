@@ -58,6 +58,13 @@ class WelcomeViewController: UIViewController {
                 }, completion: { (_) -> Void in
             //标签显示时动画
                     print("OK")
+                    
+                //不推荐，做法,切换的主视图
+//                UIApplication.sharedApplication().keyWindow?.rootViewController = MainTabBarController()
+           //使用通知实现控制器根视图的切换，是一对多的关系，而代理是一对一的关系
+                    
+    //发送通知
+   NSNotificationCenter.defaultCenter().postNotificationName(WBSwitchRootViewControllerNotification, object: nil)
               })
                 
              }
