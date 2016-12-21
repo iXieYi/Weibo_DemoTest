@@ -21,9 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow (frame: UIScreen.mainScreen().bounds)
         window?.backgroundColor = UIColor.whiteColor()
 //        window?.rootViewController = MainTabBarController()
-        window?.rootViewController = WelcomeViewController()//NewFestureViewController()
+        window?.rootViewController = defaultRootViewController
         window?.makeKeyAndVisible()
-        print(isNewVersion)
+//        print(isNewVersion)
         
 //测试归档
 //    print(UserAccountViewModel.sharedUserAccount.account)
@@ -66,6 +66,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 // MARK: - 界面切换代码
 extension AppDelegate{
+    
+    private var defaultRootViewController:UIViewController{
+    //1.判断是否登录
+        if UserAccountViewModel.sharedUserAccount.logon{
+        
+            return isNewVersion ? NewFestureViewController():WelcomeViewController()
+        }
+        
+        
+    //2.没有登录返回主控制器
+    return MainTabBarController()
+    
+    }
+    
     //判断是否是新版本
     private var isNewVersion:Bool {
     //1.当前版本 在info.plist 中
