@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8A0B5F231E041A8900B9EF97 /* UserAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0B5F221E041A8900B9EF97 /* UserAccountViewModel.swift */; };
 		8A0B5F2D1E08490500B9EF97 /* NewFestureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0B5F2C1E08490500B9EF97 /* NewFestureViewController.swift */; };
+		8A0B5F311E0A22C400B9EF97 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0B5F301E0A22C400B9EF97 /* WelcomeViewController.swift */; };
 		8A4D26311DFFBC7100BCC4D2 /* UILabel+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D26301DFFBC7100BCC4D2 /* UILabel+extension.swift */; };
 		8A4D26331DFFC03D00BCC4D2 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D26321DFFC03D00BCC4D2 /* UIImageView+Extension.swift */; };
 		8A4D26351E003B4A00BCC4D2 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D26341E003B4A00BCC4D2 /* Common.swift */; };
@@ -65,6 +66,7 @@
 		6E0403F8C01D09FD8A196B14 /* Pods-Weibo_DemoTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weibo_DemoTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-Weibo_DemoTest/Pods-Weibo_DemoTest.release.xcconfig"; sourceTree = "<group>"; };
 		8A0B5F221E041A8900B9EF97 /* UserAccountViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccountViewModel.swift; sourceTree = "<group>"; };
 		8A0B5F2C1E08490500B9EF97 /* NewFestureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFestureViewController.swift; sourceTree = "<group>"; };
+		8A0B5F301E0A22C400B9EF97 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		8A4D26301DFFBC7100BCC4D2 /* UILabel+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+extension.swift"; sourceTree = "<group>"; };
 		8A4D26321DFFC03D00BCC4D2 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		8A4D26341E003B4A00BCC4D2 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				8A0B5F2C1E08490500B9EF97 /* NewFestureViewController.swift */,
+				8A0B5F301E0A22C400B9EF97 /* WelcomeViewController.swift */,
 			);
 			name = NewFeature;
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 				8A8BF2481DFD8D1D0069572F /* HomeTableTableViewController.swift in Sources */,
 				8A8BF2581DFDA0A20069572F /* VisitorTableViewController.swift in Sources */,
 				8A8BF24E1DFD93FD0069572F /* DiscoverTableViewController.swift in Sources */,
+				8A0B5F311E0A22C400B9EF97 /* WelcomeViewController.swift in Sources */,
 				8A4D26331DFFC03D00BCC4D2 /* UIImageView+Extension.swift in Sources */,
 				8A8BF25A1DFE3D1F0069572F /* VisitorView.swift in Sources */,
 				8A0B5F2D1E08490500B9EF97 /* NewFestureViewController.swift in Sources */,

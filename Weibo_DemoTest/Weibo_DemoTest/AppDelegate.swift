@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow (frame: UIScreen.mainScreen().bounds)
         window?.backgroundColor = UIColor.whiteColor()
 //        window?.rootViewController = MainTabBarController()
-        window?.rootViewController = NewFestureViewController()
+        window?.rootViewController = WelcomeViewController()//NewFestureViewController()
         window?.makeKeyAndVisible()
         
 //测试归档

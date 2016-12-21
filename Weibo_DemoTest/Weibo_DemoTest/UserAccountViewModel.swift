@@ -23,6 +23,7 @@ class UserAccountViewModel {
     
     //用户模型
     var account:UserAccount?
+    //MARK:-计算型属性，封装小的业务逻辑
     //返回有效的token 
     var accessToken:String?{
         if !isExpired{
@@ -41,6 +42,12 @@ class UserAccountViewModel {
      return account?.access_token != nil && !isExpired
     
     }
+    /// 用户头像
+    var avatarURL:NSURL{
+    return NSURL(string: account?.avatar_large ?? "")!
+    
+    }
+    
     
     //计算型属性（类似于有返回值的函数）->归档保存的属性
     //OC中可以通过只读属性，或函数的方式实现
@@ -72,11 +79,6 @@ class UserAccountViewModel {
         //如果过期放回ture
         return true
         }
-        
-        
-        
-        
-    
     }
     
     //构造函数 -私有化，要求外部只能通过单例常量访问，不能直接访问

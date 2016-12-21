@@ -8,6 +8,8 @@
 
 import UIKit
 import SnapKit
+
+
 //可重用cellId
 private let WBNewFestureViewCellId = "WBNewFestureViewCellId"
 //新特性图片数量
