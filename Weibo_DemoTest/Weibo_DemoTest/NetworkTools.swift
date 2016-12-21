@@ -57,7 +57,6 @@ extension NetworkTools{
     /// 加载用户信息
     ///
     /// - parameter uid:          uid
-    /// - parameter access_Token: accessToken
     /// - parameter fininshed:    完成回调
     /// -see [http://open.weibo.com/wiki/2/users/show](http://open.weibo.com/wiki/2/users/show)
     
@@ -69,7 +68,7 @@ extension NetworkTools{
             return
         
         }
-        
+     //处理网络参数
     let urlString = "https://api.weibo.com/2/users/show.json"
     params["uid"] = uid
         request(.GET, URLString: urlString, parameters: params, finished: fininshed)
