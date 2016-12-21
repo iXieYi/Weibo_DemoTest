@@ -30,9 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             {[weak self](notification) -> Void in
                 //[weak self],（保险起见）避免循环引用（如果两个长驻的，可能会引发循环引用）
             print(NSThread.currentThread())
-            print(notification)
+            
+                let vc = notification.object != nil ?WelcomeViewController():MainTabBarController()
             //切换控制器
-            self?.window?.rootViewController = MainTabBarController()
+            self?.window?.rootViewController = vc
         }
         
 //测试归档

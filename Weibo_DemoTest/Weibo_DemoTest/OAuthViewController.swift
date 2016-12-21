@@ -86,15 +86,20 @@ extension OAuthViewController:UIWebViewDelegate{
         //4.加载accessToken
         UserAccountViewModel.sharedUserAccount.loadAccessToken(code) { (isSuccess) -> () in
             
-            if isSuccess{
-            print("成功了")
-            print(UserAccountViewModel.sharedUserAccount.account)
-            
-            }else{
-            
+            if !isSuccess{
             print("失败了")
-            
+            return
             }
+            
+            print("成功了")
+            //登录成功后将界面取消
+            //不会立即销毁 dismissViewControllerAnimated
+            self.dismissViewControllerAnimated(false){//当控制器完全被销毁后才执行通知，不然会出现多次创建控制器的现象
+                //通知中心是同步的,一旦发送通知，会先执行监听方法，直到结束后，才会执行后续代码
+                NSNotificationCenter.defaultCenter().postNotificationName(WBSwitchRootViewControllerNotification, object: "welcome")//"welcome",以区别通知类型
+                }
+//            print(UserAccountViewModel.sharedUserAccount.account)
+                print("come here")
         }
         return false
     }
