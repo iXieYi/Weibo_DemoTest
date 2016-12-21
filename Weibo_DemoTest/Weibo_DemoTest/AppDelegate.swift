@@ -16,15 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
         setupAppearance()
         window = UIWindow (frame: UIScreen.mainScreen().bounds)
         window?.backgroundColor = UIColor.whiteColor()
 //        window?.rootViewController = MainTabBarController()
         window?.rootViewController = WelcomeViewController()//NewFestureViewController()
         window?.makeKeyAndVisible()
+        print(isNewVersion)
         
 //测试归档
-    //print(UserAccountViewModel.sharedUserAccount.account)
+//    print(UserAccountViewModel.sharedUserAccount.account)
         return true
     }
     //设置全局外观
@@ -62,4 +64,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
+// MARK: - 界面切换代码
+extension AppDelegate{
+    //判断是否是新版本
+    private var isNewVersion:Bool {
+    //1.当前版本 在info.plist 中
+    //print(NSBundle.mainBundle().infoDictionary)
+    let currentVersion = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"] as! String
+    let Version = Double(currentVersion)!
+    print("当前版本号:\(Version)")
+        
+    //2.之前的版本保存在用户偏好中去 - 如果key不存在直接返回 0
+    let sandBoxVersionKey = "sandBoxVersionKey"
+    let sandBoxVersion = NSUserDefaults.standardUserDefaults().doubleForKey(sandBoxVersionKey)
+    print("之前版本:\(sandBoxVersion)")
+        
+        
+    //3.保存当前版本
+    NSUserDefaults.standardUserDefaults().setDouble(Version, forKey: sandBoxVersionKey)
+    
+        return Version > sandBoxVersion
+    }
 
+
+
+}
