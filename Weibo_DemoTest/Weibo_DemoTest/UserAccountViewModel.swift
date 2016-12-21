@@ -44,12 +44,7 @@ class UserAccountViewModel {
     
     }
     
-    ///token 字典
-    var tokenDict:[String: AnyObject]?{
-    
-    return isExpired ? nil:["access_token":UserAccount!.access_token!]
-    
-    }
+   
     /// 用户头像
     var avatarURL:NSURL{
     return NSURL(string: account?.avatar_large ?? "")!
@@ -104,3 +99,61 @@ class UserAccountViewModel {
     
     }
 }
+
+//用户账户相关的网络方法
+extension UserAccountViewModel{
+    //加载token
+    func loadAccessToken(code:String,finished:(isSuccess:Bool)->()){
+        //加载accessToken
+        NetworkTools.sharedTools.loadAccessToken(code) { (result, error) -> () in
+            
+            //1>.出错处理
+            if error != nil {
+                print("出错了")
+                finished(isSuccess: false)
+                return
+            }
+            //2>.输出结果
+            //在Swift中任何的anyobject,必须装换类型->as 类型
+            
+             self.account = UserAccount(dict:result as! [String: AnyObject])
+            //            print(account)
+            
+            self.loadUserInfo(self.account!,finished: finished)
+        }
+    
+    
+    }
+    //加载用户信息
+    private func loadUserInfo(account:UserAccount,finished:(isSuccess:Bool)->()){
+        NetworkTools.sharedTools.loadUserInfo(account.uid!) { (result, error) -> () in
+            
+            if error != nil{
+                print("出错了")
+                finished(isSuccess: false)
+                return
+            }
+            //提示：如果使用if let 或者guard let,as均使用'？'
+            //1.判断result 一定有内容，2.一定是字典
+            guard let dict = result as? [String: AnyObject] else{
+                print("格式错误")
+                 finished(isSuccess: false)
+                return
+            }
+            
+            account.screen_name = dict["screen_name"] as? String
+            account.avatar_large = dict["avatar_large"] as? String
+            //保存对象
+//            account.saveUserAccount()
+            NSKeyedArchiver.archiveRootObject(account, toFile: self.accountPath)
+            print(self.accountPath)
+            //完成回调
+            finished(isSuccess: true)
+        }
+        
+    }
+
+
+}
+
+

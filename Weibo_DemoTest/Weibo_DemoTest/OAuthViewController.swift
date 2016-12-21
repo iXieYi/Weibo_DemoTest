@@ -84,51 +84,20 @@ extension OAuthViewController:UIWebViewDelegate{
 //        print("授权码是"+code)
         
         //4.加载accessToken
-        NetworkTools.sharedTools.loadAccessToken(code) { (result, error) -> () in
+        UserAccountViewModel.sharedUserAccount.loadAccessToken(code) { (isSuccess) -> () in
             
-            //1>.出错处理
-            if error != nil {
-                print("出错了")
-                return
+            if isSuccess{
+            print("成功了")
+            print(UserAccountViewModel.sharedUserAccount.account)
+            
+            }else{
+            
+            print("失败了")
+            
             }
-            //2>.输出结果
-            //在Swift中任何的anyobject,必须装换类型->as 类型
-            print(result)
-        let account = UserAccount(dict:result as! [String: AnyObject])
-//            print(account)
-            
-            self.loadUserInfo(account)
-                   }
+        }
         return false
     }
-    
-    
-    /// MARK: - 用户信息加载函数
-    private func loadUserInfo(account:UserAccount){
-    NetworkTools.sharedTools.loadUserInfo(account.uid!) { (result, error) -> () in
-        
-        if error != nil{
-        print("出错了")
-            return
-        }
-        //提示：如果使用if let 或者guard let,as均使用'？'
-        //1.判断result 一定有内容，2.一定是字典
-        guard let dict = result as? [String: AnyObject] else{
-        print("格式错误")
-        return
-        }
-        
-        account.screen_name = dict["screen_name"] as? String
-        account.avatar_large = dict["avatar_large"] as? String
-//        print(dict["screen_name"])
-//        print(dict["avatar_large"])
-        print(account)
-        account.saveUserAccount()
-        
-      }
-    
-    }
-
 }
 
 
