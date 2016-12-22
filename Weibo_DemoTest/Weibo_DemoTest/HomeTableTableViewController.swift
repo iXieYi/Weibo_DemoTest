@@ -33,8 +33,15 @@ class HomeTableTableViewController: VisitorTableViewController {
     //注册可重用cell
     tableView.registerClass(StatusCell.self, forCellReuseIdentifier: StatusCellNormalId)
     //临时行高
-        tableView.rowHeight = 200
-    
+        //1、预估行高
+        tableView.estimatedRowHeight = 200
+        //2、自动计算行高 - 需要一个自上而下的自动布局控件 ，指定一个向下的约束
+        tableView.rowHeight = UITableViewAutomaticDimension
+    /*解释说明
+        1、从上自下计算控件的位置
+        2、从下自上，按照底部的约束挤到最合适的位置
+        3、在cell中找一个之上而下能找到的控件，指定其底部约束，最后才能得到自动布局的行高
+        */
     
     }
     

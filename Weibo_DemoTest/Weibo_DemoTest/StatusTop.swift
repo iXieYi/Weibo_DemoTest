@@ -7,12 +7,30 @@
 //
 
 import UIKit
-/// 微博Cell中控件的间距数值
-let StatusCellMargin:CGFloat = 12
-//定义微博头像的宽度
-let StatusCellIconWidth:CGFloat = 35
+
 //顶部视图
 class StatusTop: UIView {
+    
+    var viewModel:StatusViewModel?{
+        didSet{
+            //姓名
+           namelabel.text = viewModel?.status.user?.screen_name
+           //头像
+           iconView.sd_setImageWithURL(viewModel?.userProfileUrl, placeholderImage:viewModel?.userDefaultIconView)
+          //会员图标
+            memberIconView.image  = viewModel?.usermemeberImage
+          //认证图标
+            vipIconView.image = viewModel?.userVipImage
+          //TODO - 后期补充
+          //时间
+            timeLabel.text = "刚刚"//viewModel?.status.created_at
+          sourceLabel.text = "来自 谢毅微博"   //viewModel?.status.source
+            
+        }
+        
+    }
+    
+    
     //MARK:构造
     override init(frame: CGRect) {
         
