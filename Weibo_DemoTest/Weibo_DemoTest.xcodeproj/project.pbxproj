@@ -26,6 +26,9 @@
 		8A9FFA851E0BB39A0043A797 /* StatusListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9FFA841E0BB39A0043A797 /* StatusListViewModel.swift */; };
 		8A9FFA871E0BB9600043A797 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9FFA861E0BB9600043A797 /* User.swift */; };
 		8A9FFA891E0BC4E10043A797 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9FFA881E0BC4E10043A797 /* StatusViewModel.swift */; };
+		8A9FFA8E1E0BCD2E0043A797 /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9FFA8D1E0BCD2E0043A797 /* StatusCell.swift */; };
+		8A9FFA901E0BCD660043A797 /* StatusTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9FFA8F1E0BCD660043A797 /* StatusTop.swift */; };
+		8A9FFA921E0BCD8A0043A797 /* StatusBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9FFA911E0BCD8A0043A797 /* StatusBottom.swift */; };
 		8AF0D4E01DFD773300A2815E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF0D4DF1DFD773300A2815E /* AppDelegate.swift */; };
 		8AF0D4EA1DFD773300A2815E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AF0D4E81DFD773300A2815E /* LaunchScreen.storyboard */; };
 		8AF1F57A1E02D3F900F7A7EF /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF1F5721E02D2E600F7A7EF /* SnapKit.framework */; };
@@ -87,6 +90,9 @@
 		8A9FFA841E0BB39A0043A797 /* StatusListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusListViewModel.swift; sourceTree = "<group>"; };
 		8A9FFA861E0BB9600043A797 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8A9FFA881E0BC4E10043A797 /* StatusViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
+		8A9FFA8D1E0BCD2E0043A797 /* StatusCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCell.swift; sourceTree = "<group>"; };
+		8A9FFA8F1E0BCD660043A797 /* StatusTop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTop.swift; sourceTree = "<group>"; };
+		8A9FFA911E0BCD8A0043A797 /* StatusBottom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBottom.swift; sourceTree = "<group>"; };
 		8AF0D4DC1DFD773300A2815E /* Weibo_DemoTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo_DemoTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AF0D4DF1DFD773300A2815E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AF0D4E91DFD773300A2815E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -147,6 +153,16 @@
 				8A8BF2591DFE3D1F0069572F /* VisitorView.swift */,
 			);
 			name = Visitor;
+			sourceTree = "<group>";
+		};
+		8A9FFA8A1E0BCCCF0043A797 /* StatusCell */ = {
+			isa = PBXGroup;
+			children = (
+				8A9FFA8D1E0BCD2E0043A797 /* StatusCell.swift */,
+				8A9FFA8F1E0BCD660043A797 /* StatusTop.swift */,
+				8A9FFA911E0BCD8A0043A797 /* StatusBottom.swift */,
+			);
+			name = StatusCell;
 			sourceTree = "<group>";
 		};
 		8AF0D4D31DFD773300A2815E = {
@@ -245,6 +261,7 @@
 		8AF0D4F81DFD7B1500A2815E /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				8A9FFA8A1E0BCCCF0043A797 /* StatusCell */,
 				8A8BF2471DFD8D1D0069572F /* HomeTableTableViewController.swift */,
 			);
 			name = Home;
@@ -463,6 +480,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AF1F5841E02DB3D00F7A7EF /* NetworkTools.swift in Sources */,
+				8A9FFA901E0BCD660043A797 /* StatusTop.swift in Sources */,
+				8A9FFA921E0BCD8A0043A797 /* StatusBottom.swift in Sources */,
 				8A4D26311DFFBC7100BCC4D2 /* UILabel+extension.swift in Sources */,
 				8A8BF2501DFD940E0069572F /* ProfileTableViewController.swift in Sources */,
 				8AF0D4E01DFD773300A2815E /* AppDelegate.swift in Sources */,
@@ -479,6 +498,7 @@
 				8AF1F5821E02D6DD00F7A7EF /* OAuthViewController.swift in Sources */,
 				8A8BF2461DFD89950069572F /* MainTabBarController.swift in Sources */,
 				8A0B5F231E041A8900B9EF97 /* UserAccountViewModel.swift in Sources */,
+				8A9FFA8E1E0BCD2E0043A797 /* StatusCell.swift in Sources */,
 				8A8BF2531DFD9B960069572F /* UIButton+Extension.swift in Sources */,
 				8A9FFA891E0BC4E10043A797 /* StatusViewModel.swift in Sources */,
 				8A9FFA811E0B81DF0043A797 /* Status.swift in Sources */,

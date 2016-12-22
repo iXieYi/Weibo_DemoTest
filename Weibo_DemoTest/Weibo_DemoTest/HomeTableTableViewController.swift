@@ -31,8 +31,9 @@ class HomeTableTableViewController: VisitorTableViewController {
 /// 准备表格数据
     private func prepareTableView(){
     //注册可重用cell
-    tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: StatusCellNormalId)
-    
+    tableView.registerClass(StatusCell.self, forCellReuseIdentifier: StatusCellNormalId)
+    //临时行高
+        tableView.rowHeight = 200
     
     
     }
@@ -75,9 +76,10 @@ extension HomeTableTableViewController{
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(StatusCellNormalId, forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier(StatusCellNormalId, forIndexPath: indexPath) as! StatusCell
         
-        cell.textLabel?.text = lisViewtModel.statuslist[indexPath.row].status.user?.screen_name
+//        cell.textLabel?.text = lisViewtModel.statuslist[indexPath.row].status.user?.screen_name
+        cell.viewModel = lisViewtModel.statuslist[indexPath.row]
         return cell
     }
 
