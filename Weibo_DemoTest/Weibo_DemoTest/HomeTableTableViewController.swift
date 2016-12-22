@@ -7,13 +7,14 @@
 //
 
 import UIKit
-
+import SVProgressHUD
 /// 微博cellId
 private let StatusCellNormalId = "StatusCellNormalId"
 
 
 class HomeTableTableViewController: VisitorTableViewController {
-
+    //微博数据列表模型
+    private lazy var lisViewtModel = StatusListViewModel()
     //微博数据
     var datalist:[Status]?
     
@@ -30,8 +31,7 @@ class HomeTableTableViewController: VisitorTableViewController {
 /// 准备表格数据
     private func prepareTableView(){
     //注册可重用cell
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: StatusCellNormalId)
-    //
+    tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: StatusCellNormalId)
     
     
     
@@ -39,35 +39,17 @@ class HomeTableTableViewController: VisitorTableViewController {
     
     
     private func loadData(){
-    
-    NetworkTools.sharedTools.loadStatus { (result, error) -> () in
+    lisViewtModel.loadStatus { (isSuccess) -> () in
         
-        if error != nil {
-             print("出错了。。。")
-            return
-           }
-        //转成数组
-        guard let array = result!["statuses"] as? [[String:AnyObject]] else{
+        if !isSuccess{
         
-            print("数据格式错误")
-            return
+        SVProgressHUD.showInfoWithStatus("加载数据错误，请稍后再试")
         }
-        //便历数组，字典转模型
-        //1.可变数组
-        var arrayM = [Status]()
-        //2.遍历数组
-        for dict in array{
-        arrayM.append(Status(dict: dict))
-        }
-        
-        //3.测试
-        print(arrayM)
-        
-        self.datalist = arrayM
-        //4.刷新数据
+        print(self.lisViewtModel.statuslist)
+        //刷新数据
         self.tableView.reloadData()
+    }
         
-     }
     
    }
     
@@ -88,14 +70,14 @@ extension HomeTableTableViewController{
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return datalist?.count ?? 0
+        return lisViewtModel.statuslist.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(StatusCellNormalId, forIndexPath: indexPath)
         
-        cell.textLabel?.text = datalist![indexPath.row].text
+        cell.textLabel?.text = lisViewtModel.statuslist[indexPath.row].status.user?.screen_name
         return cell
     }
 
