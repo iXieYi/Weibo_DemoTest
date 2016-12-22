@@ -73,7 +73,7 @@ class WelcomeViewController: UIViewController {
     
     
    //MARK: - 懒加载 -背景图像
-    private lazy var backImageView:UIImageView = UIImageView(imageName: "new_feature_4")
+    private lazy var backImageView:UIImageView = UIImageView(imageName: "background")
     //用户头像
     private lazy var iconview:UIImageView = {
     let iv = UIImageView(imageName: "avatar_default_big")
