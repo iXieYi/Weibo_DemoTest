@@ -5,8 +5,10 @@
 //  Created by 谢毅 on 16/12/15.
 //  Copyright © 2016年 xieyi. All rights reserved.
 //
+//支持ARC、支持苹果交新的API、提供有素材包、使用更简单
 
 import UIKit
+import SVProgressHUD
 //用户登录控制器
 class OAuthViewController: UIViewController{
 private lazy var webView = UIWebView()
@@ -14,7 +16,7 @@ private lazy var webView = UIWebView()
     @objc private func close(){
     
     dismissViewControllerAnimated(true, completion: nil)
-    
+    SVProgressHUD.dismiss()//关掉小转轮
     }
     //自动填充用户名和密码
     //web注入，以代码的方式向web界面添加内容
@@ -72,6 +74,7 @@ extension OAuthViewController:UIWebViewDelegate{
         guard let query = url.query where query.hasPrefix("code=")  else{
         
         print("取消授权")
+        close()  //调用关闭按钮
         return false
         }
         //3.从query中提取后面的授权码
@@ -87,6 +90,11 @@ extension OAuthViewController:UIWebViewDelegate{
         UserAccountViewModel.sharedUserAccount.loadAccessToken(code) { (isSuccess) -> () in
             
             if !isSuccess{
+            SVProgressHUD.showInfoWithStatus("您的网络不给力")
+            //自定义的延迟方法
+             delay(1){ self.close()}//尾随闭包写法
+            
+           
             print("失败了")
             return
             }
@@ -95,6 +103,8 @@ extension OAuthViewController:UIWebViewDelegate{
             //登录成功后将界面取消
             //不会立即销毁 dismissViewControllerAnimated
             self.dismissViewControllerAnimated(false){//当控制器完全被销毁后才执行通知，不然会出现多次创建控制器的现象
+                //停止指示器,必须操作，不然会使得小指示器不被释放，（隐藏的）留在控制器上
+                SVProgressHUD.dismiss()
                 //通知中心是同步的,一旦发送通知，会先执行监听方法，直到结束后，才会执行后续代码
                 NSNotificationCenter.defaultCenter().postNotificationName(WBSwitchRootViewControllerNotification, object: "welcome")//"welcome",以区别通知类型
                 }
@@ -102,6 +112,14 @@ extension OAuthViewController:UIWebViewDelegate{
                 print("come here")
         }
         return false
+    }
+    
+    
+    func webViewDidStartLoad(webView: UIWebView) {
+        SVProgressHUD.show()
+    }
+    func webViewDidFinishLoad(webView: UIWebView) {
+        SVProgressHUD.dismiss()
     }
 }
 

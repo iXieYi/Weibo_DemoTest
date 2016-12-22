@@ -5,12 +5,14 @@
 //  Created by 谢毅 on 16/12/11.
 //  Copyright © 2016年 xieyi. All rights reserved.
 //
+/// SVProgressHUB
+
 
 import UIKit
 
 class VisitorTableViewController: UITableViewController {
 /// 用户登录标记
-    private var userLogin = false//UserAccountViewModel.sharedUserAccount.logon
+    private var userLogin = UserAccountViewModel.sharedUserAccount.logon
 /// 访客视图
     //每个控制器有各自不同的访客视图
     var visitorView: VisitorView? //定义属性可以为外界控制器所访问

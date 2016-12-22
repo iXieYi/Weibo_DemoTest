@@ -18,8 +18,6 @@ enum XieYiRequestMethod:String{
     case GET = "GET"
     case POST = "POST"
 
-
-
 }
 
 //MARK:网络工具
@@ -51,8 +49,28 @@ class NetworkTools: AFHTTPSessionManager {
         return nil
     }
 }
+//MARK: - 微博数据相关方法
+extension NetworkTools{
+    /// 加载微博数据
+    ///
+    /// - parameter finished: 完成回调
+    /// - see [http://open.weibo.com/wiki/2/statuses/home_timeline](http://open.weibo.com/wiki/2/statuses/home_timeline)
+    func loadStatus(finished:XYRequestCallBack){
+    //1.获取token字典
+        guard let params = tokenDict else{
+            //如果字典为空通知调用方
+            finished(result: nil, error: NSError(domain: "cn.itcast.error", code: -1001, userInfo: ["message":"token nil"]))
+            return
+        }
+    //2.准备网络参数
+        let urlString = "https://api.weibo.com/2/statuses/home_timeline.json"
+    //3.发起网络请求
+        request(.GET, URLString: urlString, parameters: params, finished: finished)
+    }
 
-//MARK - OAuth 用户相关方法
+
+}
+//MARK: - OAuth 用户相关方法
 extension NetworkTools{
     /// 加载用户信息
     ///
@@ -82,7 +100,7 @@ extension NetworkTools{
 
 
 
-//MARK - OAuth 相关方法
+//MARK: - OAuth 相关方法
 extension NetworkTools{
 /// OAuth 授权URL
 //下面这个注释可以将网址链接在使用 “option”+click时直接打开浏览器
@@ -132,7 +150,7 @@ extension NetworkTools{
 }
 
 
-//MARK: - 封装AFN网络方法,将其私有化
+//MARK: - 封装AFN网络方法(将其私有化)
 extension NetworkTools{
 //parameters:参数是要可选项，调用时才能穿nil
     
