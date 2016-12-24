@@ -62,6 +62,8 @@ extension StatusCell{
     //1.添加控件
     contentView.addSubview(topView)
     contentView.addSubview(contentLabel)
+    contentView.addSubview(bottonView)
+//    bottonView.backgroundColor = UIColor.redColor()
     
         
     //2.自动布局
@@ -72,7 +74,7 @@ extension StatusCell{
         make.left.equalTo(contentView.snp_left)
         make.right.equalTo(contentView.snp_right)
         //TODO: - 修改高度
-        make.height.equalTo(StatusCellMargin + StatusCellIconWidth)
+        make.height.equalTo(2*StatusCellMargin + StatusCellIconWidth)
         }
     
     //正文内容标签
@@ -80,9 +82,23 @@ extension StatusCell{
             make.top.equalTo(topView.snp_bottom).offset(StatusCellMargin)
             make.left.equalTo(contentView.snp_left).offset(StatusCellMargin)
 //            make.right.equalTo(contentView.snp_right).offset(StatusCellMargin)
+            
+        }
+        
+    //底部视图
+        bottonView.snp_makeConstraints { (make) -> Void in
+            
+            make.top.equalTo(contentLabel.snp_bottom).offset(StatusCellMargin)
+            make.left.equalTo(contentView.snp_left)
+            make.right.equalTo(contentView.snp_right)
+            make.height.equalTo(44)
             //指定向下的约束
-            make.bottom.equalTo(contentView.snp_bottom).offset(-12)
+            make.bottom.equalTo(contentView.snp_bottom)
         }
     }
 
+    
+    
+    
+    
 }

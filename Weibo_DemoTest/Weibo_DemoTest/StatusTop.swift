@@ -60,7 +60,12 @@ class StatusTop: UIView {
 extension StatusTop{
     private func setupUI(){
     
-    backgroundColor = UIColor(white: 0.95, alpha: 1.0)
+    backgroundColor = UIColor.whiteColor()
+    //0.添加分割视图 - 外部不需要访问，没有必要再使用懒加载啦
+    let setView = UIView()
+    setView.backgroundColor = UIColor.lightGrayColor()
+    addSubview(setView)
+    
     //自头像
     addSubview(iconView)
     addSubview(namelabel)
@@ -70,9 +75,17 @@ extension StatusTop{
     addSubview(sourceLabel)
     
     //自动布局
+    //0.
+    setView.snp_makeConstraints { (make) -> Void in
+        
+        make.top.equalTo(self.snp_top)
+        make.left.equalTo(self.snp_left)
+        make.right.equalTo(self.snp_right)
+        make.height.equalTo(StatusCellMargin )
+        }
     //1.头像
     iconView.snp_makeConstraints { (make) -> Void in
-    make.top.equalTo(self.snp_top).offset(StatusCellMargin)
+    make.top.equalTo(setView.snp_bottom).offset(StatusCellMargin)
     make.left.equalTo(self.snp_left).offset(StatusCellMargin)
     make.width.equalTo(StatusCellIconWidth)
     make.height.equalTo(StatusCellIconWidth)

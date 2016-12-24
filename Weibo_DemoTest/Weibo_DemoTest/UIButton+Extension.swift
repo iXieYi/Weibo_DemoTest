@@ -20,19 +20,38 @@ extension UIButton{
         sizeToFit()
         
     }
+    //TODO:-修改参数名
+    ///按键便利构造函数
+    ///
+    /// - parameter title:         按钮标题
+    /// - parameter color:         字体颜色
+    /// - parameter backimageName: 图片名称
+    ///
+    /// - returns: UIButton
+    convenience init(title:String,color:UIColor,backimageName:String){
+        self.init()
+            setTitle(title, forState: UIControlState.Normal)
+            setTitleColor(color, forState: UIControlState.Normal)
+            setBackgroundImage(UIImage(named:backimageName), forState: UIControlState.Normal)
+            sizeToFit()
+        }
+    
     ///按键便利构造函数
     ///
     /// - parameter title:     按钮标题
     /// - parameter color:     字体颜色
+    /// - parameter fonySize:  字体大小
     /// - parameter imageName: 图片名称
     ///
     /// - returns: UIButton
-    convenience init(title:String,color:UIColor,imageName:String){
+    convenience init(title:String,fontSize:CGFloat,color:UIColor,imageName:String){
         self.init()
-            setTitle(title, forState: UIControlState.Normal)
-            setTitleColor(color, forState: UIControlState.Normal)
-            setBackgroundImage(UIImage(named:imageName), forState: UIControlState.Normal)
-            sizeToFit()
-        }
+        
+        setTitle(title, forState: UIControlState.Normal)
+        setTitleColor(color, forState: UIControlState.Normal)
+        setImage(UIImage(named:imageName), forState: UIControlState.Normal)
+        titleLabel?.font = UIFont.systemFontOfSize(fontSize)
+        sizeToFit()
+    }
     
 }

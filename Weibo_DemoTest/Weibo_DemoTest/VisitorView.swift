@@ -91,10 +91,10 @@ class VisitorView: UIView {
     private lazy var messageLabel1:UILabel = UILabel(title: "")
     
     //登陆按钮
-    lazy var loginButton:UIButton = UIButton(title: "登录", color:UIColor.orangeColor() , imageName: "common_button_white_disable")
+    lazy var loginButton:UIButton = UIButton(title: "登录", color:UIColor.orangeColor() , backimageName: "common_button_white_disable")
     
     //注册按钮
-    lazy var registerButton:UIButton = UIButton(title: "注册", color:UIColor.orangeColor() , imageName: "common_button_white_disable")
+    lazy var registerButton:UIButton = UIButton(title: "注册", color:UIColor.orangeColor() , backimageName: "common_button_white_disable")
     
     
     

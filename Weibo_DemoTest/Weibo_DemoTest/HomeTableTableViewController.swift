@@ -32,6 +32,8 @@ class HomeTableTableViewController: VisitorTableViewController {
     private func prepareTableView(){
     //注册可重用cell
     tableView.registerClass(StatusCell.self, forCellReuseIdentifier: StatusCellNormalId)
+    //取消分割线
+        tableView.separatorStyle = .None
     //临时行高
         //1、预估行高
         tableView.estimatedRowHeight = 200

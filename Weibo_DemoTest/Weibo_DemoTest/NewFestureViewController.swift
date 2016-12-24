@@ -167,7 +167,7 @@ startButton.snp_makeConstraints { (make) -> Void in
     //图像
     private lazy var iconView:UIImageView = UIImageView()
     //启动按钮
-    private lazy var startButton:UIButton = UIButton(title: "开始体验", color: UIColor.whiteColor(), imageName: "new_feature_finish_button")
+    private lazy var startButton:UIButton = UIButton(title: "开始体验", color: UIColor.whiteColor(), backimageName: "new_feature_finish_button")
 
 }
 
