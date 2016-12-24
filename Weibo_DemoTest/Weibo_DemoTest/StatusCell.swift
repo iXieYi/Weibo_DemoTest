@@ -39,6 +39,8 @@ class StatusCell: UITableViewCell {
     private lazy var topView:StatusTop = StatusTop()
     //微博正文
     private lazy var contentLabel: UILabel = UILabel(title: "微博正文", fontSize: 15, screenInset: StatusCellMargin)
+    //配图视图
+    private lazy var pictureView:StatusPictureView = StatusPictureView()
     //底部视图
     private lazy var bottonView:StatusBottom = StatusBottom()
     
@@ -62,6 +64,7 @@ extension StatusCell{
     //1.添加控件
     contentView.addSubview(topView)
     contentView.addSubview(contentLabel)
+    contentView.addSubview(pictureView)
     contentView.addSubview(bottonView)
 //    bottonView.backgroundColor = UIColor.redColor()
     
@@ -84,11 +87,18 @@ extension StatusCell{
 //            make.right.equalTo(contentView.snp_right).offset(StatusCellMargin)
             
         }
-        
+    //配图
+        pictureView.snp_makeConstraints { (make) -> Void in
+            
+            make.top.equalTo(contentLabel.snp_bottom).offset(StatusCellMargin)
+            make.left.equalTo(contentLabel.snp_left)
+            make.width.equalTo(300)
+            make.height.equalTo(90)
+        }
     //底部视图
         bottonView.snp_makeConstraints { (make) -> Void in
             
-            make.top.equalTo(contentLabel.snp_bottom).offset(StatusCellMargin)
+            make.top.equalTo(pictureView.snp_bottom).offset(StatusCellMargin)
             make.left.equalTo(contentView.snp_left)
             make.right.equalTo(contentView.snp_right)
             make.height.equalTo(44)

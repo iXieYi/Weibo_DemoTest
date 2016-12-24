@@ -10,6 +10,7 @@
 		8A0B5F231E041A8900B9EF97 /* UserAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0B5F221E041A8900B9EF97 /* UserAccountViewModel.swift */; };
 		8A0B5F2D1E08490500B9EF97 /* NewFestureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0B5F2C1E08490500B9EF97 /* NewFestureViewController.swift */; };
 		8A0B5F311E0A22C400B9EF97 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0B5F301E0A22C400B9EF97 /* WelcomeViewController.swift */; };
+		8A2DAD641E0ED61A0098FB35 /* StatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2DAD631E0ED61A0098FB35 /* StatusPictureView.swift */; };
 		8A4D26311DFFBC7100BCC4D2 /* UILabel+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D26301DFFBC7100BCC4D2 /* UILabel+extension.swift */; };
 		8A4D26331DFFC03D00BCC4D2 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D26321DFFC03D00BCC4D2 /* UIImageView+Extension.swift */; };
 		8A4D26351E003B4A00BCC4D2 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D26341E003B4A00BCC4D2 /* Common.swift */; };
@@ -74,6 +75,7 @@
 		8A0B5F221E041A8900B9EF97 /* UserAccountViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccountViewModel.swift; sourceTree = "<group>"; };
 		8A0B5F2C1E08490500B9EF97 /* NewFestureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFestureViewController.swift; sourceTree = "<group>"; };
 		8A0B5F301E0A22C400B9EF97 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		8A2DAD631E0ED61A0098FB35 /* StatusPictureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusPictureView.swift; sourceTree = "<group>"; };
 		8A4D26301DFFBC7100BCC4D2 /* UILabel+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+extension.swift"; sourceTree = "<group>"; };
 		8A4D26321DFFC03D00BCC4D2 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		8A4D26341E003B4A00BCC4D2 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				8A9FFA8D1E0BCD2E0043A797 /* StatusCell.swift */,
 				8A9FFA8F1E0BCD660043A797 /* StatusTop.swift */,
 				8A9FFA911E0BCD8A0043A797 /* StatusBottom.swift */,
+				8A2DAD631E0ED61A0098FB35 /* StatusPictureView.swift */,
 			);
 			name = StatusCell;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				8A0B5F231E041A8900B9EF97 /* UserAccountViewModel.swift in Sources */,
 				8A9FFA8E1E0BCD2E0043A797 /* StatusCell.swift in Sources */,
 				8A8BF2531DFD9B960069572F /* UIButton+Extension.swift in Sources */,
+				8A2DAD641E0ED61A0098FB35 /* StatusPictureView.swift in Sources */,
 				8A9FFA891E0BC4E10043A797 /* StatusViewModel.swift in Sources */,
 				8A9FFA811E0B81DF0043A797 /* Status.swift in Sources */,
 				8AF1F5881E03C73B00F7A7EF /* UserAccount.swift in Sources */,

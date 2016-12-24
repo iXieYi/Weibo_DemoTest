@@ -15,6 +15,7 @@ class Status: NSObject {
     var text:String?       //微博信息内容
     var created_at:String? //微博创建时间
     var source:String?     //微博来源
+    var pic_urls:[[String: String]]?  //微博配图数组，thumbnail_pic
     //字典转模型的嵌套
     var user:User?  //用户模型,使用KVC时，Value是一个字典，会直接给属性装换成字典
     
@@ -39,7 +40,7 @@ class Status: NSObject {
     override func setValue(value: AnyObject?, forUndefinedKey key: String) {}
     
     override var description: String{
-    let key = ["id","text","created_at", "source","user"]
+    let key = ["id","text","created_at", "source","user","pic_urls"]
     return dictionaryWithValuesForKeys(key).description
     }
 }

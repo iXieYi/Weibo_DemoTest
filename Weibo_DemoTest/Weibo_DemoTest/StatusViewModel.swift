@@ -9,7 +9,7 @@
 import UIKit
 
 //微博视图模型 - 处理单条微博业务逻辑
-class StatusViewModel {
+class StatusViewModel:CustomStringConvertible {
     //微博的模型
     var status: Status
     var userProfileUrl:NSURL{
@@ -49,11 +49,29 @@ class StatusViewModel {
         }
     
     }
+    //缩略图URL数组 - 存储型属性
+    var thumbnailUrls:[NSURL]?
     
+    /// 构造函数
     init(status: Status){
     
     self.status = status
+    //根据模型生成缩略图数组
+        if status.pic_urls?.count > 0 {
+        //创建缩略图数组
+        thumbnailUrls = [NSURL]()    //分配空间
+        //遍历字典数组 ->如果数组可选，不允许遍历：原因：数组是通过下标来检索数据的
+            
+            for dict in status.pic_urls!{
+                let url = NSURL(string: dict["thumbnail_pic"]!)
+              //相信服务器返回url 一定生成
+              thumbnailUrls?.append(url!)
+            }
+        
+        }
         
     }
-    
+    var description: String{
+    return status.description + "配图 \(thumbnailUrls ?? [] as NSArray)"
+    }
 }
