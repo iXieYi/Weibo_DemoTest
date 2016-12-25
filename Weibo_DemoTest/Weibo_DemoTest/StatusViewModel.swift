@@ -17,7 +17,14 @@ class StatusViewModel:CustomStringConvertible {
         return NSURL(string: status.user?.profile_image_url ?? "")!
     }
     //cell缓存的行高值
-    var rowHeight:CGFloat?
+    lazy var rowHeight:CGFloat = {
+        print("计算行高\(self.status.text)")
+        //1.cell
+        let cell = StatusCell(style: .Default, reuseIdentifier: StatusCellNormalId)
+        //2.计算返回高度
+         return cell.rowHeight(self)
+    
+    }()
     
     //用户默认头像
     var userDefaultIconView:UIImage{

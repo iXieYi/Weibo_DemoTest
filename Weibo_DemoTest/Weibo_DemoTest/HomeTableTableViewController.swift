@@ -9,7 +9,7 @@
 import UIKit
 import SVProgressHUD
 /// 微博cellId
-private let StatusCellNormalId = "StatusCellNormalId"
+let StatusCellNormalId = "StatusCellNormalId"
 
 
 class HomeTableTableViewController: VisitorTableViewController {
@@ -129,17 +129,17 @@ extension HomeTableTableViewController{
         //1.视图模型
         let vm = lisViewtModel.statuslist[indexPath.row]
         
-        //2.判断是否有缓存的行高,有缓存了就直接返回了不会再向下去计算其值
-        if vm.rowHeight != nil {
-            return vm.rowHeight!
-        }
-        //3.cell
-        let cell = StatusCell(style: .Default, reuseIdentifier: StatusCellNormalId)
-        //4.计算返回高度
-        vm.rowHeight =  cell.rowHeight(vm)
+//        //2.判断是否有缓存的行高,有缓存了就直接返回了不会再向下去计算其值
+//        if vm.rowHeight != nil {
+//            return vm.rowHeight!
+//        }
+//        //3.cell
+//        let cell = StatusCell(style: .Default, reuseIdentifier: StatusCellNormalId)
+//        //4.计算返回高度
+//        vm.rowHeight =  cell.rowHeight(vm)
         
         
-        return vm.rowHeight!
+        return vm.rowHeight
         
         
     }
