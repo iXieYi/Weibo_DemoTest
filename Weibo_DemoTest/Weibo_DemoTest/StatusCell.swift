@@ -14,10 +14,21 @@ let StatusCellIconWidth:CGFloat = 35
 
 //微博cell
 class StatusCell: UITableViewCell {
+    
+    //微博的视图模型
     var viewModel:StatusViewModel?{
         didSet{
         topView.viewModel = viewModel
         contentLabel.text = viewModel?.status.text
+            
+        //测试修改配图视图高度 -> cell视图存在复用，若动态的修改其约束高度会使得，cell自动计算过变得不准
+        //设置配置视图
+        pictureView.viewModel = viewModel
+            
+        pictureView.snp_updateConstraints { (make) -> Void in
+            
+           make.height.equalTo(random() % 4 * 90)
+            }
         }
     
     }
@@ -103,7 +114,7 @@ extension StatusCell{
             make.right.equalTo(contentView.snp_right)
             make.height.equalTo(44)
             //指定向下的约束
-            make.bottom.equalTo(contentView.snp_bottom)
+//            make.bottom.equalTo(contentView.snp_bottom)
         }
     }
 

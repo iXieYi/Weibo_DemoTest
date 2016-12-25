@@ -9,8 +9,17 @@
 import UIKit
 //配图视图
 class StatusPictureView: UICollectionView {
+    //微博的视图模型
+    var viewModel:StatusViewModel?{
+        didSet{
+        
+        sizeToFit()
+        }
+    
+    }
+    
+    
     /// 构造函数
-   
     init(){
     //重要啊！！！！！->UICollectionViewFlowLayout
     let layout = UICollectionViewFlowLayout()
