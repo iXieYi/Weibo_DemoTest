@@ -22,12 +22,17 @@ class StatusCell: UITableViewCell {
         contentLabel.text = viewModel?.status.text
             
         //测试修改配图视图高度 -> cell视图存在复用，若动态的修改其约束高度会使得，cell自动计算过变得不准
-        //设置配置视图
+        //设置配置视图 - 设置视图模型之后 - 配图视图有能力计算大小
+            
         pictureView.viewModel = viewModel
             
         pictureView.snp_updateConstraints { (make) -> Void in
-            
-           make.height.equalTo(random() % 4 * 90)
+//           print("配图视图大小：\(pictureView.bounds)")
+           make.height.equalTo(pictureView.bounds.height)
+        //宽度约束- > 直接设置宽度数值，如果这时候其他地方再次设置，有参照的值会使得约束设置冲突
+        //自动布局系统不知道，该依据那个设置视图大小
+        
+           make.width.equalTo(pictureView.bounds.width)
             }
         }
     
@@ -118,8 +123,6 @@ extension StatusCell{
         }
     }
 
-    
-    
-    
-    
 }
+
+
