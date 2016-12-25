@@ -36,6 +36,20 @@ class StatusCell: UITableViewCell {
         }
     
     }
+    /// 根据指定的视图模型指定行高
+    ///
+    /// - parameter ViewModel: 视图模型
+    ///
+    /// - returns: 返回视图模型对应的行高
+    func rowHeight(VM:StatusViewModel)->CGFloat{
+    //1.记录视图模型 -> 会调用的上方didSet 设置内容和更新约束
+        viewModel = VM
+    //2.强制更新所有约束 - >所有控件都会被计算正确
+        contentView.layoutIfNeeded()
+    //3.返回底部视图的最大高度
+        return CGRectGetMaxY(bottonView.frame)
+    
+    }
     //构造函数
     //style 参数可以设置系统的样式
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {

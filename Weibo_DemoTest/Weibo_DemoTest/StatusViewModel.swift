@@ -16,6 +16,9 @@ class StatusViewModel:CustomStringConvertible {
     
         return NSURL(string: status.user?.profile_image_url ?? "")!
     }
+    //cell缓存的行高值
+    var rowHeight:CGFloat?
+    
     //用户默认头像
     var userDefaultIconView:UIImage{
     return UIImage(named: "avatar_default_big")!
