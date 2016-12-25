@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import SDWebImage
 
 private let StatusPictureViewItemMargin:CGFloat = 8
-
+/// 可重用标示符号
+private let StatusPictureViewCellId =  "StatusPictureViewCellId"
 //配图视图
 class StatusPictureView: UICollectionView {
     //微博的视图模型
@@ -18,6 +20,9 @@ class StatusPictureView: UICollectionView {
             
         //自动计算大小（该方法不能被重写，因此会调用sizeThatFits 这个方法）
         sizeToFit()
+        //刷新数据 -> 由于tableViewCell存在复用，导致collection图片显示错误,
+        //当新的数据到来时，导致数据源方法没有被更新，因此需要人为的更新数据
+        reloadData()   //重要！！！！！！！！
         }
     
     }
@@ -31,9 +36,21 @@ class StatusPictureView: UICollectionView {
     init(){
     //重要啊！！！！！->UICollectionViewFlowLayout
     let layout = UICollectionViewFlowLayout()
+    //知识点提示：collectionView中items 默认时候50 *50的
+    //设置间距
+    layout.minimumInteritemSpacing = StatusPictureViewItemMargin//每个小格的间距
+    layout.minimumLineSpacing = StatusPictureViewItemMargin     // 每行的间距
         
-    super.init(frame: CGRectZero, collectionViewLayout: layout)
+    super.init(frame: CGRectZero, collectionViewLayout: layout)//构造函数之后，该控件才创建完成，方可访问
+        
     backgroundColor = UIColor(white: 0.8, alpha: 1.0)
+    //设置数据源
+    //自己当自己的数据源（数据元的定义：任何能实现数据源方法的对象，方可称为数据源）
+    //应用场景：自定义视图的小框架
+    dataSource = self
+    //注册可重用Cell
+    registerClass(StatusPictureViewCell.self, forCellWithReuseIdentifier: StatusPictureViewCellId)
+        
         
     }
 
@@ -42,7 +59,22 @@ class StatusPictureView: UICollectionView {
     }
 
 }
+// MARK: - UICollectionViewDataSource数据源方法
+extension StatusPictureView: UICollectionViewDataSource{
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return viewModel?.thumbnailUrls?.count ?? 0
+    }
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(StatusPictureViewCellId, forIndexPath: indexPath) as! StatusPictureViewCell
+        
+       cell.imageUrl = viewModel?.thumbnailUrls![indexPath.row]
+        return cell
+    }
 
+    
+}
 // MARK: - 计算视图大小
 extension StatusPictureView{
     /// 计算视图大小函数
@@ -95,4 +127,51 @@ extension StatusPictureView{
     }
     
 }
+/// MARK: - 配图Cell
+private class StatusPictureViewCell:UICollectionViewCell{
+    
+    var imageUrl:NSURL? {
+        didSet{
+    
+        iconView.sd_setImageWithURL(imageUrl,
+            placeholderImage: nil,//调用oc框架时，可选和必选不严格
+            options:[SDWebImageOptions.RetryFailed,//默认超时时长15S,一旦超时会计入黑名单
+                SDWebImageOptions.RefreshCached])//如果URL 不变，图像变
+        
+        }
+    }
+    //重写构造函数
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        setupUI()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    private func setupUI(){
+    //1.添加控件
+    contentView.addSubview(iconView)
+    
+    //2.设置布局 ->应为cell会变化，不同的cell大小可能不一样,因此需要使用自动布局
+    iconView.snp_makeConstraints { (make) -> Void in
+        make.edges.equalTo(contentView.snp_edges)
+        
+        }
+
+    
+    
+    }
+    
+    //MARK: - 懒加载控件
+    private lazy var iconView:UIImageView = UIImageView()
+
+
+
+}
+
+
+
+
 
