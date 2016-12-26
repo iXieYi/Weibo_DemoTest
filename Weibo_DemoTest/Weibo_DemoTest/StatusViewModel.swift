@@ -21,7 +21,7 @@ class StatusViewModel:CustomStringConvertible {
         
 //        print("计算行高\(self.status.text)")
         //1.cell
-        let cell = StatusCell(style: .Default, reuseIdentifier: StatusCellNormalId)
+        let cell = StatusRetweetedCell(style: .Default, reuseIdentifier: StatusCellRetweetedId)
         //2.计算返回高度
          return cell.rowHeight(self)
     

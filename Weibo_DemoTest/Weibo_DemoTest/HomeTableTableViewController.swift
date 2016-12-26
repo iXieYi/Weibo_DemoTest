@@ -10,6 +10,8 @@ import UIKit
 import SVProgressHUD
 /// 微博cellId
 let StatusCellNormalId = "StatusCellNormalId"
+//转发微博的可重用id
+let StatusCellRetweetedId = "StatusCellRetweetedId"
 
 
 class HomeTableTableViewController: VisitorTableViewController {
@@ -31,7 +33,7 @@ class HomeTableTableViewController: VisitorTableViewController {
 /// 准备表格数据
     private func prepareTableView(){
     //注册可重用cell
-    tableView.registerClass(StatusCell.self, forCellReuseIdentifier: StatusCellNormalId)
+    tableView.registerClass(StatusRetweetedCell.self, forCellReuseIdentifier:StatusCellRetweetedId)
     //取消分割线
         tableView.separatorStyle = .None
     //临时行高
@@ -93,7 +95,7 @@ extension HomeTableTableViewController{
         // tableView.dequeueReusableCellWithIdentifier()
         
         //下面这句话会调用行高计算代码
-        let cell = tableView.dequeueReusableCellWithIdentifier(StatusCellNormalId, forIndexPath: indexPath) as! StatusCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(StatusCellRetweetedId, forIndexPath: indexPath) as! StatusCell // 多态的应用
         
 //        cell.textLabel?.text = lisViewtModel.statuslist[indexPath.row].status.user?.screen_name
         cell.viewModel = lisViewtModel.statuslist[indexPath.row]
@@ -128,16 +130,6 @@ extension HomeTableTableViewController{
         
         //1.视图模型
         let vm = lisViewtModel.statuslist[indexPath.row]
-        
-//        //2.判断是否有缓存的行高,有缓存了就直接返回了不会再向下去计算其值
-//        if vm.rowHeight != nil {
-//            return vm.rowHeight!
-//        }
-//        //3.cell
-//        let cell = StatusCell(style: .Default, reuseIdentifier: StatusCellNormalId)
-//        //4.计算返回高度
-//        vm.rowHeight =  cell.rowHeight(vm)
-        
         
         return vm.rowHeight
         

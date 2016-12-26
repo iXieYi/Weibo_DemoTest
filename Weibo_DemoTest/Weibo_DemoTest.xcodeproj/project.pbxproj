@@ -30,6 +30,7 @@
 		8A9FFA8E1E0BCD2E0043A797 /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9FFA8D1E0BCD2E0043A797 /* StatusCell.swift */; };
 		8A9FFA901E0BCD660043A797 /* StatusTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9FFA8F1E0BCD660043A797 /* StatusTop.swift */; };
 		8A9FFA921E0BCD8A0043A797 /* StatusBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9FFA911E0BCD8A0043A797 /* StatusBottom.swift */; };
+		8ACDED221E11454F00FD80E9 /* StatusRetweetedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACDED211E11454F00FD80E9 /* StatusRetweetedCell.swift */; };
 		8AF0D4E01DFD773300A2815E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF0D4DF1DFD773300A2815E /* AppDelegate.swift */; };
 		8AF0D4EA1DFD773300A2815E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AF0D4E81DFD773300A2815E /* LaunchScreen.storyboard */; };
 		8AF1F57A1E02D3F900F7A7EF /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF1F5721E02D2E600F7A7EF /* SnapKit.framework */; };
@@ -95,6 +96,7 @@
 		8A9FFA8D1E0BCD2E0043A797 /* StatusCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCell.swift; sourceTree = "<group>"; };
 		8A9FFA8F1E0BCD660043A797 /* StatusTop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTop.swift; sourceTree = "<group>"; };
 		8A9FFA911E0BCD8A0043A797 /* StatusBottom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBottom.swift; sourceTree = "<group>"; };
+		8ACDED211E11454F00FD80E9 /* StatusRetweetedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusRetweetedCell.swift; sourceTree = "<group>"; };
 		8AF0D4DC1DFD773300A2815E /* Weibo_DemoTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo_DemoTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AF0D4DF1DFD773300A2815E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AF0D4E91DFD773300A2815E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				8A9FFA8D1E0BCD2E0043A797 /* StatusCell.swift */,
+				8ACDED211E11454F00FD80E9 /* StatusRetweetedCell.swift */,
 				8A9FFA8F1E0BCD660043A797 /* StatusTop.swift */,
 				8A9FFA911E0BCD8A0043A797 /* StatusBottom.swift */,
 				8A2DAD631E0ED61A0098FB35 /* StatusPictureView.swift */,
@@ -505,6 +508,7 @@
 				8A8BF2531DFD9B960069572F /* UIButton+Extension.swift in Sources */,
 				8A2DAD641E0ED61A0098FB35 /* StatusPictureView.swift in Sources */,
 				8A9FFA891E0BC4E10043A797 /* StatusViewModel.swift in Sources */,
+				8ACDED221E11454F00FD80E9 /* StatusRetweetedCell.swift in Sources */,
 				8A9FFA811E0B81DF0043A797 /* Status.swift in Sources */,
 				8AF1F5881E03C73B00F7A7EF /* UserAccount.swift in Sources */,
 				8A9FFA871E0BB9600043A797 /* User.swift in Sources */,
