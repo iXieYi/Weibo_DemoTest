@@ -35,7 +35,7 @@ class HomeTableTableViewController: VisitorTableViewController {
     //取消分割线
         tableView.separatorStyle = .None
     //临时行高
-        //1、预估行高
+        //1、预估行高  - 尽量准确这样布局效率就越高
         tableView.estimatedRowHeight = 400
         
         
@@ -144,4 +144,7 @@ extension HomeTableTableViewController{
         
     }
 
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print("选中行\(indexPath)")
+    }
 }

@@ -18,7 +18,8 @@ class StatusViewModel:CustomStringConvertible {
     }
     //cell缓存的行高值
     lazy var rowHeight:CGFloat = {
-        print("计算行高\(self.status.text)")
+        
+//        print("计算行高\(self.status.text)")
         //1.cell
         let cell = StatusCell(style: .Default, reuseIdentifier: StatusCellNormalId)
         //2.计算返回高度

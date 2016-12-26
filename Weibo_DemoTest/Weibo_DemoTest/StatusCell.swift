@@ -32,6 +32,9 @@ class StatusCell: UITableViewCell {
         //宽度约束- > 直接设置宽度数值，如果这时候其他地方再次设置，有参照的值会使得约束设置冲突
         //自动布局系统不知道，该依据那个设置视图大小
         make.width.equalTo(pictureView.bounds.width)
+        //根据配图数量，决定配图视图的顶部间距
+            let offset  = viewModel?.thumbnailUrls?.count > 0 ?StatusCellMargin :0
+            make.top.equalTo(contentLabel.snp_bottom).offset(offset)
             }
         }
     
@@ -56,6 +59,8 @@ class StatusCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
        
         setupUI()
+        //设置cell选中时后的样式 （快捷键查看文件属性，方法列表 ctrl + 6 支持智能搜索和匹配）
+        selectionStyle = .None
         
     }
 
