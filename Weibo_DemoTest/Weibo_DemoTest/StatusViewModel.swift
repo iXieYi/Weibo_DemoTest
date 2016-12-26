@@ -61,6 +61,9 @@ class StatusViewModel:CustomStringConvertible {
     
     }
     //缩略图URL数组 - 存储型属性
+    //如果是原创微博，可以有图也可以没有图，
+    //转发微博一定没有图，retweed_status，可以有图也可以没有图
+    //一条微博只有一个pic_urls 数据
     var thumbnailUrls:[NSURL]?
     
     /// 构造函数
@@ -68,12 +71,14 @@ class StatusViewModel:CustomStringConvertible {
     
     self.status = status
     //根据模型生成缩略图数组
-        if status.pic_urls?.count > 0 {
+        //首先判断转发微博图片数据是否为空，若为空那么查看原创微博的配图
+        if let urls = status.retweeted_status?.pic_urls ?? status.pic_urls{
+        
         //创建缩略图数组
         thumbnailUrls = [NSURL]()    //分配空间
         //遍历字典数组 ->如果数组可选，不允许遍历：原因：数组是通过下标来检索数据的
             
-            for dict in status.pic_urls!{
+            for dict in urls{
                 let url = NSURL(string: dict["thumbnail_pic"]!)
               //相信服务器返回url 一定生成
               thumbnailUrls?.append(url!)
