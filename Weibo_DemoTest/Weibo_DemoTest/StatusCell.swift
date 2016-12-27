@@ -33,8 +33,8 @@ class StatusCell: UITableViewCell {
         //自动布局系统不知道，该依据那个设置视图大小
         make.width.equalTo(pictureView.bounds.width)
         //根据配图数量，决定配图视图的顶部间距
-            let offset  = viewModel?.thumbnailUrls?.count > 0 ?StatusCellMargin :0
-            make.top.equalTo(contentLabel.snp_bottom).offset(offset)
+//            let offset  = viewModel?.thumbnailUrls?.count > 0 ?StatusCellMargin :0
+//            make.top.equalTo(contentLabel.snp_bottom).offset(offset)
             }
         }
     
@@ -72,11 +72,11 @@ class StatusCell: UITableViewCell {
     //顶部视图
     private lazy var topView:StatusTop = StatusTop()
     //微博正文
-    private lazy var contentLabel: UILabel = UILabel(title: "微博正文", fontSize: 15, screenInset: StatusCellMargin)
+     lazy var contentLabel: UILabel = UILabel(title: "微博正文", fontSize: 15, screenInset: StatusCellMargin)
     //配图视图
-    private lazy var pictureView:StatusPictureView = StatusPictureView()
+     lazy var pictureView:StatusPictureView = StatusPictureView()
     //底部视图
-    private lazy var bottonView:StatusBottom = StatusBottom()
+     lazy var bottonView:StatusBottom = StatusBottom()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -94,7 +94,7 @@ class StatusCell: UITableViewCell {
 //MARK: - 设置界面使用
 extension StatusCell{
 
-    private func setupUI(){
+     func setupUI(){
     //1.添加控件
     contentView.addSubview(topView)
     contentView.addSubview(contentLabel)
@@ -121,14 +121,14 @@ extension StatusCell{
 //            make.right.equalTo(contentView.snp_right).offset(StatusCellMargin)
             
         }
-    //配图
-        pictureView.snp_makeConstraints { (make) -> Void in
-            
-            make.top.equalTo(contentLabel.snp_bottom).offset(StatusCellMargin)
-            make.left.equalTo(contentLabel.snp_left)
-            make.width.equalTo(300)
-            make.height.equalTo(90)
-        }
+//    //配图
+//        pictureView.snp_makeConstraints { (make) -> Void in
+//            
+//            make.top.equalTo(contentLabel.snp_bottom).offset(StatusCellMargin)
+//            make.left.equalTo(contentLabel.snp_left)
+//            make.width.equalTo(300)
+//            make.height.equalTo(90)
+//        }
     //底部视图
         bottonView.snp_makeConstraints { (make) -> Void in
             

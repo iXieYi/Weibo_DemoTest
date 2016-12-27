@@ -21,6 +21,7 @@ class StatusViewModel:CustomStringConvertible {
         
 //        print("计算行高\(self.status.text)")
         //1.cell
+        //创建cell类别的时候，下面应该使用 StatusRetweetedCell 而不是其父类的，不然会导致界面布局发生巨大变化
         let cell = StatusRetweetedCell(style: .Default, reuseIdentifier: StatusCellRetweetedId)
         //2.计算返回高度
          return cell.rowHeight(self)
@@ -65,7 +66,19 @@ class StatusViewModel:CustomStringConvertible {
     //转发微博一定没有图，retweed_status，可以有图也可以没有图
     //一条微博只有一个pic_urls 数据
     var thumbnailUrls:[NSURL]?
+    var retwwwtedText:String?{
+        //判断是否是转发微博
+        //1、判断是否转发微博，如果不是直接返回 nil
+        guard let s = status.retweeted_status else{
+       
+            return nil
+        
+        }
+        //2、 s 就是转发微博
+        return "@" + (s.user?.screen_name ?? "") + ":" + (s.text ?? "")
+     
     
+    }
     /// 构造函数
     init(status: Status){
     

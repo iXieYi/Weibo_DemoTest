@@ -43,7 +43,7 @@ class StatusPictureView: UICollectionView {
         
     super.init(frame: CGRectZero, collectionViewLayout: layout)//构造函数之后，该控件才创建完成，方可访问
         
-    backgroundColor = UIColor(white: 1, alpha: 1.0)
+    backgroundColor = UIColor(white: 0.95, alpha: 1.0)
     //设置数据源
     //自己当自己的数据源（数据元的定义：任何能实现数据源方法的对象，方可称为数据源）
     //应用场景：自定义视图的小框架
