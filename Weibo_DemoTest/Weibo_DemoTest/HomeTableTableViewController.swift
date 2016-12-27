@@ -32,7 +32,11 @@ class HomeTableTableViewController: VisitorTableViewController {
     
 /// 准备表格数据
     private func prepareTableView(){
-    //注册可重用cell
+        
+    //注册原创微博cell
+    tableView.registerClass(StatusNormalCell.self, forCellReuseIdentifier: StatusCellNormalId)
+        
+    //注册可重用转发cell
     tableView.registerClass(StatusRetweetedCell.self, forCellReuseIdentifier:StatusCellRetweetedId)
     //取消分割线
         tableView.separatorStyle = .None
@@ -93,12 +97,15 @@ extension HomeTableTableViewController{
         
         //下面这句话不会调用行高方法，不推荐使用
         // tableView.dequeueReusableCellWithIdentifier()
+        //TODO: - 修改可重用标志符
+        //获取视图模型
+        let vm = lisViewtModel.statuslist[indexPath.row]
         
         //下面这句话会调用行高计算代码
-        let cell = tableView.dequeueReusableCellWithIdentifier(StatusCellRetweetedId, forIndexPath: indexPath) as! StatusCell // 多态的应用
+        let cell = tableView.dequeueReusableCellWithIdentifier(vm.cellId, forIndexPath: indexPath) as! StatusCell // 多态的应用
         
 //        cell.textLabel?.text = lisViewtModel.statuslist[indexPath.row].status.user?.screen_name
-        cell.viewModel = lisViewtModel.statuslist[indexPath.row]
+        cell.viewModel = vm
         return cell
     }
     

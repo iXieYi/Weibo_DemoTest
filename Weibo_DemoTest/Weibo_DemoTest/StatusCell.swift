@@ -121,14 +121,6 @@ extension StatusCell{
 //            make.right.equalTo(contentView.snp_right).offset(StatusCellMargin)
             
         }
-//    //配图
-//        pictureView.snp_makeConstraints { (make) -> Void in
-//            
-//            make.top.equalTo(contentLabel.snp_bottom).offset(StatusCellMargin)
-//            make.left.equalTo(contentLabel.snp_left)
-//            make.width.equalTo(300)
-//            make.height.equalTo(90)
-//        }
     //底部视图
         bottonView.snp_makeConstraints { (make) -> Void in
             

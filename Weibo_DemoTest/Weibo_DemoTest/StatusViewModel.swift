@@ -16,13 +16,29 @@ class StatusViewModel:CustomStringConvertible {
     
         return NSURL(string: status.user?.profile_image_url ?? "")!
     }
+    //判断表格的可重用标志符号
+    var cellId:String{
+        
+        return status.retweeted_status != nil ? StatusCellRetweetedId :StatusCellNormalId
+    
+    }
     //cell缓存的行高值
     lazy var rowHeight:CGFloat = {
-        
-//        print("计算行高\(self.status.text)")
+        //定义cell
+        var cell: StatusCell
         //1.cell
         //创建cell类别的时候，下面应该使用 StatusRetweetedCell 而不是其父类的，不然会导致界面布局发生巨大变化
-        let cell = StatusRetweetedCell(style: .Default, reuseIdentifier: StatusCellRetweetedId)
+        //根据是否是转发微博，决定cell的创建
+        
+        if self.status.retweeted_status != nil{
+         cell = StatusRetweetedCell(style: .Default, reuseIdentifier: StatusCellRetweetedId)
+        
+        }else {
+        
+         cell = StatusRetweetedCell(style: .Default, reuseIdentifier: StatusCellNormalId)
+        
+        }
+        
         //2.计算返回高度
          return cell.rowHeight(self)
     
