@@ -20,7 +20,7 @@ extension UIButton{
         sizeToFit()
         
     }
-    //TODO:-修改参数名
+    
     ///按键便利构造函数
     ///
     /// - parameter title:         按钮标题

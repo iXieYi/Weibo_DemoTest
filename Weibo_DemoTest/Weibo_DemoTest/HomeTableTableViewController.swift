@@ -97,7 +97,6 @@ extension HomeTableTableViewController{
         
         //下面这句话不会调用行高方法，不推荐使用
         // tableView.dequeueReusableCellWithIdentifier()
-        //TODO: - 修改可重用标志符
         //获取视图模型
         let vm = lisViewtModel.statuslist[indexPath.row]
         

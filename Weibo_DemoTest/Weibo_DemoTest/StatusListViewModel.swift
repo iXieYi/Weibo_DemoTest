@@ -42,12 +42,9 @@ class StatusListViewModel {
            self.statuslist = arrayM + self.statuslist
             
             //4.完成回调
-           finished(isSuccess: true)
+//           finished(isSuccess: true)
             //5.缓存单张图片
-            self.cacheSingleImage1(arrayM, finished: { (isSuccessed) -> () in
-             print("缓存成功")
-                
-            })
+            self.cacheSingleImage1(arrayM, finished:finished)
         }
     }
     

@@ -105,11 +105,26 @@ extension StatusPictureView{
         return CGSizeZero
         }
         //2>一张图片
-        //TODO:- 临时指定大小
         if count == 1{
-        let size = CGSize(width: 150, height: 120)
-            layout.itemSize = size
+        var size = CGSize(width: 150, height: 120)
+        //利用SDWebImage提取检测本地的缓存图像 key - url 完整字符型串
+        //面试题：SDWebImage是如何缓存文件名的？ 对完整url‘MD5’
+            if let key = viewModel?.thumbnailUrls?.first?.absoluteString{
+            let image = SDWebImageManager.sharedManager().imageCache.imageFromDiskCacheForKey(key)
+//                print(image)
+            size = image.size
+            }
+            //图片过窄
+            size.width = size.width < 40 ? 40: size.width
+            //过宽的图片
+            if size.width > 300{
+                let w:CGFloat = 300
+                let h = size.height * w / size.width
+                size = CGSize(width: w, height: h)
             
+            }
+            
+            layout.itemSize = size
             //配图视图的大小
             return size
         }
