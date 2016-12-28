@@ -65,7 +65,7 @@ class HomeTableTableViewController: VisitorTableViewController {
         
         SVProgressHUD.showInfoWithStatus("加载数据错误，请稍后再试")
         }
-        print(self.lisViewtModel.statuslist)
+//        print(self.lisViewtModel.statuslist)
         //刷新数据
         self.tableView.reloadData()
     }
