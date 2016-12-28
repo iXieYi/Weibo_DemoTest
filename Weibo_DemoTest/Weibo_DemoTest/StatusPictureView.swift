@@ -112,7 +112,8 @@ extension StatusPictureView{
             if let key = viewModel?.thumbnailUrls?.first?.absoluteString{
             let image = SDWebImageManager.sharedManager().imageCache.imageFromDiskCacheForKey(key)
 //                print(image)
-            size = image.size
+                
+//            size = image.size
             }
             //图片过窄
             size.width = size.width < 40 ? 40: size.width

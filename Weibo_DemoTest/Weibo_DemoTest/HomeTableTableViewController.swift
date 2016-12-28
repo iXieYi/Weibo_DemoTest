@@ -54,13 +54,25 @@ class HomeTableTableViewController: VisitorTableViewController {
         3、在cell中找一个之上而下能找到的控件，指定其底部约束，最后才能得到自动布局的行高
         4、在使用自动布局的时候，绝大数出现问题是因为，约束加多了
         */
-    
+        
+    //下拉刷新 - 控件默认没有
+        refreshControl = WeiBoRefresh()
+    //添加监听方法
+        refreshControl?.addTarget(self, action: "loadData", forControlEvents: .ValueChanged)
+        
+//        let v = UIView(frame: CGRect(x: 0, y: 0, width: 180, height: 40))
+//        v.backgroundColor = UIColor.redColor()
+//        refreshControl?.addSubview(v)
+        
+        //设置TintColor
+        refreshControl?.tintColor = UIColor.clearColor()//隐藏菊花
     }
     
     
-    private func loadData(){
+   @objc private func loadData(){
     lisViewtModel.loadStatus { (isSuccess) -> () in
-        
+        //关闭刷新控件
+        self.refreshControl?.endRefreshing()
         if !isSuccess{
         
         SVProgressHUD.showInfoWithStatus("加载数据错误，请稍后再试")

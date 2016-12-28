@@ -10,6 +10,8 @@
 		8A0B5F231E041A8900B9EF97 /* UserAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0B5F221E041A8900B9EF97 /* UserAccountViewModel.swift */; };
 		8A0B5F2D1E08490500B9EF97 /* NewFestureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0B5F2C1E08490500B9EF97 /* NewFestureViewController.swift */; };
 		8A0B5F311E0A22C400B9EF97 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0B5F301E0A22C400B9EF97 /* WelcomeViewController.swift */; };
+		8A1327FE1E13B17900BF749A /* WeiBoRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1327FD1E13B17800BF749A /* WeiBoRefresh.swift */; };
+		8A1328001E13D53900BF749A /* WBRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A1327FF1E13D53900BF749A /* WBRefreshView.xib */; };
 		8A2DAD641E0ED61A0098FB35 /* StatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2DAD631E0ED61A0098FB35 /* StatusPictureView.swift */; };
 		8A4D26311DFFBC7100BCC4D2 /* UILabel+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D26301DFFBC7100BCC4D2 /* UILabel+extension.swift */; };
 		8A4D26331DFFC03D00BCC4D2 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D26321DFFC03D00BCC4D2 /* UIImageView+Extension.swift */; };
@@ -77,6 +79,8 @@
 		8A0B5F221E041A8900B9EF97 /* UserAccountViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccountViewModel.swift; sourceTree = "<group>"; };
 		8A0B5F2C1E08490500B9EF97 /* NewFestureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFestureViewController.swift; sourceTree = "<group>"; };
 		8A0B5F301E0A22C400B9EF97 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		8A1327FD1E13B17800BF749A /* WeiBoRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeiBoRefresh.swift; sourceTree = "<group>"; };
+		8A1327FF1E13D53900BF749A /* WBRefreshView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBRefreshView.xib; sourceTree = "<group>"; };
 		8A2DAD631E0ED61A0098FB35 /* StatusPictureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusPictureView.swift; sourceTree = "<group>"; };
 		8A4D26301DFFBC7100BCC4D2 /* UILabel+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+extension.swift"; sourceTree = "<group>"; };
 		8A4D26321DFFC03D00BCC4D2 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
@@ -140,6 +144,15 @@
 				8A0B5F301E0A22C400B9EF97 /* WelcomeViewController.swift */,
 			);
 			name = NewFeature;
+			sourceTree = "<group>";
+		};
+		8A1327F81E13B09400BF749A /* RefreshView */ = {
+			isa = PBXGroup;
+			children = (
+				8A1327FD1E13B17800BF749A /* WeiBoRefresh.swift */,
+				8A1327FF1E13D53900BF749A /* WBRefreshView.xib */,
+			);
+			name = RefreshView;
 			sourceTree = "<group>";
 		};
 		8A8BF2511DFD9B1A0069572F /* Extension */ = {
@@ -270,6 +283,7 @@
 		8AF0D4F81DFD7B1500A2815E /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				8A1327F81E13B09400BF749A /* RefreshView */,
 				8A9FFA8A1E0BCCCF0043A797 /* StatusCell */,
 				8A8BF2471DFD8D1D0069572F /* HomeTableTableViewController.swift */,
 			);
@@ -429,6 +443,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AF0D4EA1DFD773300A2815E /* LaunchScreen.storyboard in Resources */,
+				8A1328001E13D53900BF749A /* WBRefreshView.xib in Resources */,
 				8A9FFA831E0BA2AF0043A797 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,6 +503,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A1327FE1E13B17900BF749A /* WeiBoRefresh.swift in Sources */,
 				8AF1F5841E02DB3D00F7A7EF /* NetworkTools.swift in Sources */,
 				8A9FFA901E0BCD660043A797 /* StatusTop.swift in Sources */,
 				8A9FFA921E0BCD8A0043A797 /* StatusBottom.swift in Sources */,
