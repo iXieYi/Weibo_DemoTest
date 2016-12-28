@@ -40,7 +40,7 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="tipiconView" destination="SYH-vV-wV3" id="BgB-ar-ORY"/>
+                <outlet property="tipiconView" destination="abD-Xx-UFY" id="tD2-8l-7yJ"/>
             </connections>
             <point key="canvasLocation" x="165" y="360"/>
         </view>

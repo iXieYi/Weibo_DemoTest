@@ -67,7 +67,7 @@ class WeiBoRefresh: UIRefreshControl {
         refreshView.snp_makeConstraints { (make) -> Void in
             
             make.centerX.equalTo(self.snp_centerX).offset(-refreshView.bounds.size.width/2)
-            make.centerY.equalTo(self.snp_centerY)
+            make.centerY.equalTo(self.snp_centerY).offset(-refreshView.bounds.size.height/2 - 5)
             make.size.equalTo(refreshView.bounds.size)
         }
     //使用KVO监听位置变化 - 主队列，当主线程有任务就不调度队列中的任务执行
@@ -104,11 +104,11 @@ class WBRefreshView:UIView {
     }
 /// 旋转图标动画
     private func rotateTipIcon(){
-        
+    //旋转动画 - 特点顺时针优先 + 就近原则
+    
     UIView.animateWithDuration(0.5) { () -> Void in
         
-//        self.tipiconView.transform = CGAffineTransformRotate(self.tipiconView.transform,CGFloat(M_PI))
-        self.tipiconView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
+        self.tipiconView.transform = CGAffineTransformRotate(self.tipiconView.transform,CGFloat(M_PI))
         }
     
     
