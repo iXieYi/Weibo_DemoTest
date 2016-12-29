@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="NEO-fJ-WZb" customClass="WBRefreshView" customModule="Weibo_DemoTest" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="NEO-fJ-WZb" userLabel="Refresh View" customClass="WBRefreshView" customModule="Weibo_DemoTest" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="160" height="60"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
@@ -20,7 +20,7 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t6M-u7-DyG">
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t6M-u7-DyG" userLabel=" View">
                     <rect key="frame" x="0.0" y="0.0" width="160" height="60"/>
                     <subviews>
                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="tableview_pull_refresh" translatesAutoresizingMaskIntoConstraints="NO" id="abD-Xx-UFY">
@@ -37,12 +37,13 @@
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-            <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="tipiconView" destination="abD-Xx-UFY" id="tD2-8l-7yJ"/>
+                <outlet property="loadingIcon" destination="SYH-vV-wV3" id="kPx-Ac-YSk"/>
+                <outlet property="tipIconView" destination="abD-Xx-UFY" id="a5W-A5-Bb6"/>
+                <outlet property="tipView" destination="t6M-u7-DyG" id="x1w-F6-14f"/>
             </connections>
-            <point key="canvasLocation" x="165" y="360"/>
+            <point key="canvasLocation" x="-10" y="64"/>
         </view>
     </objects>
     <resources>

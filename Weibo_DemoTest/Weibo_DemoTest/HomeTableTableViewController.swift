@@ -28,6 +28,7 @@ class HomeTableTableViewController: VisitorTableViewController {
         }
         prepareTableView()
         loadData()
+        
     }
     
 /// 准备表格数据
@@ -63,15 +64,16 @@ class HomeTableTableViewController: VisitorTableViewController {
 //        let v = UIView(frame: CGRect(x: 0, y: 0, width: 180, height: 40))
 //        v.backgroundColor = UIColor.redColor()
 //        refreshControl?.addSubview(v)
+        //上拉刷新视图
         
-        //设置TintColor
-        refreshControl?.tintColor = UIColor.clearColor()//隐藏菊花
     }
     
     
    @objc private func loadData(){
+    refreshControl?.beginRefreshing()
     lisViewtModel.loadStatus { (isSuccess) -> () in
         //关闭刷新控件
+        
         self.refreshControl?.endRefreshing()
         if !isSuccess{
         
@@ -84,7 +86,14 @@ class HomeTableTableViewController: VisitorTableViewController {
         
     
    }
+    //MARK: - 懒加载控件
+    private lazy var pullupView: UIActivityIndicatorView = {
     
+        let indicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
+        indicator.color = UIColor.lightGrayColor()
+        
+        return indicator
+    }()
     
 
     
