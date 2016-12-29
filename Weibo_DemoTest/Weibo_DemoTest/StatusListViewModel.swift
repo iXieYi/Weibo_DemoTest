@@ -14,10 +14,18 @@ class StatusListViewModel {
     
 /// 微博数据数组 -上拉、下拉刷新
     lazy var statuslist = [StatusViewModel]()
-    //加载网路数据
-    func loadStatus(finished:(isSuccess:Bool)->()){
+    ///加载网路数据
+    ///928 101 116 604
+    /// - parameter isPullup: 是否上拉数据
+    /// - parameter finished: 完成回调
+    func loadStatus(sPullup isPullup:Bool,finished:(isSuccess:Bool)->()){
     
-        NetworkTools.sharedTools.loadStatus { (result, error) -> () in
+        //下拉刷新 - 只取比since_id大的id的微博,
+        let since_id = isPullup ? 0:(statuslist.first?.status.id ?? 0)
+        //上拉刷新 - 数组最后一条微博的id
+        let max_id = isPullup ? (statuslist.last?.status.id ?? 0): 0
+        
+        NetworkTools.sharedTools.loadStatus(since_id: since_id, max_id: max_id) { (result, error) -> () in
             
             if error != nil {
                 print("出错了。。。")
@@ -39,8 +47,19 @@ class StatusListViewModel {
                 arrayM.append(StatusViewModel(status:Status(dict: dict)))
             }
             //3.拼接数据
-           self.statuslist = arrayM + self.statuslist
+            //判断是否是上拉刷新
+            if max_id > 0{
+            //将数据拼接在后面
+               self.statuslist += arrayM
+                
+            }else{
+              //将数据拼接在前面
+             self.statuslist = arrayM + self.statuslist
             
+            }
+          
+            
+            print("刷新到\(arrayM.count)")
             //4.完成回调
 //           finished(isSuccess: true)
             //5.缓存单张图片

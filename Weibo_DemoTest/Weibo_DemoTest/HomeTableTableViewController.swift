@@ -65,16 +65,19 @@ class HomeTableTableViewController: VisitorTableViewController {
 //        v.backgroundColor = UIColor.redColor()
 //        refreshControl?.addSubview(v)
         //上拉刷新视图
+        tableView.tableFooterView = pullupView
         
     }
     
     
    @objc private func loadData(){
     refreshControl?.beginRefreshing()
-    lisViewtModel.loadStatus { (isSuccess) -> () in
+    lisViewtModel.loadStatus(sPullup: pullupView.isAnimating()){ (isSuccess) -> () in
         //关闭刷新控件
-        
         self.refreshControl?.endRefreshing()
+        //关闭上拉刷新
+        self.pullupView.stopAnimating()
+        
         if !isSuccess{
         
         SVProgressHUD.showInfoWithStatus("加载数据错误，请稍后再试")
@@ -118,14 +121,24 @@ extension HomeTableTableViewController{
         
         //下面这句话不会调用行高方法，不推荐使用
         // tableView.dequeueReusableCellWithIdentifier()
-        //获取视图模型
+        //1.获取视图模型
         let vm = lisViewtModel.statuslist[indexPath.row]
         
-        //下面这句话会调用行高计算代码
+        //2.下面这句话会调用行高计算代码
         let cell = tableView.dequeueReusableCellWithIdentifier(vm.cellId, forIndexPath: indexPath) as! StatusCell // 多态的应用
-        
-//        cell.textLabel?.text = lisViewtModel.statuslist[indexPath.row].status.user?.screen_name
+        //3.设置视图模型
         cell.viewModel = vm
+        //4.判断是否是最后一条微博
+        if indexPath.row == lisViewtModel.statuslist.count - 1 && !pullupView.isAnimating(){
+        
+          //开始动画
+          pullupView.startAnimating()
+         //上拉开始刷新
+          loadData()
+          print("上拉刷新数据")
+        
+        }
+        
         return cell
     }
     

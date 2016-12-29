@@ -53,7 +53,7 @@ class WeiBoRefresh: UIRefreshControl {
           print("转过去")
           refreshView.roateFlag = false
         }
-        print(frame)
+//        print(frame)
     }
     //MARK: - 构造函数
     override init() {
