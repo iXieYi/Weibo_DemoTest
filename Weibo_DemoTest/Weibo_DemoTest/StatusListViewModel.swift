@@ -15,7 +15,7 @@ class StatusListViewModel {
 /// 微博数据数组 -上拉、下拉刷新
     lazy var statuslist = [StatusViewModel]()
     ///加载网路数据
-    ///928 101 116 604
+    ///928 101 116 604 
     /// - parameter isPullup: 是否上拉数据
     /// - parameter finished: 完成回调
     func loadStatus(sPullup isPullup:Bool,finished:(isSuccess:Bool)->()){
