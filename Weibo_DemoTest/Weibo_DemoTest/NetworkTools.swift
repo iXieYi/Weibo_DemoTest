@@ -40,15 +40,43 @@ class NetworkTools: AFHTTPSessionManager {
     return tools
     }()
     
-    private var tokenDict: [String: AnyObject]?{
-        //判断TOKEN是否有效
-        if let token = UserAccountViewModel.sharedUserAccount.accessToken{
-            
-        return ["access_token":token]
-        }
-        return nil
-    }
+//    private var tokenDict: [String: AnyObject]?{
+//        //判断TOKEN是否有效
+//        if let token = UserAccountViewModel.sharedUserAccount.accessToken{
+//            
+//        return ["access_token":token]
+//        }
+//        return nil
+//    }
 }
+
+//MARK: - 发布微博
+extension NetworkTools{
+    /// 发布微博
+    ///
+    /// - parameter status:   微博文本
+    /// - parameter finished: 完成回调
+    /// - see:[http://open.weibo.com/wiki/2/statuses/update](http://open.weibo.com/wiki/2/statuses/update)
+    func sendStatus(status:String,finished:XYRequestCallBack){
+    
+        //1.创建参数字典
+        var params = [String: AnyObject]()
+    
+        
+        //2.设置设置参数
+        params["status"] = status
+        
+        let urlString = "https://api.weibo.com/2/statuses/update.json"
+        
+        //3.发起网络请求
+        tokenRequest(.POST, URLString: urlString, parameters: params, finished: finished)
+    
+    }
+
+
+}
+
+
 //MARK: - 微博数据相关方法
 extension NetworkTools{
     /// 加载微博数据
@@ -58,12 +86,8 @@ extension NetworkTools{
     /// - parameter finished: 完成回调
     /// - see [http://open.weibo.com/wiki/2/statuses/home_timeline](http://open.weibo.com/wiki/2/statuses/home_timeline)
     func loadStatus(since_id since_id:Int, max_id:Int, finished:XYRequestCallBack){
-    //1.获取token字典
-        guard var params = tokenDict else{
-            //如果字典为空通知调用方
-            finished(result: nil, error: NSError(domain: "cn.itcast.error", code: -1001, userInfo: ["message":"token nil"]))
-            return
-        }
+        //1.创建参数字典
+        var params = [String: AnyObject]()
    
         if since_id > 0 {         //判断是否下拉
             
@@ -77,7 +101,7 @@ extension NetworkTools{
     //2.准备网络参数
         let urlString = "https://api.weibo.com/2/statuses/home_timeline.json"
     //3.发起网络请求
-        request(.GET, URLString: urlString, parameters: params, finished: finished)
+        tokenRequest(.GET, URLString: urlString, parameters: params, finished: finished)
     }
 
 
@@ -92,16 +116,13 @@ extension NetworkTools{
     
     func loadUserInfo(uid:String,fininshed:XYRequestCallBack){
     
-        guard var params = tokenDict else{
-        //如果字典为空通知调用方
-            fininshed(result: nil, error: NSError(domain: "cn.itcast.error", code: -1001, userInfo: ["message":"token nil"]))
-            return
+        //1.创建参数字典
+        var params = [String: AnyObject]()
         
-        }
      //处理网络参数
     let urlString = "https://api.weibo.com/2/users/show.json"
     params["uid"] = uid
-        request(.GET, URLString: urlString, parameters: params, finished: fininshed)
+        tokenRequest(.GET, URLString: urlString, parameters: params, finished: fininshed)
     
     }
 
@@ -164,6 +185,42 @@ extension NetworkTools{
 
 //MARK: - 封装AFN网络方法(将其私有化)
 extension NetworkTools{
+    /// 使用token 进行网络请求
+    ///
+    /// - parameter method:     Get/POST
+    /// - parameter URLString:  URLString
+    /// - parameter parameters: 参数字典
+    /// - parameter finished:   完成回调
+    private func tokenRequest(method:XieYiRequestMethod, URLString:String,var parameters:[String:AnyObject]?,finished:XYRequestCallBack){
+        
+    //1.设置token 参数 ->将token 添加到字典中
+        
+        guard let token = UserAccountViewModel.sharedUserAccount.accessToken else{
+            
+            //token无效
+            //如果字典为空通知调用方
+            finished(result: nil, error: NSError(domain: "cn.itcast.error", code: -1001, userInfo: ["message":"token nil"]))
+            return
+        }
+        //设置parameters字典
+        //判断参数字典是否有值
+        if parameters == nil{
+        
+            parameters = [String:AnyObject]()
+        
+        }
+        parameters!["access_token"] = token
+        
+    //2.发起网络请求
+        request(method, URLString: URLString, parameters: parameters, finished: finished)
+    
+    
+    
+    }
+    
+    
+    
+    
 //parameters:参数是要可选项，调用时才能穿nil
     
     /// 网路请求

@@ -75,6 +75,8 @@ extension UITextView{
         //4.图片表情
         insertImageEmotion(em)
         
+        //5.通知 代理 文本发生变化了 - textViewDidChange “?”代理如果什么都没有实现，更安全
+         delegate?.textViewDidChange?(self)
         
     }
     /// 插入图片表情

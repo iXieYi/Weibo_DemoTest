@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 //MARK: - 撰写微博控制器
 class ComposeControllerViewController: UIViewController {
     
@@ -41,7 +42,21 @@ class ComposeControllerViewController: UIViewController {
     @objc private func SendeStatus(){//发布微博
         
         print("发布微博")
-        
+        //1.获得文本内容
+        let text = textView.emoticonText
+        //2.发布微博
+        NetworkTools.sharedTools.sendStatus(text) { (result, error) -> () in
+            
+            if error != nil {
+               print("发布微博出错了")
+                SVProgressHUD.showInfoWithStatus("您的网络不给力！")
+               return
+            }
+            
+            print(result)
+            //关闭控制器
+            self.close()
+        }
     }
     //选择表情
     @objc private func selectEmoticon(){
@@ -76,15 +91,19 @@ class ComposeControllerViewController: UIViewController {
             make.bottom.equalTo(view.snp_bottom).offset(offset)
         }
         
-    //3.动画
+    //3.动画 - UIView 块动画 本质上是对CAAnimation的包装
         UIView.animateWithDuration(duration) { () -> Void in
             //设置动画曲线
             //曲线值等于7的效果-> 如果之前的的动画没有完成，又启动了其他的动画，
-            //会使得动画的图层直接运动到后续目标位置,一旦设置了7 会使得动画时长无效了
+            //会使得动画的图层直接运动到后续目标位置,一旦设置了7 会使得动画时长无效了，统一时长变为0.5s
             UIView.setAnimationCurve(UIViewAnimationCurve(rawValue: curve)!)
             self.view.layoutIfNeeded()
             
         }
+        //调试动画时长 - keypath 将动画添加到图层
+        let anim = toolbar.layer.animationForKey("position")
+        print("动画时长\(anim?.duration)")
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -117,6 +136,20 @@ class ComposeControllerViewController: UIViewController {
     
 
 }
+//MARK: - UITextViewDelegate
+extension ComposeControllerViewController:UITextViewDelegate{
+
+    func textViewDidChange(textView: UITextView) {
+        
+        navigationItem.rightBarButtonItem?.enabled = textView.hasText()
+        placeHoderLabel.hidden = textView.hasText()
+    }
+    
+
+
+}
+
+
 
 //设置界面: - 设置界面
 private extension ComposeControllerViewController{
@@ -142,6 +175,8 @@ private extension ComposeControllerViewController{
     //1.左右按钮
     navigationItem.leftBarButtonItem = UIBarButtonItem(title: "取消", style: .Plain, target: self, action: "close")
     navigationItem.rightBarButtonItem = UIBarButtonItem(title: "发布", style: .Plain, target: self, action: "SendeStatus")
+    //禁用发布按钮(留后修改)
+//        navigationItem.rightBarButtonItem?.enabled = false
     //2.标题视图
         let titleView = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 36))
 //        titleView.backgroundColor = UIColor.redColor()
