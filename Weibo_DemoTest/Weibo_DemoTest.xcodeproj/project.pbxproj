@@ -12,6 +12,7 @@
 		8A0B5F311E0A22C400B9EF97 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0B5F301E0A22C400B9EF97 /* WelcomeViewController.swift */; };
 		8A1327FE1E13B17900BF749A /* WeiBoRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1327FD1E13B17800BF749A /* WeiBoRefresh.swift */; };
 		8A1328001E13D53900BF749A /* WBRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A1327FF1E13D53900BF749A /* WBRefreshView.xib */; };
+		8A1CF79E1E1D2E9E004C435A /* ComposeControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1CF79D1E1D2E9E004C435A /* ComposeControllerViewController.swift */; };
 		8A2DAD641E0ED61A0098FB35 /* StatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2DAD631E0ED61A0098FB35 /* StatusPictureView.swift */; };
 		8A4D26311DFFBC7100BCC4D2 /* UILabel+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D26301DFFBC7100BCC4D2 /* UILabel+extension.swift */; };
 		8A4D26331DFFC03D00BCC4D2 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D26321DFFC03D00BCC4D2 /* UIImageView+Extension.swift */; };
@@ -81,6 +82,7 @@
 		8A0B5F301E0A22C400B9EF97 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		8A1327FD1E13B17800BF749A /* WeiBoRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeiBoRefresh.swift; sourceTree = "<group>"; };
 		8A1327FF1E13D53900BF749A /* WBRefreshView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBRefreshView.xib; sourceTree = "<group>"; };
+		8A1CF79D1E1D2E9E004C435A /* ComposeControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeControllerViewController.swift; sourceTree = "<group>"; };
 		8A2DAD631E0ED61A0098FB35 /* StatusPictureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusPictureView.swift; sourceTree = "<group>"; };
 		8A4D26301DFFBC7100BCC4D2 /* UILabel+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+extension.swift"; sourceTree = "<group>"; };
 		8A4D26321DFFC03D00BCC4D2 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
@@ -153,6 +155,14 @@
 				8A1327FF1E13D53900BF749A /* WBRefreshView.xib */,
 			);
 			name = RefreshView;
+			sourceTree = "<group>";
+		};
+		8A1CF7981E1D2DF8004C435A /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				8A1CF79D1E1D2E9E004C435A /* ComposeControllerViewController.swift */,
+			);
+			name = Compose;
 			sourceTree = "<group>";
 		};
 		8A8BF2511DFD9B1A0069572F /* Extension */ = {
@@ -252,6 +262,7 @@
 		8AF0D4F51DFD7AD000A2815E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8A1CF7981E1D2DF8004C435A /* Compose */,
 				8AF1F57C1E02D6A500F7A7EF /* OAuth */,
 				8AF0D4F91DFD7B1F00A2815E /* Main */,
 				8AF0D4FA1DFD7B2700A2815E /* Message */,
@@ -520,6 +531,7 @@
 				8A0B5F311E0A22C400B9EF97 /* WelcomeViewController.swift in Sources */,
 				8A4D26331DFFC03D00BCC4D2 /* UIImageView+Extension.swift in Sources */,
 				8A8BF25A1DFE3D1F0069572F /* VisitorView.swift in Sources */,
+				8A1CF79E1E1D2E9E004C435A /* ComposeControllerViewController.swift in Sources */,
 				8A0B5F2D1E08490500B9EF97 /* NewFestureViewController.swift in Sources */,
 				8AF1F5821E02D6DD00F7A7EF /* OAuthViewController.swift in Sources */,
 				8A8BF2461DFD89950069572F /* MainTabBarController.swift in Sources */,

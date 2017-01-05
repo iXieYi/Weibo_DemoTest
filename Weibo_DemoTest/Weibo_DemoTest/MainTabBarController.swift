@@ -16,12 +16,28 @@ class MainTabBarController: UITabBarController {
     /// 如果使用 @objc 修饰符号，可以保证运行循环能够发送此消息，即使函数被标记为 private
     @objc private func clickbtn(){
     
-    print("点了")
+    print("发布微博")
+    //判断用户是否登录
+        var VC:UIViewController
+        if UserAccountViewModel.sharedUserAccount.logon{
+        
+            VC = ComposeControllerViewController()
+        }else{
+        
+            VC = OAuthViewController()
+        
+        }
+      
+        
+        let nav = UINavigationController(rootViewController: VC)
+        
+        presentViewController(nav, animated: true, completion: nil)
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-    addChildViewControllers()
-    setupComposedButton()
+       addChildViewControllers()
+       setupComposedButton()
         
     }
     override func viewWillAppear(animated: Bool) {
