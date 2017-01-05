@@ -9,13 +9,26 @@
 import UIKit
  
 extension UIButton{
-/// 便利构造函数
-    convenience init(imageName:String,backImageName:String) {
+
+    
+    /// - 便利构造函数
+    ///
+    /// - parameter imageName:     图像名称
+    /// - parameter backImageName: 背景图片
+    ///
+    /// - returns: UIButton
+    ///备注:如果图像名称使用“” 会报： CUICatalog: Invalid asset name supplied 错误
+    convenience init(imageName:String,backImageName:String?) {
         self.init()
         setImage(UIImage(named: imageName), forState:UIControlState.Normal)
         setImage(UIImage(named: imageName+"_highlighted"), forState: UIControlState.Highlighted)
+        if let backImageName = backImageName{
+        
         setBackgroundImage(UIImage(named: backImageName), forState: UIControlState.Normal)
         setBackgroundImage(UIImage(named: backImageName+"_highlighted"), forState: UIControlState.Highlighted)
+            
+        }
+        
         //根据图片大小调整尺寸
         sizeToFit()
         
