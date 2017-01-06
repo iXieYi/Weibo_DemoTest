@@ -203,29 +203,16 @@ extension NetworkTools{
     /// - parameter parameters: 参数字典
     /// - parameter finished:   完成回调
     private func tokenRequest(method:XieYiRequestMethod, URLString:String,var parameters:[String:AnyObject]?,finished:XYRequestCallBack){
-        
-    //1.设置token 参数 ->将token 添加到字典中
-        
-        guard let token = UserAccountViewModel.sharedUserAccount.accessToken else{
-            
-            //token无效
-            //如果字典为空通知调用方
-            finished(result: nil, error: NSError(domain: "cn.itcast.error", code: -1001, userInfo: ["message":"token nil"]))
+       //如果追加token失败直接返回
+        if  !appendToken(&parameters){
+        //如果字典为空通知调用方
+        finished(result: nil, error: NSError(domain: "cn.itcast.error", code: -1001, userInfo: ["message":"token nil"]))
             return
-        }
-        //设置parameters字典
-        //判断参数字典是否有值
-        if parameters == nil{
-        
-            parameters = [String:AnyObject]()
         
         }
-        parameters!["access_token"] = token
         
     //2.发起网络请求
         request(method, URLString: URLString, parameters: parameters, finished: finished)
-    
-    
     
     }
     
@@ -235,11 +222,24 @@ extension NetworkTools{
     /// 向parameters字典中追加token 字典
     ///
     /// - parameter parameters: 参数字典
-    ///
+    /// - 关于函数参数，在调用时，会做一次copy ,函数内部修改数值，不会影响到外部数值
     /// - returns: 是否追加成功
-    private func appendToken(var parameters:[String:AnyObject]?)->Bool{
-    
-    parameters!["access_token"] = "123"
+    /// - inout 关键字，相当于oc中传递对象的地址，调用的时候应该将地址符号传入
+    private func appendToken(inout parameters:[String:AnyObject]?)->Bool{
+    //判断token 是否为空
+        guard let token = UserAccountViewModel.sharedUserAccount.accessToken else{
+            
+            return false
+        }
+        //判断参数字典是否有值
+        if parameters == nil{
+            
+            parameters = [String:AnyObject]()
+            
+        }
+     //设置token
+    parameters!["access_token"] = token
+        
     return true
     }
     
@@ -281,23 +281,12 @@ extension NetworkTools{
         
         //设置token字典
         
-        //1.设置token 参数 ->将token 添加到字典中
-        
-        guard let token = UserAccountViewModel.sharedUserAccount.accessToken else{
-            
-            //token无效
+        if  !appendToken(&parameters){
             //如果字典为空通知调用方
             finished(result: nil, error: NSError(domain: "cn.itcast.error", code: -1001, userInfo: ["message":"token nil"]))
             return
-        }
-        //设置parameters字典
-        //判断参数字典是否有值
-        if parameters == nil{
-            
-            parameters = [String:AnyObject]()
             
         }
-        parameters!["access_token"] = token
         
         
         //1.data:yao 上传文件的二进制数据
