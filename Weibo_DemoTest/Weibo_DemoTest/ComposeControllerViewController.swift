@@ -45,7 +45,8 @@ class ComposeControllerViewController: UIViewController {
         //1.获得文本内容
         let text = textView.emoticonText
         //2.发布微博
-        NetworkTools.sharedTools.sendStatus(text) { (result, error) -> () in
+        let image  = UIImage(named: "123.jpg")
+        NetworkTools.sharedTools.sendStatus(text,image: image) { (result, error) -> () in
             
             if error != nil {
                print("发布微博出错了")

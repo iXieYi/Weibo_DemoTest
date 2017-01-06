@@ -55,9 +55,11 @@ extension NetworkTools{
     /// 发布微博
     ///
     /// - parameter status:   微博文本
+    /// - parameter image:   上传图片
     /// - parameter finished: 完成回调
     /// - see:[http://open.weibo.com/wiki/2/statuses/update](http://open.weibo.com/wiki/2/statuses/update)
-    func sendStatus(status:String,finished:XYRequestCallBack){
+    /// -see:[http://open.weibo.com/wiki/2/statuses/upload](http://open.weibo.com/wiki/2/statuses/upload)
+    func sendStatus(status:String,image:UIImage?,finished:XYRequestCallBack){
     
         //1.创建参数字典
         var params = [String: AnyObject]()
@@ -66,12 +68,21 @@ extension NetworkTools{
         //2.设置设置参数
         params["status"] = status
         
+        //3.判断是否上传图片
+        if image == nil {
         let urlString = "https://api.weibo.com/2/statuses/update.json"
         
         //3.发起网络请求
         tokenRequest(.POST, URLString: urlString, parameters: params, finished: finished)
-    
-    }
+        }else{
+        
+        let urlString = "https://upload.api.weibo.com/2/statuses/upload.json"
+        let data = UIImagePNGRepresentation(image!)
+        upload(urlString, data: data!, name: "pic", parameters: params, finished: finished)
+        
+        }
+        
+}
 
 
 }
@@ -221,15 +232,25 @@ extension NetworkTools{
     
     
     
-//parameters:参数是要可选项，调用时才能穿nil
+    /// 向parameters字典中追加token 字典
+    ///
+    /// - parameter parameters: 参数字典
+    ///
+    /// - returns: 是否追加成功
+    private func appendToken(var parameters:[String:AnyObject]?)->Bool{
+    
+    parameters!["access_token"] = "123"
+    return true
+    }
     
     /// 网路请求
     ///
     /// - parameter method:     Get/POST
     /// - parameter URLString:  URLString
     /// - parameter parameters: 参数字典
+    //              parameters:参数是要可选项，调用时才能传nil
     /// - parameter finished:   完成回调
-  private  func request(method:XieYiRequestMethod, URLString:String,parameters:[String:AnyObject]?,finished:(result:AnyObject?,error:NSError?)->()){
+  private  func request(method:XieYiRequestMethod, URLString:String,parameters:[String:AnyObject]?,finished:XYRequestCallBack){
     
         //定义成功回调,当做参数进行传递
         let Success = {(task:NSURLSessionDataTask?, result:AnyObject?) -> Void in
@@ -253,7 +274,52 @@ extension NetworkTools{
            POST(URLString, parameters: parameters, progress:nil, success: Success, failure: failure)
         
         }
+    }
+    
+    //上传图片文件
+    private func upload(URLString:String,data:NSData,name:String,var parameters:[String:AnyObject]?,finished:XYRequestCallBack){
         
-
+        //设置token字典
+        
+        //1.设置token 参数 ->将token 添加到字典中
+        
+        guard let token = UserAccountViewModel.sharedUserAccount.accessToken else{
+            
+            //token无效
+            //如果字典为空通知调用方
+            finished(result: nil, error: NSError(domain: "cn.itcast.error", code: -1001, userInfo: ["message":"token nil"]))
+            return
+        }
+        //设置parameters字典
+        //判断参数字典是否有值
+        if parameters == nil{
+            
+            parameters = [String:AnyObject]()
+            
+        }
+        parameters!["access_token"] = token
+        
+        
+        //1.data:yao 上传文件的二进制数据
+        //2.name:是服务器的定义的字段名称，后台接口文档会提示
+        //3.file:是保存在服务器的文件名，单通常可以随意写 - 根据上传的文件生成缩略图，中等，高清图
+        //保存在不同路径，并且自动生成文件名，filename 是HTTP定义的属性
+        //mineType / contentType 是客户端告诉服务器的准确类型 -大类型/小类型
+        //image/jpg image/gif image/png text/plain text/html application/json
+        //如果不想告诉服务器准确类型的话，可以使用：application/octet-stream(8进制的流)
+        
+        
+        POST(URLString, parameters: parameters, constructingBodyWithBlock: { (formData) -> Void in
+            formData.appendPartWithFileData(data, name: name, fileName: "xxx", mimeType: "application/octet-stream")
+            }, progress: nil, success: { (_, result) -> Void in
+                
+                finished(result: result, error: nil)
+            }) { (_, error) -> Void in
+                print(error)
+                finished(result: nil, error: error)
+           }
+    
+    
+    
     }
 }
