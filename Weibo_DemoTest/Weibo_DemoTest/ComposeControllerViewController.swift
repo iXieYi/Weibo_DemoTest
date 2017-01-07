@@ -57,7 +57,6 @@ class ComposeControllerViewController: UIViewController {
                return
             }
             
-            print(result)
             //关闭控制器
             self.close()
         }

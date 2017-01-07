@@ -11,6 +11,14 @@ import UIKit
 /// MARK:- 全局通知定义
 //切换根视图控制器通知 - 一定要与系统区别，一定要有前缀
 let WBSwitchRootViewControllerNotification = "WBSwitchRootViewControllerNotification"
+
+//选中照片的通知
+let WBStatusSelectPhotoNotification = "WBStatusSelectPhotoNotification"
+/// 选中照片的KEY -indexpath
+let WBStatusSelectPhotoIndexPath = "WBStatusSelectPhotoIndexPath"
+/// 图片数组 - url数组
+let WBStatusSelectPhotoUrlKey = "WBStatusSelectPhotoUrlKey"
+
 //全局外观渲染颜色->延展出皮肤的管理类，
 let WBAppearanceTintColor = UIColor.orangeColor()
 ///MARK:-全局函数

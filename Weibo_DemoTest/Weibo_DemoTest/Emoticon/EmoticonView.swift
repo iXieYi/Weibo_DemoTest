@@ -144,7 +144,8 @@ private extension EmoticonView{
     }
     /// 准备CollectionView
     func prepareCollectionView(){
-        collectionView.backgroundColor = UIColor.lightGrayColor()
+        //表情键盘背景颜色
+        collectionView.backgroundColor = UIColor.whiteColor()
     
     //注册
     collectionView.registerClass(EmoticonViewCell.self, forCellWithReuseIdentifier: EmoticonViewCellId)

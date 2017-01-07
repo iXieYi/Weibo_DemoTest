@@ -28,8 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             object: nil,//发送通知的对象，nil监听任何对象
             queue: nil) //nil,代表主线程
             {[weak self](notification) -> Void in
-                //[weak self],（保险起见）避免循环引用（如果两个长驻的，可能会引发循环引用）
-            print(NSThread.currentThread())
+            //[weak self],（保险起见）避免循环引用（如果两个长驻的，可能会引发循环引用）
+//            print(NSThread.currentThread())
             
                 let vc = notification.object != nil ?WelcomeViewController():MainTabBarController()
             //切换控制器

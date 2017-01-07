@@ -54,6 +54,10 @@ class StatusPictureView: UICollectionView {
     //自己当自己的数据源（数据元的定义：任何能实现数据源方法的对象，方可称为数据源）
     //应用场景：自定义视图的小框架
     dataSource = self
+    
+    //设置代理
+    delegate = self
+    
     //注册可重用Cell
     registerClass(StatusPictureViewCell.self, forCellWithReuseIdentifier: StatusPictureViewCellId)
         
@@ -66,7 +70,19 @@ class StatusPictureView: UICollectionView {
 
 }
 // MARK: - UICollectionViewDataSource数据源方法
-extension StatusPictureView: UICollectionViewDataSource{
+extension StatusPictureView: UICollectionViewDataSource,UICollectionViewDelegate{
+    /// 选中照片
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        print("点击照片:\(indexPath) \(viewModel?.thumbnailUrls)")
+        //明确传递什么数据，传递用户当前URL数组，当前用户选中的索引
+        //如何传递：通知1、名字（通知中心监听）
+        //2、object：发送通知的同时传递对象（单值）、userinfo传递多值,使用的字典
+        NSNotificationCenter.defaultCenter().postNotificationName(WBStatusSelectPhotoNotification,
+            object: self,
+            userInfo: [WBStatusSelectPhotoIndexPath:indexPath,WBStatusSelectPhotoUrlKey:viewModel!.thumbnailUrls!])
+        
+    }
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         return viewModel?.thumbnailUrls?.count ?? 0

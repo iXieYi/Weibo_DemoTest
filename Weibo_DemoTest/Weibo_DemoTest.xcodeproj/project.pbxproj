@@ -24,6 +24,7 @@
 		8A1CF7B71E1E6DA6004C435A /* EmoticonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1CF7AF1E1E6DA6004C435A /* EmoticonManager.swift */; };
 		8A1CF8061E20D958004C435A /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1CF8051E20D958004C435A /* UIImage+Extension.swift */; };
 		8A1CF80F1E20E1D0004C435A /* PicturePickerCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1CF80E1E20E1D0004C435A /* PicturePickerCollection.swift */; };
+		8A1CF8171E215251004C435A /* PhotoBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1CF8161E215251004C435A /* PhotoBrowserViewController.swift */; };
 		8A2DAD641E0ED61A0098FB35 /* StatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2DAD631E0ED61A0098FB35 /* StatusPictureView.swift */; };
 		8A4D26311DFFBC7100BCC4D2 /* UILabel+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D26301DFFBC7100BCC4D2 /* UILabel+extension.swift */; };
 		8A4D26331DFFC03D00BCC4D2 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D26321DFFC03D00BCC4D2 /* UIImageView+Extension.swift */; };
@@ -105,6 +106,7 @@
 		8A1CF7AF1E1E6DA6004C435A /* EmoticonManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonManager.swift; sourceTree = "<group>"; };
 		8A1CF8051E20D958004C435A /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		8A1CF80E1E20E1D0004C435A /* PicturePickerCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicturePickerCollection.swift; sourceTree = "<group>"; };
+		8A1CF8161E215251004C435A /* PhotoBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoBrowserViewController.swift; path = ../../../../../../Documents/PhotoBrowserViewController.swift; sourceTree = "<group>"; };
 		8A2DAD631E0ED61A0098FB35 /* StatusPictureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusPictureView.swift; sourceTree = "<group>"; };
 		8A4D26301DFFBC7100BCC4D2 /* UILabel+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+extension.swift"; sourceTree = "<group>"; };
 		8A4D26321DFFC03D00BCC4D2 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
@@ -226,6 +228,22 @@
 			path = PicturePicker;
 			sourceTree = "<group>";
 		};
+		8A1CF8101E213FC6004C435A /* PhotoViewer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PhotoViewer;
+			sourceTree = "<group>";
+		};
+		8A1CF8111E215197004C435A /* PhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				8A1CF8161E215251004C435A /* PhotoBrowserViewController.swift */,
+			);
+			name = PhotoBrowser;
+			path = PictureBrowser;
+			sourceTree = "<group>";
+		};
 		8A8BF2511DFD9B1A0069572F /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -315,6 +333,8 @@
 		8AF0D4F41DFD7AC000A2815E /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				8A1CF8111E215197004C435A /* PhotoBrowser */,
+				8A1CF8101E213FC6004C435A /* PhotoViewer */,
 				8A1CF80D1E20E1D0004C435A /* PicturePicker */,
 				8A1CF7A51E1E6DA6004C435A /* Emoticon */,
 				8A8BF2511DFD9B1A0069572F /* Extension */,
@@ -617,6 +637,7 @@
 				8ACDED221E11454F00FD80E9 /* StatusRetweetedCell.swift in Sources */,
 				8A1CF7B21E1E6DA6004C435A /* EmoticonView.swift in Sources */,
 				8A9FFA811E0B81DF0043A797 /* Status.swift in Sources */,
+				8A1CF8171E215251004C435A /* PhotoBrowserViewController.swift in Sources */,
 				8AF1F5881E03C73B00F7A7EF /* UserAccount.swift in Sources */,
 				8A9FFA871E0BB9600043A797 /* User.swift in Sources */,
 				8A1CF7A41E1E3F25004C435A /* UIBarButtonitems+Extension.swift in Sources */,
