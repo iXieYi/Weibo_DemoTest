@@ -130,6 +130,8 @@ class ComposeControllerViewController: UIViewController {
       tv.textColor = UIColor.darkGrayColor()
       tv.alwaysBounceVertical = true //允许垂直弹簧,垂直滚动
       tv.keyboardDismissMode = UIScrollViewKeyboardDismissMode.OnDrag//拖拽关闭键盘
+      //设置文本视图代理
+      tv.delegate = self
     return tv
     }()
    //占位标签
@@ -177,7 +179,7 @@ private extension ComposeControllerViewController{
     navigationItem.leftBarButtonItem = UIBarButtonItem(title: "取消", style: .Plain, target: self, action: "close")
     navigationItem.rightBarButtonItem = UIBarButtonItem(title: "发布", style: .Plain, target: self, action: "SendeStatus")
     //禁用发布按钮(留后修改)
-//        navigationItem.rightBarButtonItem?.enabled = false
+        navigationItem.rightBarButtonItem?.enabled = false
     //2.标题视图
         let titleView = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 36))
 //        titleView.backgroundColor = UIColor.redColor()
