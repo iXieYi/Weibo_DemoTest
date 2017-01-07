@@ -10,7 +10,7 @@ import UIKit
 import SVProgressHUD
 //MARK: - 撰写微博控制器
 class ComposeControllerViewController: UIViewController {
-    
+    private lazy var  picturePickerController = PicturePickerCollection()
     
     //表情键盘视图
     private lazy var emoticonView: EmoticonView = EmoticonView {[weak self] (emoticon) -> () in
@@ -26,8 +26,11 @@ class ComposeControllerViewController: UIViewController {
     }
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        //激活键盘
+        //激活键盘 - 如果已经存在照片控制器时就不再激活键盘
+        if picturePickerController.view.frame.height == 0 {
         textView.becomeFirstResponder()
+        }
+        
     }
    
 
@@ -45,7 +48,7 @@ class ComposeControllerViewController: UIViewController {
         //1.获得文本内容
         let text = textView.emoticonText
         //2.发布微博
-        let image  = UIImage(named: "123.jpg")
+        let image  = picturePickerController.pictures.last
         NetworkTools.sharedTools.sendStatus(text,image: image) { (result, error) -> () in
             
             if error != nil {
@@ -59,6 +62,41 @@ class ComposeControllerViewController: UIViewController {
             self.close()
         }
     }
+    
+    ///选择照片
+    @objc private func selectPicture(){
+    
+    print("选择照片")
+    //退掉键盘
+        textView.resignFirstResponder()
+    //判断如果已经更新了约束，就不再执行后续的代码
+        if picturePickerController.view.frame.height > 0 {
+        return
+        }
+        
+        
+        //1.修改照片选择控制器视图约束
+        picturePickerController.view.snp_updateConstraints { (make) -> Void in
+            
+            make.height.equalTo(view.bounds.height * 0.6)
+        }
+        //2.重建约束，删除之前所有约束，重新创建
+        textView.snp_remakeConstraints { (make) -> Void in
+            
+            make.top.equalTo(view.snp_top)
+            make.left.equalTo(view.snp_left)
+            make.right.equalTo(view.snp_right)
+            make.bottom.equalTo(picturePickerController.view.snp_bottom)
+
+        }
+      //3.动画更新约束
+        UIView.animateWithDuration(0.5) { () -> Void in
+            
+            self.view.layoutIfNeeded()
+        }
+    
+    }
+    
     //选择表情
     @objc private func selectEmoticon(){
     //如果使用的是系统键盘 nil
@@ -157,6 +195,9 @@ extension ComposeControllerViewController:UITextViewDelegate{
 //设置界面: - 设置界面
 private extension ComposeControllerViewController{
     func setupUI(){
+        
+    //0.取消自动调整视图间距
+//    automaticallyAdjustsScrollViewInsets = false
     //1.设置背景颜色
     view.backgroundColor = UIColor.whiteColor()
     //2.设置控件
@@ -167,12 +208,30 @@ private extension ComposeControllerViewController{
         
     //4.工具条
     prepareToolbar()
-    //输入助理视图 - 当键盘退出时toolBar会消失！
-    
+   
+    //
+    preparePicturePicker()
+    }
+    //准备照片选择控制器
+    private func preparePicturePicker(){
+        
+        //备注：如果添加了子控制器，一定要注意添加addchildViewController
+        //否则响应者链条可能会中断
+        //0.添加子控制器
+        addChildViewController(picturePickerController)
+        //1.添加视图 ，在toolbar下面
+        view.insertSubview(picturePickerController.view, belowSubview: toolbar)
+        
+        //2.自动布局
+    picturePickerController.view.snp_makeConstraints { (make) -> Void in
+        
+        make.bottom.equalTo(view.snp_bottom)
+        make.left.equalTo(view.snp_left)
+        make.right.equalTo(view.snp_right)
+        make.height.equalTo(0)//.multipliedBy(0.6)
+        }
     
     }
-    
-    
     //设置导航栏
     private func prepareNavigationBar(){
     //1.左右按钮
@@ -243,7 +302,7 @@ private extension ComposeControllerViewController{
             make.height.equalTo(44)
         }
         //3.添加按钮
-        let itemSettings = [["imageName": "compose_toolbar_picture"],
+        let itemSettings = [["imageName": "compose_toolbar_picture","actionName":"selectPicture"],
             ["imageName": "compose_mentionbutton_background"],
             ["imageName": "compose_trendbutton_background"],
             ["imageName": "compose_emoticonbutton_background","actionName":"selectEmoticon"],
