@@ -22,6 +22,8 @@
 		8A1CF7B51E1E6DA6004C435A /* String+Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1CF7AC1E1E6DA6004C435A /* String+Emoji.swift */; };
 		8A1CF7B61E1E6DA6004C435A /* UITextView+Emoticon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1CF7AD1E1E6DA6004C435A /* UITextView+Emoticon.swift */; };
 		8A1CF7B71E1E6DA6004C435A /* EmoticonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1CF7AF1E1E6DA6004C435A /* EmoticonManager.swift */; };
+		8A1CF8061E20D958004C435A /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1CF8051E20D958004C435A /* UIImage+Extension.swift */; };
+		8A1CF80F1E20E1D0004C435A /* PicturePickerCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1CF80E1E20E1D0004C435A /* PicturePickerCollection.swift */; };
 		8A2DAD641E0ED61A0098FB35 /* StatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2DAD631E0ED61A0098FB35 /* StatusPictureView.swift */; };
 		8A4D26311DFFBC7100BCC4D2 /* UILabel+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D26301DFFBC7100BCC4D2 /* UILabel+extension.swift */; };
 		8A4D26331DFFC03D00BCC4D2 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D26321DFFC03D00BCC4D2 /* UIImageView+Extension.swift */; };
@@ -101,6 +103,8 @@
 		8A1CF7AC1E1E6DA6004C435A /* String+Emoji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Emoji.swift"; sourceTree = "<group>"; };
 		8A1CF7AD1E1E6DA6004C435A /* UITextView+Emoticon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+Emoticon.swift"; sourceTree = "<group>"; };
 		8A1CF7AF1E1E6DA6004C435A /* EmoticonManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonManager.swift; sourceTree = "<group>"; };
+		8A1CF8051E20D958004C435A /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		8A1CF80E1E20E1D0004C435A /* PicturePickerCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicturePickerCollection.swift; sourceTree = "<group>"; };
 		8A2DAD631E0ED61A0098FB35 /* StatusPictureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusPictureView.swift; sourceTree = "<group>"; };
 		8A4D26301DFFBC7100BCC4D2 /* UILabel+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+extension.swift"; sourceTree = "<group>"; };
 		8A4D26321DFFC03D00BCC4D2 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
@@ -214,9 +218,18 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		8A1CF80D1E20E1D0004C435A /* PicturePicker */ = {
+			isa = PBXGroup;
+			children = (
+				8A1CF80E1E20E1D0004C435A /* PicturePickerCollection.swift */,
+			);
+			path = PicturePicker;
+			sourceTree = "<group>";
+		};
 		8A8BF2511DFD9B1A0069572F /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				8A1CF8051E20D958004C435A /* UIImage+Extension.swift */,
 				8A8BF2521DFD9B960069572F /* UIButton+Extension.swift */,
 				8A4D26301DFFBC7100BCC4D2 /* UILabel+extension.swift */,
 				8A4D26321DFFC03D00BCC4D2 /* UIImageView+Extension.swift */,
@@ -302,6 +315,7 @@
 		8AF0D4F41DFD7AC000A2815E /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				8A1CF80D1E20E1D0004C435A /* PicturePicker */,
 				8A1CF7A51E1E6DA6004C435A /* Emoticon */,
 				8A8BF2511DFD9B1A0069572F /* Extension */,
 				8AF1F5831E02DB3D00F7A7EF /* NetworkTools.swift */,
@@ -566,11 +580,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A1CF8061E20D958004C435A /* UIImage+Extension.swift in Sources */,
 				8A1327FE1E13B17900BF749A /* WeiBoRefresh.swift in Sources */,
 				8AF1F5841E02DB3D00F7A7EF /* NetworkTools.swift in Sources */,
 				8A1CF7B41E1E6DA6004C435A /* EmoticonPackage.swift in Sources */,
 				8A1CF7B51E1E6DA6004C435A /* String+Emoji.swift in Sources */,
 				8A9FFA901E0BCD660043A797 /* StatusTop.swift in Sources */,
+				8A1CF80F1E20E1D0004C435A /* PicturePickerCollection.swift in Sources */,
 				8A9FFA921E0BCD8A0043A797 /* StatusBottom.swift in Sources */,
 				8A4D26311DFFBC7100BCC4D2 /* UILabel+extension.swift in Sources */,
 				8A1CF7B31E1E6DA6004C435A /* Emoticon.swift in Sources */,
