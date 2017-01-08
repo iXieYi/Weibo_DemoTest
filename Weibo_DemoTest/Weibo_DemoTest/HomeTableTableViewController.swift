@@ -40,7 +40,7 @@ class HomeTableTableViewController: VisitorTableViewController {
                 return
                 }
 //                print("接受通知\(indexpath)\(urls)")
-            let VC = PhotoBrowserViewController(urls: urls, indexpath: indexpath)
+            let VC = PhotoBrowserViewController(urls: urls, indexPath: indexpath)
             self?.presentViewController(VC, animated: true, completion: nil)
         }
     }
