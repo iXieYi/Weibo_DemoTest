@@ -146,9 +146,14 @@ class StatusListViewModel {
             dispatch_group_enter(group)
             
             // SDWebImage 的核心下载函数，如果本地缓存已经存在，同样会通过完成回调返回
+            //如果设置了SDWebImageOptions.RetryFailed，如果下载失败，block会结束一次，会出组一次
+            //会重新执行下载，下载完成之后会再次调用block中的代码，会导致再次出组函数
+            //SDWebImageOptions.RefreshCached,第一次发起网络请求时，把图片缓hash存发送给服务器
+            //服务器对比hash值，如果和服务内容一致，服务器返回状态码304，表示服务器内容没有变化
+            //SDWebImageManager，如果不是304，会再次发起网络请求，会使得再次出组
             SDWebImageManager.sharedManager().downloadImageWithURL(
                 url,
-                options: [SDWebImageOptions.RefreshCached, SDWebImageOptions.RetryFailed],
+                options: [],
                 progress: nil,
                 completed: { (image, _, _, _, _) -> Void in
                     
@@ -160,11 +165,11 @@ class StatusListViewModel {
                             dataLength += data.length
                     }
                     
-                    
-            })
             // 出组
             dispatch_group_leave(group)
-        }
+
+            })
+                    }
         
     
         // 3. 监听调度组完成
