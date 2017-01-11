@@ -123,7 +123,7 @@ private extension PhotoBrowserViewController {
         }
         saveButton.snp_makeConstraints { (make) -> Void in
             make.bottom.equalTo(view.snp_bottom).offset(-8)
-            make.right.equalTo(view.snp_right).offset(-8)
+            make.right.equalTo(view.snp_right).offset(-28)
             make.height.equalTo(36)
             make.width.equalTo(100)
         }

@@ -73,7 +73,12 @@ class StatusPictureView: UICollectionView {
 extension StatusPictureView: UICollectionViewDataSource,UICollectionViewDelegate{
     /// 选中照片
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        print("点击照片:\(indexPath) \(viewModel?.thumbnailUrls)")
+//        print("点击照片:\(indexPath) \(viewModel?.thumbnailUrls)")
+        //测试动画转场协议函数
+//        PhotoBrowerPresentFromRect(indexPath)
+//        PhotoBrowerPresentToRect(indexPath)
+        
+        
         //明确传递什么数据，传递用户当前URL数组，当前用户选中的索引
         //如何传递：通知1、名字（通知中心监听）
         //2、object：发送通知的同时传递对象（单值）、userinfo传递多值,使用的字典
@@ -97,6 +102,79 @@ extension StatusPictureView: UICollectionViewDataSource,UICollectionViewDelegate
 
     
 }
+
+//MARK: - 照片参看器的展现协议
+extension StatusPictureView: PhotoBrowerPresentDelegate{
+    /// 创建一个imageview 在参与动画
+    func imageViewForPresent(indexpath: NSIndexPath) -> UIImageView {
+        //1.内容填充模式
+        let iv = UIImageView()
+        iv.contentMode = .ScaleAspectFill
+        iv.clipsToBounds = true
+        
+        //2.设置图像（缩略图缓存） 如果存在本地缓存就不会发起网络请求
+        if let url = viewModel?.thumbnailUrls?[indexpath.item] {
+            iv.sd_setImageWithURL(url)
+
+        }
+        return iv
+    }
+    /// 动画起始位置
+    func PhotoBrowerPresentFromRect(indexpath: NSIndexPath) -> CGRect {
+        //1、根据 indexpath 获得当前用户选中的cell
+        let cell = self.cellForItemAtIndexPath(indexpath)
+        //2、通过cell知道cell对应的在屏幕上放的准确位置
+        //在不同屏幕间，坐标系的转换,self 是cell的父视图
+       let rect =  self.convertRect((cell?.frame)!, toCoordinateSpace: UIApplication.sharedApplication().keyWindow!)
+        //测试rect位置
+//        let v = UIView(frame:rect)
+//        v.backgroundColor = UIColor.redColor()
+        
+//        let v = imageViewForPresent(indexpath)
+//        v.frame = rect
+//        
+//        UIApplication.sharedApplication().keyWindow?.addSubview(v)
+//        print(rect)
+        
+        return rect
+    }
+    /// 目标位置
+    func PhotoBrowerPresentToRect(indexpath: NSIndexPath) -> CGRect {
+        //根据缩略图的大小等比例计算目标的位置
+        guard let key = viewModel?.thumbnailUrls?[indexpath.item].absoluteString else{
+        
+        return CGRectZero
+        }
+        //从sdWebimage获取本地缓存图片
+        guard let image = SDWebImageManager.sharedManager().imageCache.imageFromDiskCacheForKey(key)else{
+           return CGRectZero
+        }
+        //根据图像大小计算全屏大小
+        let w = UIScreen.mainScreen().bounds.width
+        let h = image.size.height * w / image.size.width
+        
+        //对高度进行额外处理
+        let screenHeight = UIScreen.mainScreen().bounds.height
+        var y:CGFloat = 0
+        if h < screenHeight {//图片过短，垂直居中显示
+            y = (screenHeight - h) * 0.5
+        }
+        
+        
+            
+        let rect = CGRect(x: 0, y: y, width: w, height: h)
+        
+//        let v = imageViewForPresent(indexpath)
+//        v.frame = rect
+//        UIApplication.sharedApplication().keyWindow?.addSubview(v)
+        
+        return rect
+    }
+    
+    
+}
+
+
 // MARK: - 计算视图大小
 extension StatusPictureView{
     /// 计算视图大小函数
@@ -217,7 +295,6 @@ private class StatusPictureViewCell:UICollectionViewCell{
 
 
 }
-
 
 
 
