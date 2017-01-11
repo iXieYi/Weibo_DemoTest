@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SVProgressHUD
 /// 可重用 Cell 标示符号
 private let PhotoBrowserViewCellId = "PhotoBrowserViewCellId"
 
@@ -27,8 +27,22 @@ class PhotoBrowserViewController: UIViewController {
     /// 保存照片
     @objc private func save() {
         print("保存照片")
+        //1.拿到图片
+        //visibleCells是可见的cell的数组
+        let cell = collectionView.visibleCells()[0] as!PhotoBrowserCell
+        //imageView中很有可能因为网络原因没有图片 ->下载需要提示
+        guard  let image = cell.imageView.image else{
+        return
+        }
+        //保存图片
+        UIImageWriteToSavedPhotosAlbum(image, self, "image:didFinishSavingWithError:contextInfo:", nil)
+        
+        
     }
-    
+  @objc private func image(image:UIImage,didFinishSavingWithError error:NSError?,contextInfo:AnyObject?){
+        let message = (error == nil) ? "保存成功" :"保存失败"
+        SVProgressHUD.showInfoWithStatus(message)
+    }
     // MARK: - 构造函数 属性都可以是必选，不用在后续考虑解包的问题
     init(urls: [NSURL], indexPath: NSIndexPath) {
         self.urls = urls
@@ -41,6 +55,8 @@ class PhotoBrowserViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    //loadView是和xib和sb是等价的，主要的职责是创建视图层次结构，loadView函数执行完毕，view上的元素要全部创建完成
+    //如果view  == nil 系统会在view的getter方法时，调用loadview，创建view
     
     override func loadView() {
         // 1. 设置根视图
@@ -53,12 +69,12 @@ class PhotoBrowserViewController: UIViewController {
         setupUI()
         
     }
-    
+    //视图加载完成，才被调用，是在loadview之后才被调用
+    //主要做数据加载，或者其他处理，市场上有些代码就将建立子控件的代码都在viewdidload中
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print(urls)
-        print(currentIndexPath)
+     //让collectionView 滚动到指定位置
+    collectionView.scrollToItemAtIndexPath(currentIndexPath, atScrollPosition:.CenteredHorizontally, animated: false)
     }
 
     // MARK: - 懒加载控件
@@ -143,9 +159,19 @@ extension PhotoBrowserViewController: UICollectionViewDataSource {
         
         cell.backgroundColor = UIColor.blackColor()
         cell.imageURL = urls[indexPath.item]
-        
+        //设置代理
+        cell.photoDelegate = self
         return cell
     }
 }
+//MARK: - PhotoBrowserCellDelegate
+extension PhotoBrowserViewController: PhotoBrowserCellDelegate{
+
+    func photoBrowserCellDidTapImage() {
+        close()
+    }
 
 
+
+
+}

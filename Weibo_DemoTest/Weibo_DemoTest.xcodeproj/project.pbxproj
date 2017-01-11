@@ -49,6 +49,7 @@
 		8A9FFA921E0BCD8A0043A797 /* StatusBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9FFA911E0BCD8A0043A797 /* StatusBottom.swift */; };
 		8ACDED221E11454F00FD80E9 /* StatusRetweetedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACDED211E11454F00FD80E9 /* StatusRetweetedCell.swift */; };
 		8ACDED281E120A5A00FD80E9 /* StatusNormalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACDED271E120A5A00FD80E9 /* StatusNormalCell.swift */; };
+		8AD68B9E1E25CD0900C42568 /* ProgressImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD68B9D1E25CD0900C42568 /* ProgressImageView.swift */; };
 		8AF0D4E01DFD773300A2815E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF0D4DF1DFD773300A2815E /* AppDelegate.swift */; };
 		8AF0D4EA1DFD773300A2815E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AF0D4E81DFD773300A2815E /* LaunchScreen.storyboard */; };
 		8AF1F57A1E02D3F900F7A7EF /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF1F5721E02D2E600F7A7EF /* SnapKit.framework */; };
@@ -133,6 +134,7 @@
 		8A9FFA911E0BCD8A0043A797 /* StatusBottom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBottom.swift; sourceTree = "<group>"; };
 		8ACDED211E11454F00FD80E9 /* StatusRetweetedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusRetweetedCell.swift; sourceTree = "<group>"; };
 		8ACDED271E120A5A00FD80E9 /* StatusNormalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusNormalCell.swift; sourceTree = "<group>"; };
+		8AD68B9D1E25CD0900C42568 /* ProgressImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressImageView.swift; sourceTree = "<group>"; };
 		8AF0D4DC1DFD773300A2815E /* Weibo_DemoTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo_DemoTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AF0D4DF1DFD773300A2815E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AF0D4E91DFD773300A2815E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				8A1CF8221E21ECF8004C435A /* PhotoBrowserCell.swift */,
+				8AD68B9D1E25CD0900C42568 /* ProgressImageView.swift */,
 				8A1CF8231E21ECF8004C435A /* PhotoBrowserViewController.swift */,
 			);
 			path = PhotoBrowser;
@@ -626,6 +629,7 @@
 				8A8BF2581DFDA0A20069572F /* VisitorTableViewController.swift in Sources */,
 				8ACDED281E120A5A00FD80E9 /* StatusNormalCell.swift in Sources */,
 				8A9FFA851E0BB39A0043A797 /* StatusListViewModel.swift in Sources */,
+				8AD68B9E1E25CD0900C42568 /* ProgressImageView.swift in Sources */,
 				8A8BF24E1DFD93FD0069572F /* DiscoverTableViewController.swift in Sources */,
 				8A0B5F311E0A22C400B9EF97 /* WelcomeViewController.swift in Sources */,
 				8A4D26331DFFC03D00BCC4D2 /* UIImageView+Extension.swift in Sources */,
