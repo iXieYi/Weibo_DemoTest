@@ -18,9 +18,9 @@ protocol PhotoBrowerPresentDelegate:NSObjectProtocol{
     func PhotoBrowerPresentToRect(indexpath:NSIndexPath)->CGRect
 
 }
-
+//MARK: - 解除动画协议
 protocol PhotoBrowserDismissDelegate:NSObjectProtocol{
-    //解除转场图像视图
+    //解除转场图像视图（包含起始位置）
     func imageViewForDismiss() ->UIImageView
     
     //解除转场图像索引
@@ -47,8 +47,8 @@ class PhotoBrowserAnimator: NSObject,UIViewControllerTransitioningDelegate {
         dimissDelegate:PhotoBrowserDismissDelegate)
     {
         self.presentDelegate = presentDelegate
+        self.dismissDelegate = dimissDelegate
         self.indexpath = indexPath
-        
     }
     
     
@@ -102,25 +102,32 @@ extension PhotoBrowserAnimator: UIViewControllerAnimatedTransitioning{
     
     /// 解除转场动画
     private func dismissAnimation(transitionContext: UIViewControllerContextTransitioning){
-    
-        guard let presentDelegate = presentDelegate,dismissDelegate = dismissDelegate else{
+    //gurad let 会把属性变成局部变量，后续的闭包中不在需要self,也不需要考虑解包
+        guard let presentDelegate = presentDelegate,
+            dismissDelegate = dismissDelegate else{
         
         return
         }
     //1.获取要dimiss的控制器视图
     let fromView = transitionContext.viewForKey(UITransitionContextFromViewKey)!
-    
     fromView.removeFromSuperview()
+        
     //2.获取图像视图
     let iv = dismissDelegate.imageViewForDismiss()
     //添加容器视图
     transitionContext.containerView()?.addSubview(iv)
+    
+    //3.获取dismiss 的indexpath
+        let indexpath = dismissDelegate.indexPathForDismiss()
+        
     UIView.animateWithDuration(transitionDuration(transitionContext), animations: { () -> Void in
         
-       //让iv
+       //让iv运动到目标位置
+        iv.frame = presentDelegate.PhotoBrowerPresentFromRect(indexpath)
+        
         }) { (_) -> Void in
-            //将fromView从父视图中删除
-            fromView.removeFromSuperview()
+            //将iv从父视图中删除
+            iv.removeFromSuperview()
             //告诉系统动画完成
             transitionContext.completeTransition(true)
         }

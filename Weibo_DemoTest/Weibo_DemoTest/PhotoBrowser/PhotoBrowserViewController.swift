@@ -168,10 +168,64 @@ extension PhotoBrowserViewController: UICollectionViewDataSource {
 extension PhotoBrowserViewController: PhotoBrowserCellDelegate{
 
     func photoBrowserCellDidTapImage() {
+//        imageViewForDismiss()
         close()
     }
-
-
-
+    
+    
+    
+    func photoBrowserCellDidZoom(scale: CGFloat) {
+        
+        let isHidden = (scale < 1)
+        hideControls(isHidden)
+        
+        if isHidden {
+            // 1. 根据 scale 修改根视图的透明度 & 缩放比例
+            view.alpha = scale
+            view.transform = CGAffineTransformMakeScale(scale, scale)
+        } else {
+            view.alpha = 1.0
+            view.transform = CGAffineTransformIdentity
+        }
+    }
+    
+    /// 隐藏或者显示控件
+    private func hideControls(isHidden: Bool) {
+        closeButton.hidden = isHidden
+        saveButton.hidden = isHidden
+        
+        collectionView.backgroundColor = isHidden ? UIColor.clearColor() : UIColor.blackColor()
+    }
 
 }
+//
+extension PhotoBrowserViewController:PhotoBrowserDismissDelegate{
+    func imageViewForDismiss() -> UIImageView {
+        
+        let iv  = UIImageView()
+        
+        //设置填充模式
+        iv.contentMode = .ScaleAspectFill
+        iv.clipsToBounds = true
+        
+        
+        //设置图像 - 直接从当前显示的cell中读取
+        let cell = collectionView.visibleCells()[0] as! PhotoBrowserCell
+        iv.image = cell.imageView.image
+        
+        //设置位置 -（坐标由父视图进行转换）
+        iv.frame = cell.scrollView.convertRect(cell.imageView.frame, toCoordinateSpace: UIApplication.sharedApplication().keyWindow!)
+        
+        
+        //测试代码
+        UIApplication.sharedApplication().keyWindow?.addSubview(iv)
+        return iv
+    }
+
+    func indexPathForDismiss() -> NSIndexPath {
+        return collectionView.indexPathsForVisibleItems()[0]
+    }
+
+}
+
+
